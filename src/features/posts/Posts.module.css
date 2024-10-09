@@ -1,0 +1,17 @@
+.image {
+  width: 100%;
+}
+
+.post {
+  margin: auto;
+  max-width: 400px;
+  color: antiquewhite;
+  border: 1px solid red;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: black;
+}
+
+.postList {
+  background-color: rgb(255, 251, 247);
+}
