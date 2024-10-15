@@ -25,7 +25,6 @@ export const setCurrentPosition = createAsyncThunk(
       const res = await getUserLocation();
       const { latitude, longitude } = res.coords;
       dispatch(updateUserLocation({ latitude, longitude }));
-      //can delete this?
 
       return { latitude, longitude };
     } catch (err) {

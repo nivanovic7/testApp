@@ -4,12 +4,17 @@ import { createOutfit, deleteOutfit, getOutfits } from "./postActions";
 const initialState = {
   loading: false,
   posts: [],
+  error: null,
 };
 
 const postSlice = createSlice({
   name: "post",
   initialState,
-  reducers: {},
+  reducers: {
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getOutfits.pending, (state) => {
@@ -28,10 +33,12 @@ const postSlice = createSlice({
       })
       .addCase(createOutfit.fulfilled, (state) => {
         state.loading = false;
+        state.error = null;
       })
-      .addCase(createOutfit.rejected, (state) => {
-        console.log("Rejected");
+      .addCase(createOutfit.rejected, (state, action) => {
         state.loading = false;
+        console.log(action.payload);
+        state.error = action.payload;
       })
       .addCase(deleteOutfit.pending, (state) => {
         state.loading = true;
@@ -46,5 +53,7 @@ const postSlice = createSlice({
       });
   },
 });
+
+export const { setError } = postSlice.actions;
 
 export default postSlice.reducer;

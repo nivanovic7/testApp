@@ -6,6 +6,7 @@ import Input from "../components/ui/Input";
 import Form from "../components/Form";
 import FacebookLoginButton from "../components/FacebookLoginButton";
 import ErrorMessage from "../components/ErrorMessage";
+import Mapbox from "../components/Mapbox";
 
 function Login() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ function Login() {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* <Mapbox /> */}
       {error && <ErrorMessage message={error} />}
       <Input
         value={userEmail}

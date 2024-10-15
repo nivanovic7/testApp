@@ -12,9 +12,6 @@ function Profile() {
 
   useEffect(() => {
     dispatch(getUserSettings());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getOutfits());
   }, [dispatch]);
 
@@ -24,6 +21,7 @@ function Profile() {
       <button>
         <Link to="/createPost">New Post</Link>
       </button>
+
       <h3>Posts</h3>
       {posts.length ? (
         <Posts posts={posts} />

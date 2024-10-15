@@ -27,16 +27,15 @@ export const deleteOutfit = createAsyncThunk(
 
 export const createOutfit = createAsyncThunk(
   "post/createOutfit",
-  async (postData) => {
+  async (postData, { rejectWithValue }) => {
     try {
-      const res = await api.post(CREATE_OUTFIT_URL, postData);
-      for (var pair of postData.entries()) {
-        console.log(pair[0] + ", " + pair[1]);
-      }
-      console.log(postData);
-      // console.log(res.data.data);
+      const res = await api.post(CREATE_OUTFIT_URL, postData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log(res.data.data);
     } catch (err) {
       console.log(err);
+      return rejectWithValue("Posting Not successfull. Try again!");
     }
   }
 );
