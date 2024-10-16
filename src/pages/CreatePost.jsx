@@ -23,9 +23,6 @@ function CreatePost() {
   }
 
   function handleSubmit(e) {
-    // if (!description || !image || !video) {
-    //   return;
-    // }
     e.preventDefault();
     const formData = new FormData();
     formData.append("outfitsDescription", description);
@@ -33,6 +30,8 @@ function CreatePost() {
     formData.append("outfitsVideos", video);
     formData.append("longitude", longitude);
     formData.append("latitude", latitude);
+    formData.append("likeSetting", "true");
+    formData.append("commentSettings", "true");
 
     dispatch(createOutfit(formData));
     setImage(null);

@@ -58,26 +58,3 @@ export function getUserLocation() {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 }
-
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition(
-//     (position) => {
-//       console.log(position.coords);
-//       return position.coords;
-//     },
-//     (error) => {
-//       console.log(error);
-//       return {
-//         status: "error",
-//         message: "Error getting user location!",
-//         error: error,
-//       };
-//     }
-//   );
-// } else {
-//   console.log("CANNTO GET IN YOUR BROWSER");
-//   return {
-//     status: "error",
-//     message: "Geo location is not suported by your browser!",
-//   };
-// }

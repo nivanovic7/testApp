@@ -12,6 +12,11 @@
   background-color: black;
 }
 
-.postList {
-  background-color: rgb(255, 251, 247);
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postButtons {
+  padding: 0.5rem;
 }

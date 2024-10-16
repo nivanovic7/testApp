@@ -4,10 +4,16 @@ ul {
   list-style: none;
   display: flex;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 .map {
-  height: 450px;
+  height: 400px;
   width: 90%;
   max-width: 600px;
   margin: 2rem auto;

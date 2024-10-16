@@ -4,7 +4,7 @@ import { CREATE_OUTFIT_URL, OUTFITS_URL } from "../../utils/config";
 
 export const getOutfits = createAsyncThunk("post/getOutfits", async () => {
   try {
-    const res = await api.get(OUTFITS_URL, { limit: 10, offset: 10 });
+    const res = await api.get(OUTFITS_URL, { limit: 20 });
     console.log(res);
     return res.data.data;
   } catch (err) {
@@ -29,13 +29,26 @@ export const createOutfit = createAsyncThunk(
   "post/createOutfit",
   async (postData, { rejectWithValue }) => {
     try {
-      const res = await api.post(CREATE_OUTFIT_URL, postData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      console.log(res.data.data);
+      const res = await api.post(CREATE_OUTFIT_URL, postData);
+      console.log(res);
     } catch (err) {
       console.log(err);
       return rejectWithValue("Posting Not successfull. Try again!");
+    }
+  }
+);
+
+export const createComment = createAsyncThunk(
+  "post/createComment",
+  async ({ comment, postId }, { dispatch, rejectWithValue }) => {
+    try {
+      const res = await api.post(`outfits/${postId}/comment`, { comment });
+      console.log(res);
+      dispatch(getOutfits());
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      return rejectWithValue("Posting Comment Not successfull. Try again!");
     }
   }
 );

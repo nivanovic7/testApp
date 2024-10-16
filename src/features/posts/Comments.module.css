@@ -1,0 +1,45 @@
+.comments {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  max-height: 200px;
+  overflow-x: scroll;
+  scrollbar-gutter: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.comments::-webkit-scrollbar {
+  display: none;
+}
+
+.comment {
+  display: block;
+  align-items: end;
+  padding: 0.5rem;
+  border-bottom: 1px solid aliceblue;
+}
+
+.input {
+  margin: 0.5rem 0;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.comment div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.userName {
+  color: rgb(175, 175, 225);
+  align-self: start;
+}
+.date {
+  margin-left: auto;
+}
+
+.comment i {
+  font-size: 0.75rem;
+  color: gray;
+}

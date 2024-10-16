@@ -19,26 +19,23 @@ import Map from "./components/Map";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route index path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+    <Routes>
+      <Route path="/" element={<Navigate to="login" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-        <Route element={<GuardRoute />}>
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Navigate to="map" />} />
-            <Route path="map" element={<Map />} />
-            <Route path="setPassword" element={<SetPassword />} />
-            <Route />
-          </Route>
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/createPost" element={<CreatePost />} />
-          <Route path="/messages" element={<Messages />} />
+      <Route element={<GuardRoute />}>
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<Navigate to="map" />} />
+          <Route path="map" element={<Map />} />
+          <Route path="setPassword" element={<SetPassword />} />
+          <Route />
         </Route>
-      </Routes>
-    </BrowserRouter>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/createPost" element={<CreatePost />} />
+        <Route path="/messages" element={<Messages />} />
+      </Route>
+    </Routes>
   );
 }
 

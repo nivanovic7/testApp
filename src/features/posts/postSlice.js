@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createOutfit, deleteOutfit, getOutfits } from "./postActions";
+import {
+  createComment,
+  createOutfit,
+  deleteOutfit,
+  getOutfits,
+} from "./postActions";
 
 const initialState = {
   loading: false,
@@ -50,10 +55,26 @@ const postSlice = createSlice({
       .addCase(deleteOutfit.rejected, (state) => {
         console.log("Rejected");
         state.loading = false;
+      })
+      .addCase(createComment.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(createComment.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.loading = false;
+      })
+      .addCase(createComment.rejected, (state) => {
+        console.log("Comment not created");
+        state.loading = false;
       });
   },
 });
 
 export const { setError } = postSlice.actions;
+
+export function getComments(state, postId) {
+  const post = state.post.posts.filter((post) => post._id === postId);
+  return post[0].outfitPostComment;
+}
 
 export default postSlice.reducer;

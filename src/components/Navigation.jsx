@@ -8,7 +8,7 @@ function Navigation() {
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   return (
-    <ul>
+    <ul style={{ display: "flex", justifyContent: "center" }}>
       {isLoggedIn
         ? getNavLinksByStatus("private").map((link) => (
             <CustomNavLink key={link.path} path={link.path} text={link.text} />
