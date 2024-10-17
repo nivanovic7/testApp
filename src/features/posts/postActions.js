@@ -44,8 +44,8 @@ export const createComment = createAsyncThunk(
     try {
       const res = await api.post(`outfits/${postId}/comment`, { comment });
       console.log(res);
-      dispatch(getOutfits());
-      return res.data;
+      dispatch(getOutfits(postId, comment));
+      return res.data.data;
     } catch (err) {
       console.log(err);
       return rejectWithValue("Posting Comment Not successfull. Try again!");

@@ -59,8 +59,7 @@ const postSlice = createSlice({
       .addCase(createComment.pending, (state) => {
         state.loading = true;
       })
-      .addCase(createComment.fulfilled, (state, action) => {
-        console.log(action.payload);
+      .addCase(createComment.fulfilled, (state) => {
         state.loading = false;
       })
       .addCase(createComment.rejected, (state) => {

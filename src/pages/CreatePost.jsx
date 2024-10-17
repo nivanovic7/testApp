@@ -5,22 +5,14 @@ import { useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 
 function CreatePost() {
+  const dispatch = useDispatch();
   const { longitude, latitude } = useSelector(
     (state) => state.user.userSettings.userCurrentLocation
   );
-
   const { loading, error } = useSelector((state) => state.post);
-
   const [description, setDescription] = useState("");
-  const dispatch = useDispatch();
-
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
-
-  function onSelectImage(e) {
-    const file = e.target.files[0];
-    setImage(file);
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,11 +31,6 @@ function CreatePost() {
     setDescription("");
   }
 
-  function onSelectVideo(e) {
-    const file = e.target.files[0];
-    setVideo(file);
-  }
-
   return (
     <form onSubmit={handleSubmit}>
       {error && <ErrorMessage message={error} />}
@@ -55,7 +42,7 @@ function CreatePost() {
       <div>
         <label htmlFor="outfitsImage">Choose image</label>
         <input
-          onChange={onSelectImage}
+          onChange={(e) => setImage(e.target.files[0])}
           type="file"
           name="file"
           id="outfitsImage"
@@ -64,7 +51,7 @@ function CreatePost() {
       <div>
         <label htmlFor="outfitsVideo">Choose video</label>
         <input
-          onChange={onSelectVideo}
+          onChange={(e) => setVideo(e.target.files[0])}
           type="file"
           name="file"
           id="outfitsVideos"
