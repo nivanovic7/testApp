@@ -6,11 +6,11 @@ import Form from "../components/Form";
 import { useDispatch, useSelector } from "react-redux";
 
 function Register() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const [userName, setName] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auth);
 
   function handleSubmit(e) {
