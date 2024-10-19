@@ -3,18 +3,18 @@ import styles from "./Posts.module.css";
 import { deleteOutfit } from "./postActions";
 import ReactPlayer from "react-player";
 import Comments from "./Comments";
+import { useGetOutfitsQuery } from "./postApiSlice";
 
-function Posts({ posts }) {
-  const dispatch = useDispatch();
-  function handleDelete(id) {
-    dispatch(deleteOutfit(id));
-  }
+function Posts() {
+  const { data: { data: posts } = {}, isLoading } = useGetOutfitsQuery();
 
-  function handleError(e) {
-    console.log(e);
-  }
+  // function handleDelete(id) {
+  //   dispatch(deleteOutfit(id));
+  // }
 
-  return (
+  return isLoading ? (
+    <p>Loading ...</p>
+  ) : (
     <div className={styles.postList}>
       {posts.map((outfit) => {
         if (
@@ -35,15 +35,15 @@ function Posts({ posts }) {
                 width="100%"
                 light={outfit.outfitImages[0].imageMediumSource}
                 playing={true}
-                onError={handleError}
+                // onError={handleError}
                 controls={true}
               />
             )}
             <div className={styles.postButtons}>
-              <button onClick={() => handleDelete(outfit._id)}>
+              {/* <button onClick={() => handleDelete(outfit._id)}>
                 Delete Post
-              </button>
-              <Comments postId={outfit._id} />
+              </button> */}
+              <Comments comments={outfit.outfitPostComment} />
             </div>
           </div>
         );

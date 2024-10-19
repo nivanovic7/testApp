@@ -8,9 +8,9 @@ import "./index.css";
   crossOrigin=""
 ></script>;
 import { Provider } from "react-redux";
-import store from "./store.js";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./components/Navigation.jsx";
+import store from "./app/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

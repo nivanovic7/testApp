@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { facebookLogin, login, register } from "./authActions";
 
 const initialState = {
-  token: null,
-  isLoggedIn: false,
-  loading: false,
-  error: null,
+  accessToken: null,
+  refreshToken: null,
   user: null,
+  isLoggedIn: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -14,8 +13,10 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.isLoggedIn = true;
+      state.user = action.payload.data.user;
+      state.accessToken = action.payload.data.accessToken;
+      state.refreshToken = action.payload.data.refreshToken;
     },
     logOut: (state) => {
       state.isLoggedIn = false;
