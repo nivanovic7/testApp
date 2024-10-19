@@ -1,31 +1,34 @@
-import { useDispatch, useSelector } from "react-redux";
 import Input from "../components/ui/Input";
-import { createOutfit } from "../features/posts/postActions";
 import { useState } from "react";
-import ErrorMessage from "../components/ErrorMessage";
+import { useGetUserSettingsQuery } from "../features/user/userApiSlice";
+import { useCreateOutfitMutation } from "../features/posts/postApiSlice";
+import { ErrorMessage } from "formik";
 
 function CreatePost() {
-  const dispatch = useDispatch();
-  const { longitude, latitude } = useSelector(
-    (state) => state.user.userSettings.userCurrentLocation
-  );
-  const { loading, error } = useSelector((state) => state.post);
+  const [createOutfit, { isLoading, isSuccess }] = useCreateOutfitMutation();
+  const {
+    data: {
+      data: { userCurrentLocation },
+    },
+  } = useGetUserSettingsQuery();
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(userCurrentLocation);
     const formData = new FormData();
     formData.append("outfitsDescription", description);
     formData.append("outfitsImages", image);
     formData.append("outfitsVideos", video);
-    formData.append("longitude", longitude);
-    formData.append("latitude", latitude);
+    formData.append("longitude", userCurrentLocation.longitude);
+    formData.append("latitude", userCurrentLocation.latitude);
     formData.append("likeSetting", "true");
     formData.append("commentSettings", "true");
 
-    dispatch(createOutfit(formData));
+    createOutfit(formData);
+    // dispatch(createOutfit(formData));
     setImage(null);
     setVideo(null);
     setDescription("");
@@ -33,7 +36,7 @@ function CreatePost() {
 
   return (
     <form onSubmit={handleSubmit}>
-      {error && <ErrorMessage message={error} />}
+      {isSuccess && <p>Post created!</p>}
       <Input
         onChange={(e) => setDescription(e.target.value)}
         value={description}
@@ -58,8 +61,8 @@ function CreatePost() {
         />
       </div>
 
-      <button disabled={loading} type="submit">
-        {loading ? "Loading..." : "Create"}
+      <button disabled={isLoading} type="submit">
+        {isLoading ? "Loading..." : "Create"}
       </button>
     </form>
   );

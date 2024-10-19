@@ -1,28 +1,34 @@
-import { useDispatch } from "react-redux";
 import styles from "./Posts.module.css";
-import { deleteOutfit } from "./postActions";
 import ReactPlayer from "react-player";
 import Comments from "./Comments";
-import { useGetOutfitsQuery } from "./postApiSlice";
+import { useDeleteOutfitMutation, useGetOutfitsQuery } from "./postApiSlice";
+import { useState } from "react";
 
 function Posts() {
-  const { data: { data: posts } = {}, isLoading } = useGetOutfitsQuery();
+  const [isOpen, setIsOpen] = useState(false);
+  const {
+    data: { data: posts } = {},
+    isLoading,
+    refetch,
+  } = useGetOutfitsQuery();
+  const [deletePost] = useDeleteOutfitMutation();
 
-  // function handleDelete(id) {
-  //   dispatch(deleteOutfit(id));
-  // }
+  async function handleDelete(id) {
+    try {
+      await deletePost(id).unwrap();
+      refetch();
+      console.log("POST DELETED");
+    } catch (err) {
+      console.log("DELETION UNSUCCESSFULL");
+      console.log(err);
+    }
+  }
 
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
     <div className={styles.postList}>
       {posts.map((outfit) => {
-        if (
-          !outfit.outfitImages[0]?.imageMediumSource ||
-          !outfit.outfitVideos[0]?.imageMediumSource ||
-          !outfit.outfitDescription
-        )
-          return null;
         return (
           <div className={styles.post} key={outfit._id}>
             <div className={styles.postHeader}>
@@ -40,10 +46,19 @@ function Posts() {
               />
             )}
             <div className={styles.postButtons}>
-              {/* <button onClick={() => handleDelete(outfit._id)}>
+              <button onClick={() => handleDelete(outfit._id)}>
                 Delete Post
-              </button> */}
-              <Comments comments={outfit.outfitPostComment} />
+              </button>
+              <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
+                Comments({outfit.outfitPostComment.length})
+              </button>
+
+              {isOpen && (
+                <Comments
+                  postId={outfit._id}
+                  comments={outfit.outfitPostComment}
+                />
+              )}
             </div>
           </div>
         );
