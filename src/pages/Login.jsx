@@ -11,7 +11,6 @@ import { setCredentials } from "../features/auth/authSlice";
 
 function Login() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [userEmail, setUserEmail] = useState("nikola851@yahoo.com");
   const [userPassword, setUserPassword] = useState("Password1!");
   // const { loading, error } = useSelector((state) => state.auth);
@@ -21,9 +20,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const userData = await login({ userEmail, userPassword }).unwrap();
-      console.log(userData);
-      dispatch(setCredentials({ ...userData }));
+      await login({ userEmail, userPassword }).unwrap();
       navigate("/profile");
     } catch (err) {
       console.log(err);
@@ -52,7 +49,7 @@ function Login() {
       />
 
       {/* <button disabled={loading}>Login</button> */}
-      <button>Login</button>
+      <button disabled={isLoading}>Login</button>
       <FacebookLoginButton />
     </Form>
   );

@@ -1,22 +1,41 @@
 import FacebookLogin from "react-facebook-login";
-import { facebookRegister } from "../features/auth/authActions";
-import { useDispatch } from "react-redux";
 import { FACEBOOK_LOGIN_APP_ID } from "../utils/config";
 import { getRegisterCredentialsFromFB } from "../utils/helpers";
+import {
+  useFacebookLoginMutation,
+  useFacebookRegisterMutation,
+} from "../features/auth/authApislice";
 import { useNavigate } from "react-router-dom";
 
 function FacebookLoginButton() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [facebookLogin] = useFacebookLoginMutation();
+  const [facebookRegister] = useFacebookRegisterMutation();
 
-  function componentClicked() {
-    console.log("Clicked");
+  function componentClicked(e) {
+    console.log(e);
   }
-
-  function responseFacebook(res) {
+  async function responseFacebook(res) {
     const credentials = getRegisterCredentialsFromFB(res);
-    console.log(res);
-    dispatch(facebookRegister({ credentials, navigate }));
+    try {
+      console.log(res);
+      await facebookRegister(credentials).unwrap();
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+      if (err.status === 409) {
+        try {
+          await facebookLogin(credentials).unwrap();
+          navigate("/profile");
+        } catch (err) {
+          console.log("LOGIN NOT SUCCESSFULL");
+          console.log(err);
+        }
+      } else {
+        console.log("REGISTRATION NOT SUCCESSFULL");
+        console.log(err);
+      }
+    }
   }
 
   return (
