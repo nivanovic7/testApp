@@ -2,15 +2,14 @@ import { useEffect } from "react";
 import styles from "./Dashboard.module.css";
 
 import { NavLink, Outlet } from "react-router-dom";
-import { setCurrentPosition } from "../features/user/userActions";
 import { useDispatch } from "react-redux";
 import Mapbox from "../components/Mapbox";
 
 function Dashboard() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setCurrentPosition());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(setCurrentPosition());
+  // }, [dispatch]);
 
   return (
     <div className={styles.dashboard}>

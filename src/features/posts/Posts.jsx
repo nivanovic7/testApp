@@ -2,30 +2,23 @@ import styles from "./Posts.module.css";
 import ReactPlayer from "react-player";
 import Comments from "./Comments";
 import { useDeleteOutfitMutation, useGetOutfitsQuery } from "./postApiSlice";
-import { useState } from "react";
 
 function Posts() {
-  const [isOpen, setIsOpen] = useState(false);
-  const {
-    data: { data: posts } = {},
-    isLoading,
-    refetch,
-  } = useGetOutfitsQuery();
+  const { data: { data: posts } = {}, isLoading } = useGetOutfitsQuery();
   const [deletePost] = useDeleteOutfitMutation();
 
   async function handleDelete(id) {
     try {
       await deletePost(id).unwrap();
-      refetch();
-      console.log("POST DELETED");
     } catch (err) {
-      console.log("DELETION UNSUCCESSFULL");
       console.log(err);
     }
   }
 
   return isLoading ? (
     <p>Loading ...</p>
+  ) : posts.length === 0 ? (
+    <h2>No posts at this location</h2>
   ) : (
     <div className={styles.postList}>
       {posts.map((outfit) => {
@@ -49,16 +42,11 @@ function Posts() {
               <button onClick={() => handleDelete(outfit._id)}>
                 Delete Post
               </button>
-              <button onClick={() => setIsOpen((isOpen) => !isOpen)}>
-                Comments({outfit.outfitPostComment.length})
-              </button>
 
-              {isOpen && (
-                <Comments
-                  postId={outfit._id}
-                  comments={outfit.outfitPostComment}
-                />
-              )}
+              <Comments
+                postId={outfit._id}
+                comments={outfit.outfitPostComment}
+              />
             </div>
           </div>
         );

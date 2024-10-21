@@ -1,25 +1,27 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/ui/Input";
-import { register } from "../features/auth/authActions";
 import Form from "../components/Form";
-import { useDispatch, useSelector } from "react-redux";
+import { useRegisterMutation } from "../features/auth/authApislice";
+import { REGISTER_CREDENTIALS } from "../utils/config";
 
 function Register() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const [register, { isLoading }] = useRegisterMutation();
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const [userName, setName] = useState("");
-  const { loading } = useSelector((state) => state.auth);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(register({ userEmail, userPassword, userName }, navigate));
+    register({ userEmail, userPassword, userName, ...REGISTER_CREDENTIALS });
+    //TODO - Tell user to set location on registering!
+    navigate("/profile");
   }
 
   return (
     <div>
+      {/* TODO - add all fields requered for reqistering */}
       <Form onSubmit={handleSubmit} title="Register">
         <Input
           value={userEmail}
@@ -51,7 +53,7 @@ function Register() {
           label="Username"
           required
         />
-        <button disabled={loading}>Register</button>
+        <button disabled={isLoading}>Register</button>
       </Form>
       <Link to="/login">Already have account? Login</Link>
     </div>

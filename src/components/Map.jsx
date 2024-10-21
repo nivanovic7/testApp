@@ -1,17 +1,28 @@
 import { useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvent } from "react-leaflet";
-import { useDispatch } from "react-redux";
-import { updateUserLocation } from "../features/user/userActions";
+import { useSetUserLocationMutation } from "../features/user/userApiSlice";
+import { getUserLocation } from "../utils/helpers";
 
 function Map() {
-  const dispatch = useDispatch();
+  const [setUserLocation] = useSetUserLocationMutation();
 
   const [latitude, setLatitude] = useState(48.9);
   const [longitude, setLongitude] = useState(2.4);
 
   function handleMapLocation() {
-    dispatch(updateUserLocation({ latitude, longitude }));
+    // dispatch(updateUserLocation({ latitude, longitude }));
+    console.log("SSTIIN COORds");
+
+    setUserLocation({ latitude, longitude });
   }
+
+  async function handleUserCoords() {
+    const {
+      coords: { latitude, longitude },
+    } = await getUserLocation();
+    setUserLocation({ latitude, longitude });
+  }
+
   return (
     <>
       <MapContainer
@@ -28,6 +39,8 @@ function Map() {
         <ClickEvent setLatitude={setLatitude} setLongitude={setLongitude} />
       </MapContainer>
       <button onClick={handleMapLocation}>Use map location</button>
+      <span> Or... </span>
+      <button onClick={handleUserCoords}>Use your coordinates</button>
     </>
   );
 }

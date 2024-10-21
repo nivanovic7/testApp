@@ -23,16 +23,14 @@ export const navLinks = [
   // { path: "messages", text: "Messages", status: "private" },
 ];
 
-//TEMPORARY DATA - SHOULD BE DELETED
-export const fbRegisterRequest = {
-  userFirstName: "Nikola",
-  userLastName: "Ivanovic",
-  userDateOfBirth: "1995-01-01",
-  userCategory: [1, 2, 3],
-  userDescription: "test",
-  facebookDetails: {},
+export const REGISTER_CREDENTIALS = {
+  userFirstName: "Milivoje",
+  userLastName: "Ivic",
+  userDateOfBirth: "1992-05-12",
+  userCategory: [],
+  userRelationshipStatus: "married",
+  userLanguages: [1],
   userLocation: {
-    test: "IF THIS FIELD IS VISIBLE IN DATABASE, SOMETHING'S WRONG",
     googleResponse: {},
     country: "NSW, Australia",
     state: "Some state",
@@ -41,4 +39,6 @@ export const fbRegisterRequest = {
     address: "Veljka Mlađenovića bb",
     description: "Location description",
   },
+  userAccountType: "client",
+  userGender: 2,
 };
