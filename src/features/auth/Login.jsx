@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Input from "../components/ui/Input";
-import Form from "../components/Form";
-import FacebookLoginButton from "../components/FacebookLoginButton";
-import ErrorMessage from "../components/ErrorMessage";
-import Mapbox from "../components/Mapbox";
-import { useLoginMutation } from "../features/auth/authApislice";
-import { setCredentials } from "../features/auth/authSlice";
+import Input from "../../components/ui/Input";
+import Form from "../../components/Form";
+import FacebookLoginButton from "../../components/FacebookLoginButton";
+import ErrorMessage from "../../components/ErrorMessage";
+import Mapbox from "../../components/Mapbox";
+import { useLoginMutation } from "./authApislice";
+import { setCredentials } from "./authSlice";
 
 function Login() {
   const navigate = useNavigate();

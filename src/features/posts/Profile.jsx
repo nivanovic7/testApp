@@ -1,6 +1,6 @@
-import Posts from "../features/posts/Posts";
+import Posts from "./Posts";
 import { Link } from "react-router-dom";
-import { useGetUserSettingsQuery } from "../features/user/userApiSlice";
+import { useGetUserSettingsQuery } from "../user/userApiSlice";
 
 function Profile() {
   const { data, isLoading } = useGetUserSettingsQuery();

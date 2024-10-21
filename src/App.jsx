@@ -1,20 +1,11 @@
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navigation from "./components/Navigation";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
+import Login from "./features/auth/Login";
+import Register from "./features/auth/Register";
+import Dashboard from "./features/user/Dashboard";
+import Profile from "./features/posts/Profile";
 import GuardRoute from "./components/GuardRoute";
-import SetPassword from "./features/auth/SetPassword";
-import CreatePost from "./pages/CreatePost";
-import Messages from "./pages/Messages";
+import CreatePost from "./features/posts/CreatePost";
 import Map from "./components/Map";
 
 function App() {
@@ -27,7 +18,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Navigate to="map" />} />
           <Route path="map" element={<Map />} />
-          <Route path="setPassword" element={<SetPassword />} />
+          {/* <Route path="setPassword" element={<SetPassword />} /> */}
           <Route />
         </Route>
         <Route path="/profile" element={<Profile />} />

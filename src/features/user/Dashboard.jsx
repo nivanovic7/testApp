@@ -3,7 +3,7 @@ import styles from "./Dashboard.module.css";
 
 import { NavLink, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Mapbox from "../components/Mapbox";
+import Mapbox from "../../components/Mapbox";
 
 function Dashboard() {
   // const dispatch = useDispatch();

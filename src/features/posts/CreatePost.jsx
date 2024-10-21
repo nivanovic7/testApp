@@ -1,7 +1,7 @@
-import Input from "../components/ui/Input";
+import Input from "../../components/ui/Input";
 import { useState } from "react";
-import { useGetUserSettingsQuery } from "../features/user/userApiSlice";
-import { useCreateOutfitMutation } from "../features/posts/postApiSlice";
+import { useGetUserSettingsQuery } from "../user/userApiSlice";
+import { useCreateOutfitMutation } from "./postApiSlice";
 import { ErrorMessage } from "formik";
 
 function CreatePost() {
