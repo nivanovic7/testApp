@@ -5,17 +5,15 @@ import {
   LOGIN_URL,
   REGISTER_URL,
 } from "../../utils/config";
-import { handleOnQueryStarted } from "../../utils/helpers";
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (credntials) => ({
+      query: (credentials) => ({
         url: LOGIN_URL,
         method: "POST",
-        body: { ...credntials },
+        body: credentials,
       }),
-      onQueryStarted: handleOnQueryStarted,
     }),
     register: builder.mutation({
       query: (credentials) => ({
@@ -30,7 +28,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
-      onQueryStarted: handleOnQueryStarted,
     }),
     facebookRegister: builder.mutation({
       query: (credentials) => ({

@@ -8,6 +8,7 @@ const postApiSlice = apiSlice.injectEndpoints({
       query: () => OUTFITS_URL,
       providesTags: ["Outfits"],
     }),
+
     deleteOutfit: builder.mutation({
       query: (id) => ({
         url: `${OUTFITS_URL}/${id}/delete`,
@@ -15,6 +16,7 @@ const postApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Outfits"],
     }),
+
     createOutfit: builder.mutation({
       query: (post) => ({
         url: CREATE_OUTFIT_URL,
@@ -23,6 +25,7 @@ const postApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Outfits"],
     }),
+
     createComment: builder.mutation({
       query: (payload) => {
         return {

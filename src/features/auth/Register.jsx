@@ -4,25 +4,37 @@ import Input from "../../components/ui/Input";
 import Form from "../../components/Form";
 import { useRegisterMutation } from "./authApislice";
 import { REGISTER_CREDENTIALS } from "../../utils/config";
+import ErrorMessage from "../../components/ErrorMessage";
 
 function Register() {
   const navigate = useNavigate();
-  const [register, { isLoading }] = useRegisterMutation();
+  const [register, { isLoading, error }] = useRegisterMutation();
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const [userName, setName] = useState("");
+  const credentials = {
+    userEmail,
+    userPassword,
+    userName,
+    ...REGISTER_CREDENTIALS,
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
-    register({ userEmail, userPassword, userName, ...REGISTER_CREDENTIALS });
-    //TODO - Tell user to set location on registering!
-    navigate("/profile");
+    try {
+      await register(credentials).unwrap();
+      //TODO - Tell user to set location on registering!
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
     <div>
       {/* TODO - add all fields requered for reqistering */}
       <Form onSubmit={handleSubmit} title="Register">
+        {error && <ErrorMessage error={error} />}
         <Input
           value={userEmail}
           onChange={(e) => setEmail(e.target.value)}

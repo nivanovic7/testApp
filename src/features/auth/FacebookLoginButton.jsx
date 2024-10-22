@@ -1,10 +1,10 @@
 import FacebookLogin from "react-facebook-login";
-import { FACEBOOK_LOGIN_APP_ID } from "../utils/config";
-import { getRegisterCredentialsFromFB } from "../utils/helpers";
+import { FACEBOOK_LOGIN_APP_ID } from "../../utils/config";
+import { getRegisterCredentialsFromFB } from "../../utils/helpers";
 import {
   useFacebookLoginMutation,
   useFacebookRegisterMutation,
-} from "../features/auth/authApislice";
+} from "./authApislice";
 import { useNavigate } from "react-router-dom";
 
 function FacebookLoginButton() {
@@ -17,23 +17,20 @@ function FacebookLoginButton() {
   }
   async function responseFacebook(res) {
     const credentials = getRegisterCredentialsFromFB(res);
+
     try {
-      console.log(res);
       await facebookRegister(credentials).unwrap();
       navigate("/profile");
-    } catch (err) {
-      console.log(err);
-      if (err.status === 409) {
+    } catch (registerError) {
+      if (registerError.status === 409) {
         try {
           await facebookLogin(credentials).unwrap();
           navigate("/profile");
-        } catch (err) {
-          console.log("LOGIN NOT SUCCESSFULL");
-          console.log(err);
+        } catch (loginError) {
+          console.log(loginError, "LOGIN NOT SUCCESSFULL");
         }
       } else {
-        console.log("REGISTRATION NOT SUCCESSFULL");
-        console.log(err);
+        console.log(registerError, "REGISTRATION NOT SUCCESSFULL");
       }
     }
   }

@@ -6,16 +6,14 @@ import LogoutButton from "./ui/LogoutButton";
 
 function Navigation() {
   const { isLoggedIn } = useSelector((state) => state.auth);
+  const status = isLoggedIn ? "private" : "public";
 
   return (
     <ul style={{ display: "flex", justifyContent: "center" }}>
-      {isLoggedIn
-        ? getNavLinksByStatus("private").map((link) => (
-            <CustomNavLink key={link.path} path={link.path} text={link.text} />
-          ))
-        : getNavLinksByStatus("public").map((link) => (
-            <CustomNavLink key={link.path} path={link.path} text={link.text} />
-          ))}
+      {getNavLinksByStatus(status).map((link) => (
+        <CustomNavLink key={link.path} path={link.path} text={link.text} />
+      ))}
+
       {isLoggedIn && <LogoutButton />}
     </ul>
   );

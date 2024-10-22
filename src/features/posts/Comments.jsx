@@ -22,7 +22,7 @@ function Comments({ comments, postId }) {
                   </span>
                   <p> {comment.outfitPostComment}</p>
                   <span className={styles.date}>
-                    <i>{comment.createdAt}</i>
+                    <i>{comment.created}</i>
                   </span>
                 </div>
               </li>

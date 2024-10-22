@@ -1,26 +1,30 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import Input from "../../components/ui/Input";
 import Form from "../../components/Form";
-import FacebookLoginButton from "../../components/FacebookLoginButton";
-import ErrorMessage from "../../components/ErrorMessage";
-import Mapbox from "../../components/Mapbox";
+import FacebookLoginButton from "./FacebookLoginButton";
+
 import { useLoginMutation } from "./authApislice";
 import { setCredentials } from "./authSlice";
+import { useDispatch } from "react-redux";
+import ErrorMessage from "../../components/ErrorMessage";
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [login, { isLoading, error }] = useLoginMutation();
   const [userEmail, setUserEmail] = useState("nikola851@yahoo.com");
   const [userPassword, setUserPassword] = useState("Password1!");
-  // const { loading, error } = useSelector((state) => state.auth);
-
-  const [login, { isLoading }] = useLoginMutation();
+  const credentials = {
+    userEmail,
+    userPassword,
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await login({ userEmail, userPassword }).unwrap();
+      const { data: userData } = await login(credentials).unwrap();
+      dispatch(setCredentials(userData));
       navigate("/profile");
     } catch (err) {
       console.log(err);
@@ -30,7 +34,8 @@ function Login() {
   return (
     <Form onSubmit={handleSubmit}>
       {/* <Mapbox /> */}
-      {/* {error && <ErrorMessage message={error} />} */}
+      {error && <ErrorMessage error={error} />}
+
       <Input
         value={userEmail}
         onChange={(e) => setUserEmail(e.target.value)}
@@ -48,8 +53,7 @@ function Login() {
         required
       />
 
-      {/* <button disabled={loading}>Login</button> */}
-      <button disabled={isLoading}>Login</button>
+      <button disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</button>
       <FacebookLoginButton />
     </Form>
   );

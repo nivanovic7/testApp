@@ -25,6 +25,9 @@
   align-items: start;
 }
 
+.comment p {
+  text-align: left;
+}
 .userName {
   color: rgb(175, 175, 225);
   align-self: start;

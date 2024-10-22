@@ -6,7 +6,7 @@ import Dashboard from "./features/user/Dashboard";
 import Profile from "./features/posts/Profile";
 import GuardRoute from "./components/GuardRoute";
 import CreatePost from "./features/posts/CreatePost";
-import Map from "./components/Map";
+import Map from "./features/user/Map";
 
 function App() {
   return (
@@ -18,12 +18,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Navigate to="map" />} />
           <Route path="map" element={<Map />} />
-          {/* <Route path="setPassword" element={<SetPassword />} /> */}
           <Route />
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/createPost" element={<CreatePost />} />
-        {/*  <Route path="/messages" element={<Messages />} /> */}
       </Route>
     </Routes>
   );

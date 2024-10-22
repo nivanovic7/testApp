@@ -1,24 +1,6 @@
 // import { setAuthHeader, setRefreshToken } from "../api/api";
 import * as Yup from "yup";
 import { navLinks } from "./config";
-import { setCredentials } from "../features/auth/authSlice";
-
-export async function handleOnQueryStarted(_, { dispatch, queryFulfilled }) {
-  // `onStart` side-effect
-  // dispatch(messageCreated('Fetching posts...'))
-  console.log("starting!");
-  try {
-    const { data } = await queryFulfilled;
-    console.log("success!", data);
-    // `onSuccess` side-effect
-    // dispatch(messageCreated('Posts received!'))
-    dispatch(setCredentials(data));
-  } catch (err) {
-    // `onError` side-effect
-    // dispatch(messageCreated('Error fetching posts!'))
-    console.log("error... ", err);
-  }
-}
 
 export function setTokens(accessToken, refreshToken) {
   localStorage.setItem("accessToken", accessToken);
