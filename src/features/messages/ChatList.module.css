@@ -1,0 +1,11 @@
+.chatList {
+  width: 30%;
+  background-color: aliceblue;
+  height: 100%;
+}
+
+.chatList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}

@@ -2,6 +2,12 @@
 import * as Yup from "yup";
 import { navLinks } from "./config";
 
+export function getChatMembersUsernames(chat, userId) {
+  return chat.chatMembers.filter((chat) =>
+    chat._id !== userId ? chat.userName : null
+  );
+}
+
 export function setTokens(accessToken, refreshToken) {
   localStorage.setItem("accessToken", accessToken);
   localStorage.setItem("refreshToken", refreshToken);

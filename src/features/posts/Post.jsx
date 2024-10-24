@@ -2,21 +2,38 @@ import ReactPlayer from "react-player";
 import styles from "./Post.module.css";
 import { useDeleteOutfitMutation } from "./postApiSlice";
 import Comments from "./Comments";
+import { useAddToChatMutation } from "../messages/messagesApiSlice";
+import { useSelector } from "react-redux";
 
 function Post({ outfit }) {
   const [deletePost] = useDeleteOutfitMutation();
+  const [addToChat, { isLoading }] = useAddToChatMutation();
+  const currentUserId = useSelector((state) => state.auth.user.sub);
 
-  async function handleDelete(id) {
+  function handleAddToChat() {
+    if (currentUserId === outfit.user[0]._id) return;
+    addToChat(outfit.user[0]._id);
+  }
+
+  async function handleDelete() {
     try {
-      await deletePost(id).unwrap();
+      await deletePost(outfit._id).unwrap();
     } catch (err) {
       console.log(err);
     }
   }
   return (
-    <div className={styles.post} key={outfit._id}>
+    <div className={styles.post}>
       <div className={styles.postHeader}>
-        <p>{outfit.outfitDescription}</p> <p>by: {outfit.user[0].name}</p>
+        <p>{outfit.outfitDescription}</p>
+        <p className={styles.userName}>
+          by: {outfit.user[0].name}
+          {currentUserId !== outfit.user[0]._id && (
+            <button onClick={handleAddToChat} className={styles.addUser}>
+              Add to chat+
+            </button>
+          )}
+        </p>
       </div>
 
       {outfit.outfitVideos[0] && (
@@ -30,7 +47,7 @@ function Post({ outfit }) {
         />
       )}
       <div className={styles.postButtons}>
-        <button onClick={() => handleDelete(outfit._id)}>Delete Post</button>
+        <button onClick={handleDelete}>Delete Post</button>
 
         <Comments postId={outfit._id} comments={outfit.outfitPostComment} />
       </div>

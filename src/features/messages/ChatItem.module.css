@@ -1,0 +1,11 @@
+.chatItem {
+  display: block;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+}
+
+.chatItem:hover {
+  background-color: rgb(223, 232, 239);
+  cursor: pointer;
+}

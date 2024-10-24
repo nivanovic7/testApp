@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiSlice } from "../../app/api/apiSlice";
 
 const initialState = {
   accessToken: null,
@@ -23,6 +24,7 @@ const authSlice = createSlice({
       state.accessToken = null;
       state.refreshToken = null;
       state.user = null;
+      apiSlice.util.resetApiState();
     },
     setErrors: (state, action) => {
       state.error = action.payload;

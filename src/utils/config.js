@@ -6,12 +6,14 @@ export const FACEBOOK_REGISTER_URL = "auth/facebook/register";
 export const REGISTER_URL = "auth/register";
 export const GET_USER_SETTINGS_API = "user/settings/getUser";
 export const UPDATE_USER_SETTINGS_API = "user/settings";
-export const DELETE_USER_URL = "/user/settings/deactivate";
-export const FORGOT_PASSWORD_REQUEST_URL = "/auth/forgot-password/request";
-export const VERIFY_USER_CODE_URL = "/auth/forgot-password/verify";
-export const CHANGE_PASSWORD_URL = "/auth/forgot-password/change";
-export const OUTFITS_URL = "/outfits";
-export const CREATE_OUTFIT_URL = "/outfits/new";
+export const DELETE_USER_URL = "user/settings/deactivate";
+export const FORGOT_PASSWORD_REQUEST_URL = "auth/forgot-password/request";
+export const VERIFY_USER_CODE_URL = "auth/forgot-password/verify";
+export const CHANGE_PASSWORD_URL = "auth/forgot-password/change";
+export const OUTFITS_URL = "outfits";
+export const CREATE_OUTFIT_URL = "outfits/new";
+export const GET_CHAT_URL = "chat";
+export const ADD_CHAT_URL = "chat/getChat";
 
 export const FACEBOOK_LOGIN_APP_ID = "3046302348851990";
 
@@ -20,7 +22,7 @@ export const navLinks = [
   { path: "register", text: "register", status: "public" },
   { path: "dashboard", text: "dashboard", status: "private" },
   { path: "profile", text: "profile", status: "private" },
-  // { path: "messages", text: "Messages", status: "private" },
+  { path: "inbox", text: "inbox", status: "private" },
 ];
 
 export const REGISTER_CREDENTIALS = {

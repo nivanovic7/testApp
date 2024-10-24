@@ -6,9 +6,12 @@ import {
   useFacebookRegisterMutation,
 } from "./authApislice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "./authSlice";
 
 function FacebookLoginButton() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [facebookLogin] = useFacebookLoginMutation();
   const [facebookRegister] = useFacebookRegisterMutation();
 
@@ -24,13 +27,14 @@ function FacebookLoginButton() {
     } catch (registerError) {
       if (registerError.status === 409) {
         try {
-          await facebookLogin(credentials).unwrap();
+          const { data: userData } = await facebookLogin(credentials).unwrap();
+          dispatch(setCredentials(userData));
           navigate("/profile");
         } catch (loginError) {
-          console.log(loginError, "LOGIN NOT SUCCESSFULL");
+          console.log(loginError, "FB LOGIN NOT SUCCESSFULL");
         }
       } else {
-        console.log(registerError, "REGISTRATION NOT SUCCESSFULL");
+        console.log(registerError, "FB REGISTRATION NOT SUCCESSFULL");
       }
     }
   }
