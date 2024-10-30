@@ -17,7 +17,9 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
     getChat: builder.query({
       // todo : create a function for this url's
       query: (chatId) => `${GET_CHAT_URL}/${chatId}/message`,
-      //   providesTags: ["Messages"],
+      transformResponse: (res) => {
+        return { ...res, data: res.data.reverse() };
+      },
     }),
 
     sendMessage: builder.mutation({

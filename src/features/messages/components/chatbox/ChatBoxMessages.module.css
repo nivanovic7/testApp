@@ -1,0 +1,7 @@
+.messages p {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 50px;
+  text-align: left;
+}

@@ -15,9 +15,6 @@ function FacebookLoginButton() {
   const [facebookLogin] = useFacebookLoginMutation();
   const [facebookRegister] = useFacebookRegisterMutation();
 
-  function componentClicked(e) {
-    console.log(e);
-  }
   async function responseFacebook(res) {
     const credentials = getRegisterCredentialsFromFB(res);
 
@@ -44,7 +41,6 @@ function FacebookLoginButton() {
       appId={FACEBOOK_LOGIN_APP_ID}
       autoLoad={false}
       fields="email, name, picture, gender, first_name"
-      onClick={componentClicked}
       callback={responseFacebook}
     />
   );

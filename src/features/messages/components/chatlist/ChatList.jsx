@@ -1,6 +1,6 @@
-import ChatItem from "./ChatItem";
+import ChatListItem from "./ChatListItem";
 import styles from "./ChatList.module.css";
-import { useGetChatsQuery } from "./messagesApiSlice";
+import { useGetChatsQuery } from "../../messagesApiSlice";
 
 function ChatList({ setSelectedChatId }) {
   const { data, isLoading } = useGetChatsQuery();
@@ -15,7 +15,7 @@ function ChatList({ setSelectedChatId }) {
         {data.data
           .filter((chat) => chat.chatMembers.length > 1)
           .map((chat) => (
-            <ChatItem
+            <ChatListItem
               key={chat._id}
               chat={chat}
               setSelectedChatId={setSelectedChatId}

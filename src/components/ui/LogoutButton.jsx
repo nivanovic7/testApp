@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteTokens } from "../../utils/helpers";
 import { logOut } from "../../features/auth/authSlice";
 
 function LogoutButton() {
@@ -9,7 +8,6 @@ function LogoutButton() {
 
   function handleLogout() {
     dispatch(logOut());
-    deleteTokens();
     navigate("/login");
   }
   return (

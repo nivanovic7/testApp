@@ -7,22 +7,29 @@ import Profile from "./features/posts/Profile";
 import GuardRoute from "./components/GuardRoute";
 import CreatePost from "./features/posts/CreatePost";
 import Map from "./features/user/Map";
-import Inbox from "./features/messages/Inbox";
+import Inbox from "./features/messages/components/Inbox";
 import { io } from "socket.io-client";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
-  const socket = io.connect("https://laterz.api.exebyte.io");
+  const token = useSelector((state) => state.auth.accessToken);
+
+  const socket = io.connect("https://laterz.api.exebyte.io", {
+    transports: ["websocket"],
+    query: { jwt: token },
+  });
+
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to socket");
     });
 
     return () => {
+      // socket.off("newChatMessage");
       socket.off("connect");
-      socket.offAny(); // Cleanup for onAny
     };
-  }, [socket]);
+  }, [socket, token]);
 
   return (
     <Routes>

@@ -1,7 +1,7 @@
-import { getChatMembersUsernames } from "../../utils/helpers";
-import styles from "./ChatItem.module.css";
+import { getChatMembersUsernames } from "../../../../utils/helpers";
+import styles from "./ChatListItem.module.css";
 
-function ChatItem({ chat, setSelectedChatId }) {
+function ChatListItem({ chat, setSelectedChatId }) {
   const chatMemebers = getChatMembersUsernames(chat, chat.user._id);
 
   function handleClick() {
@@ -17,4 +17,4 @@ function ChatItem({ chat, setSelectedChatId }) {
   );
 }
 
-export default ChatItem;
+export default ChatListItem;

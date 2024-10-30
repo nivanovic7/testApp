@@ -8,16 +8,6 @@ export function getChatMembersUsernames(chat, userId) {
   );
 }
 
-export function setTokens(accessToken, refreshToken) {
-  localStorage.setItem("accessToken", accessToken);
-  localStorage.setItem("refreshToken", refreshToken);
-}
-
-export function deleteTokens() {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-}
-
 export function getNavLinksByStatus(status) {
   return navLinks.filter((link) => link.status === status);
 }
@@ -33,15 +23,6 @@ export function getRegisterCredentialsFromFB(res) {
   };
 
   return credentials;
-}
-
-export function handleTokens(res) {
-  const accessToken = res.data.data.accessToken;
-  const refreshToken = res.data.data.refreshToken;
-
-  setAuthHeader(accessToken);
-  setRefreshToken();
-  setTokens(accessToken, refreshToken);
 }
 
 export const validation = Yup.object({

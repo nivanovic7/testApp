@@ -1,8 +1,8 @@
 import styles from "./Inbox.module.css";
 
-import ChatList from "./ChatList";
-import ChatBox from "./ChatBox";
 import { useState } from "react";
+import ChatBox from "./chatbox/ChatBox";
+import ChatList from "./chatlist/ChatList";
 
 function Inbox({ socket }) {
   const [selectedChatId, setSelectedChatId] = useState(null);
