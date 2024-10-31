@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 function Post({ outfit }) {
   const [deletePost] = useDeleteOutfitMutation();
-  const [addToChat, { isLoading }] = useAddToChatMutation();
+  const [addToChat] = useAddToChatMutation();
   const currentUserId = useSelector((state) => state.auth.user.sub);
 
   function handleAddToChat() {

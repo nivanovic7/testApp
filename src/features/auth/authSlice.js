@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiSlice } from "../../app/api/apiSlice";
 
 const initialState = {
   accessToken: null,
@@ -18,13 +17,14 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
+      localStorage.setItem("userData", JSON.stringify(action.payload));
     },
     logOut: (state) => {
       state.isLoggedIn = false;
       state.accessToken = null;
       state.refreshToken = null;
       state.user = null;
-      apiSlice.util.resetApiState();
+      localStorage.removeItem("userData");
     },
     setErrors: (state, action) => {
       state.error = action.payload;

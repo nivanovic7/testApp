@@ -6,7 +6,9 @@ function LoadedMessagesList({ chatId }) {
   const currentUserId = useSelector((state) => state.auth.user.sub);
 
   if (isLoading) return <p>Loading messages...</p>;
+
   if (data.data.length === 0) return <p>No messages. Start conversation.</p>;
+
   return data.data.map((message) => (
     <p
       className={

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import SingleMessage from "./SingleMessage";
 
 function NewMessagesList({ socket, chatId }) {
   const [newMessages, setNewMessages] = useState([]);
@@ -21,17 +22,8 @@ function NewMessagesList({ socket, chatId }) {
 
   return (
     <>
-      {newMessages.map((msg, i) => (
-        <p
-          className={
-            msg.chatMessageUser._id === currentUserId
-              ? "userMessage"
-              : "friendMessage"
-          }
-          key={i}
-        >
-          {msg.chatMessageText}
-        </p>
+      {newMessages.map((msg) => (
+        <SingleMessage key={msg._id} message={msg} />
       ))}
       <p ref={scrollToBottomTarget}></p>
     </>

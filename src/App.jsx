@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import Login from "./features/auth/Login";
 import Register from "./features/auth/Register";
@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const token = useSelector((state) => state.auth.accessToken);
-
   const socket = io.connect("https://laterz.api.exebyte.io", {
     transports: ["websocket"],
     query: { jwt: token },
@@ -26,7 +25,6 @@ function App() {
     });
 
     return () => {
-      // socket.off("newChatMessage");
       socket.off("connect");
     };
   }, [socket, token]);

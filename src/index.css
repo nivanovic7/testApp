@@ -27,15 +27,19 @@ a {
 .active {
   color: blue;
 }
+.userMessage,
+.friendMessage {
+  color: white;
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
 
 .userMessage {
   background-color: rgb(172, 172, 233);
-  color: white;
   margin-left: auto;
 }
 
 .friendMessage {
   background-color: gray;
-  color: white;
   margin-right: auto;
 }

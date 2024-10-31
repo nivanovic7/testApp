@@ -10,14 +10,13 @@ function Inbox({ socket }) {
   return (
     <div className={styles.inbox}>
       <ChatList setSelectedChatId={setSelectedChatId} />
-      {selectedChatId && <ChatBox chatId={selectedChatId} socket={socket} />}
+      {selectedChatId ? (
+        <ChatBox chatId={selectedChatId} socket={socket} />
+      ) : (
+        <h3>Please select user to start chat!</h3>
+      )}
     </div>
   );
 }
 
 export default Inbox;
-
-// 1. post / chat/getchat
-// 2.  chat chat/id/message
-
-//id 67179261bfd1d977f2db8d0c

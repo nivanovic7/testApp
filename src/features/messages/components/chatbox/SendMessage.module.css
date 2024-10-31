@@ -1,4 +1,9 @@
 .form {
   position: fixed;
   bottom: 0;
+  display: flex;
+}
+
+.form input {
+  padding: 0.5rem;
 }
