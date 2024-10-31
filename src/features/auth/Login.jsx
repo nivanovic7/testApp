@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/ui/Input";
 import Form from "../../components/Form";
@@ -19,15 +19,6 @@ function Login() {
     userEmail,
     userPassword,
   };
-
-  useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-
-    if (userData?.refreshToken) {
-      dispatch(setCredentials(userData));
-      navigate("/profile");
-    }
-  }, [dispatch, navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();

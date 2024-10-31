@@ -7,8 +7,6 @@ function Profile() {
   if (error) return <p>Could not load user!</p>;
 
   if (isLoading) return <p>Loading user data...</p>;
-
-  console.log(JSON.parse(localStorage.getItem("userData")));
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Wellcome {data.data.userName}</h2>

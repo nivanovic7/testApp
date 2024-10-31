@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/ui/Input";
 import Form from "../../components/Form";
 import { useRegisterMutation } from "./authApislice";
-import { REGISTER_CREDENTIALS } from "../../utils/config";
+import { REGISTER_CREDENTIALS } from "../../utils/config.env";
 import ErrorMessage from "../../components/ErrorMessage";
 
 function Register() {

@@ -1,6 +1,6 @@
 // import { setAuthHeader, setRefreshToken } from "../api/api";
 import * as Yup from "yup";
-import { navLinks } from "./config";
+import { navLinks } from "./config.env";
 
 export function getChatMembersUsernames(chat, userId) {
   return chat.chatMembers.filter((chat) =>

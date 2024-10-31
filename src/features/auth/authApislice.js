@@ -4,7 +4,7 @@ import {
   FACEBOOK_REGISTER_URL,
   LOGIN_URL,
   REGISTER_URL,
-} from "../../utils/config";
+} from "../../utils/config.env";
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

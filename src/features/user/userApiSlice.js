@@ -2,7 +2,7 @@ import { apiSlice } from "../../app/api/apiSlice";
 import {
   GET_USER_SETTINGS_API,
   UPDATE_USER_SETTINGS_API,
-} from "../../utils/config";
+} from "../../utils/config.env";
 
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

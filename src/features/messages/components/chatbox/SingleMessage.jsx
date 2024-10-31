@@ -1,11 +1,14 @@
+import { useSelector } from "react-redux";
+
 function SingleMessage({ message }) {
-  console.log(message);
+  const currentUserId = useSelector((state) => state.auth.user.sub);
+
   return (
     <p
       className={
         message.chatMessageUser._id === currentUserId
-          ? styles.userMessage
-          : styles.friendMessage
+          ? "userMessage"
+          : "friendMessage"
       }
       key={message._id}
     >

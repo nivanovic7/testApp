@@ -1,10 +1,11 @@
 import { apiSlice } from "../../app/api/apiSlice";
-import { ADD_CHAT_URL, GET_CHAT_URL } from "../../utils/config";
+import { ADD_CHAT_URL, GET_CHAT_URL } from "../../utils/config.env";
 
 export const messagesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getChats: builder.query({
       query: () => GET_CHAT_URL,
+      providesTags: ["Conversations"],
     }),
 
     addToChat: builder.mutation({
@@ -13,6 +14,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: { user: userId },
       }),
+      invalidatesTags: ["Conversations"],
     }),
     getChat: builder.query({
       // todo : create a function for this url's

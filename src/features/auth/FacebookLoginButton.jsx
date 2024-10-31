@@ -1,5 +1,5 @@
 import FacebookLogin from "react-facebook-login";
-import { FACEBOOK_LOGIN_APP_ID } from "../../utils/config";
+import { FACEBOOK_LOGIN_APP_ID } from "../../utils/config.env";
 import { getRegisterCredentialsFromFB } from "../../utils/helpers";
 import {
   useFacebookLoginMutation,

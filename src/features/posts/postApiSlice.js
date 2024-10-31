@@ -1,5 +1,5 @@
 import { apiSlice } from "../../app/api/apiSlice";
-import { CREATE_OUTFIT_URL, OUTFITS_URL } from "../../utils/config";
+import { CREATE_OUTFIT_URL, OUTFITS_URL } from "../../utils/config.env";
 
 const postApiSlice = apiSlice.injectEndpoints({
   tagTypes: ["Outfits"],
