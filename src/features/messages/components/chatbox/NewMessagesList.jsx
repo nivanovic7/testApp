@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import SingleMessage from "./SingleMessage";
 
-function NewMessagesList({ chatId, socket }) {
+function NewMessagesList({ chatId }) {
   const [newMessages, setNewMessages] = useState([]);
   const scrollToBottomTarget = useRef(null);
 
-  useEffect(() => {
-    socket.on("newChatMessage", (e) => {
-      if (e.chatId === chatId) {
-        console.log(e);
-        setNewMessages((state) => [...state, e.payload]);
-      }
-    });
+  // useEffect(() => {
+  //   socket.on("newChatMessage", (e) => {
+  //     if (e.chatId === chatId) {
+  //       console.log(e);
+  //       setNewMessages((state) => [...state, e.payload]);
+  //     }
+  //   });
 
-    return () => {
-      console.log("off new msg");
-      socket.off("newChatMessage");
-    };
-  }, [chatId, socket]);
+  //   return () => {
+  //     console.log("off new msg");
+  //     socket.off("newChatMessage");
+  //   };
+  // }, [chatId, socket]);
 
   useEffect(() => {
     scrollToBottomTarget.current.scrollIntoView({ behaviour: "smooth" });

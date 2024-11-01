@@ -1,9 +1,9 @@
-import ReactPlayer from "react-player";
 import styles from "./Post.module.css";
 import { useDeleteOutfitMutation } from "./postApiSlice";
 import Comments from "./Comments";
 import { useAddToChatMutation } from "../messages/messagesApiSlice";
 import { useSelector } from "react-redux";
+import CustomCarousel from "../../components/CustomCarousel";
 
 function Post({ outfit }) {
   const [deletePost] = useDeleteOutfitMutation();
@@ -35,17 +35,10 @@ function Post({ outfit }) {
           )}
         </p>
       </div>
-
-      {outfit.outfitVideos[0] && (
-        <ReactPlayer
-          url={outfit.outfitVideos[0].imageMediumSource}
-          width="100%"
-          light={outfit.outfitImages[0].imageMediumSource}
-          playing={true}
-          // onError={handleError}
-          controls={true}
-        />
-      )}
+      <CustomCarousel
+        outfitVideos={outfit.outfitVideos}
+        outfitImages={outfit.outfitImages}
+      />
       <div className={styles.postButtons}>
         <button onClick={handleDelete}>Delete Post</button>
 

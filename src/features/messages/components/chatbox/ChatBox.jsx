@@ -8,25 +8,25 @@ import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
 function ChatBox({ chatId }) {
-  const token = useSelector((state) => state.auth.accessToken);
-  const socket = io.connect("https://laterz.api.exebyte.io", {
-    transports: ["websocket"],
-    query: { jwt: token },
-  });
+  // const token = useSelector((state) => state.auth.accessToken);
+  // const socket = io.connect("https://laterz.api.exebyte.io", {
+  //   transports: ["websocket"],
+  //   query: { jwt: token },
+  // });
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to socket");
-    });
-    return () => {
-      console.log("OFF");
-      socket.off("connect");
-    };
-  }, [chatId, socket]);
+  // useEffect(() => {
+  //   socket.on("connect", () => {
+  //     console.log("Connected to socket");
+  //   });
+  //   return () => {
+  //     console.log("OFF");
+  //     socket.off("connect");
+  //   };
+  // }, [chatId, socket]);
   return (
     <div className={styles.chat}>
       <LoadedMessagesList chatId={chatId} />
-      <NewMessagesList key={chatId} chatId={chatId} socket={socket} />
+      <NewMessagesList key={chatId} chatId={chatId} />
       <SendMessage chatId={chatId} />
     </div>
   );

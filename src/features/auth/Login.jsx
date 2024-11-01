@@ -8,6 +8,7 @@ import { useLoginMutation } from "./authApislice";
 import { setCredentials } from "./authSlice";
 import { useDispatch } from "react-redux";
 import ErrorMessage from "../../components/ErrorMessage";
+import { Bounce, toast } from "react-toastify";
 
 function Login() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function Login() {
     try {
       const { data: userData } = await login(credentials).unwrap();
       dispatch(setCredentials(userData));
-      navigate("/profile");
+      navigate("/dashboard");
     } catch (err) {
       console.log(err);
     }
