@@ -1,10 +1,15 @@
 import Posts from "./Posts";
 import { Link } from "react-router-dom";
 import { useGetUserSettingsQuery } from "../user/userApiSlice";
+import { useDispatch } from "react-redux";
+import { logOut } from "../auth/authSlice";
 
 function Profile() {
   const { data, error, isLoading } = useGetUserSettingsQuery();
-  if (error) return <p>Could not load user!</p>;
+  const dispatch = useDispatch();
+  if (error) {
+    dispatch(logOut());
+  }
 
   if (isLoading) return <p>Loading user data...</p>;
   return (

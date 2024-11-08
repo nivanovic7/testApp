@@ -3,31 +3,25 @@ import styles from "./ChatBox.module.css";
 import SendMessage from "./SendMessage";
 import LoadedMessagesList from "./LoadedMessagesList";
 import NewMessagesList from "./NewMessagesList";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
 
 function ChatBox({ chatId }) {
-  // const token = useSelector((state) => state.auth.accessToken);
-  // const socket = io.connect("https://laterz.api.exebyte.io", {
-  //   transports: ["websocket"],
-  //   query: { jwt: token },
-  // });
+  const [newMessages, setNewMessages] = useState([]);
 
-  // useEffect(() => {
-  //   socket.on("connect", () => {
-  //     console.log("Connected to socket");
-  //   });
-  //   return () => {
-  //     console.log("OFF");
-  //     socket.off("connect");
-  //   };
-  // }, [chatId, socket]);
+  useEffect(() => {
+    setNewMessages([]);
+  }, [chatId]);
+
   return (
     <div className={styles.chat}>
-      <LoadedMessagesList chatId={chatId} />
-      <NewMessagesList key={chatId} chatId={chatId} />
-      <SendMessage chatId={chatId} />
+      <LoadedMessagesList chatId={chatId} newMessages={newMessages} />
+      <NewMessagesList
+        key={chatId}
+        chatId={chatId}
+        newMessages={newMessages}
+        setNewMessages={setNewMessages}
+      />
+      <SendMessage chatId={chatId} setNewMessages={setNewMessages} />
     </div>
   );
 }

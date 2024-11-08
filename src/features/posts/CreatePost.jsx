@@ -18,17 +18,17 @@ function CreatePost() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!description || !image || !video) return;
+
     const formData = new FormData();
-    console.log(image);
+    Array.from(image).forEach((img) => formData.append("outfitsImages", img));
     formData.append("outfitsDescription", description);
     formData.append("outfitsImages", image[0]);
-    Array.from(image).forEach((img) => formData.append("outfitsImages", img));
     formData.append("outfitsVideos", video);
     formData.append("longitude", data.userCurrentLocation.longitude);
     formData.append("latitude", data.userCurrentLocation.latitude);
     formData.append("likeSetting", "true");
     formData.append("commentSettings", "true");
-    console.log(image);
+
     createOutfit(formData);
     setImage(null);
     setVideo(null);
@@ -47,7 +47,7 @@ function CreatePost() {
       />
 
       <Input
-        label="Choose Image"
+        label="Choose Images"
         onChange={(e) => setImage(e.target.files)}
         type="file"
         multiple

@@ -33,13 +33,22 @@ a {
   padding: 0.3rem;
   margin: 0.2rem;
 }
+.messageUserName {
+  color: gray;
+}
 
 .userMessage {
-  background-color: rgb(172, 172, 233);
   margin-left: auto;
 }
 
-.friendMessage {
+.userMessage .messageText {
+  background-color: rgb(172, 172, 233);
+}
+
+.friendMessage .messageText {
   background-color: gray;
+}
+
+.friendMessage {
   margin-right: auto;
 }

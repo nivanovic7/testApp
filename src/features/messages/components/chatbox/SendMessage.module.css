@@ -7,3 +7,14 @@
 .form input {
   padding: 0.5rem;
 }
+
+.form input[type="file"] {
+  display: none;
+}
+
+.uploadFile {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

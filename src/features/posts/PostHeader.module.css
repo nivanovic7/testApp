@@ -1,0 +1,20 @@
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userName {
+  position: relative;
+}
+
+.userName:hover .addUser {
+  display: block;
+}
+
+.addUser {
+  position: absolute;
+  top: -120%;
+  right: 0;
+  background-color: red;
+  display: none;
+}

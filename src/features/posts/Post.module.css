@@ -12,27 +12,6 @@
   background-color: black;
 }
 
-.postHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
 .postButtons {
   padding: 0.5rem;
-}
-
-.userName {
-  position: relative;
-}
-
-.userName:hover .addUser {
-  display: block;
-}
-
-.addUser {
-  position: absolute;
-  top: -120%;
-  right: 0;
-  background-color: red;
-  display: none;
 }

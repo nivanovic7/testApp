@@ -3,12 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Input from "../../components/ui/Input";
 import Form from "../../components/Form";
 import FacebookLoginButton from "./FacebookLoginButton";
-
 import { useLoginMutation } from "./authApislice";
 import { setCredentials } from "./authSlice";
 import { useDispatch } from "react-redux";
 import ErrorMessage from "../../components/ErrorMessage";
-import { Bounce, toast } from "react-toastify";
 
 function Login() {
   const dispatch = useDispatch();
@@ -16,15 +14,14 @@ function Login() {
   const [login, { isLoading, error }] = useLoginMutation();
   const [userEmail, setUserEmail] = useState("nikola851@yahoo.com");
   const [userPassword, setUserPassword] = useState("Password1!");
-  const credentials = {
-    userEmail,
-    userPassword,
-  };
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const { data: userData } = await login(credentials).unwrap();
+      const { data: userData } = await login({
+        userEmail,
+        userPassword,
+      }).unwrap();
       dispatch(setCredentials(userData));
       navigate("/dashboard");
     } catch (err) {

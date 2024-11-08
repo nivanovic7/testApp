@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
-const useSocket = (userId) => {
+const useSocket = (chatId) => {
   const token = useSelector((state) => state.auth.accessToken);
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    // Function to connect socket
     const connectSocket = () => {
       if (!socket) {
         const newSocket = io("https://laterz.api.exebyte.io", {
@@ -15,17 +14,10 @@ const useSocket = (userId) => {
           query: { jwt: token },
         });
 
-        // Set socket instance
         setSocket(newSocket);
 
-        // Event listeners
-        newSocket.on("connect", () => {
-          console.log("socket connected");
-        });
-
+        newSocket.on("connect", () => {});
         newSocket.on("disconnect", () => {
-          console.log("socket disconnected");
-          // Attempt to reconnect
           connectSocket();
         });
       } else {
@@ -33,16 +25,16 @@ const useSocket = (userId) => {
       }
     };
 
-    // Connect socket on mount
     connectSocket();
 
-    // Cleanup on unmount
     return () => {
       if (socket) {
-        socket.disconnect();
+        if (socket.connected) {
+          socket.disconnect();
+        }
       }
     };
-  }, [token, userId, socket]);
+  }, [token, chatId, socket]);
 
   return socket;
 };

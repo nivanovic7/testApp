@@ -12,7 +12,7 @@ export const VERIFY_USER_CODE_URL = "auth/forgot-password/verify";
 export const CHANGE_PASSWORD_URL = "auth/forgot-password/change";
 export const OUTFITS_URL = "outfits";
 export const CREATE_OUTFIT_URL = "outfits/new";
-export const GET_CHAT_URL = "chat";
+export const CHAT_URL = "chat";
 export const ADD_CHAT_URL = "chat/getChat";
 
 export const FACEBOOK_LOGIN_APP_ID = "3046302348851990";

@@ -33,7 +33,7 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
           className={styles.video}
           url={outfitVideos[0].imageMediumSource}
           width="100%"
-          playing={true}
+          playing={false}
           // onError={handleError}
           controls={true}
         />

@@ -1,20 +1,13 @@
 import { useSelector } from "react-redux";
 
-function SingleMessage({ message }) {
+function SingleMessage({ children, message }) {
   const currentUserId = useSelector((state) => state.auth.user.sub);
+  const className =
+    message.chatMessageUser._id === currentUserId
+      ? "userMessage"
+      : "friendMessage";
 
-  return (
-    <p
-      className={
-        message.chatMessageUser._id === currentUserId
-          ? "userMessage"
-          : "friendMessage"
-      }
-      key={message._id}
-    >
-      {message.chatMessageText}
-    </p>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export default SingleMessage;

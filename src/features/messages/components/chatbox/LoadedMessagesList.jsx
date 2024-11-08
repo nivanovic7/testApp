@@ -1,25 +1,27 @@
-import { useSelector } from "react-redux";
 import { useGetChatQuery } from "../../messagesApiSlice";
+import SingleMessage from "./SingleMessage";
+import SingleMessageFooter from "./SingleMessageFooter";
+import SingleMessageHeader from "./SingleMessageHeader";
+import SingleMessageBody from "./SingleMessageBody";
 
-function LoadedMessagesList({ chatId }) {
-  const { data, isLoading } = useGetChatQuery(chatId);
-  const currentUserId = useSelector((state) => state.auth.user.sub);
+function LoadedMessagesList({ chatId, newMessages }) {
+  const { data, isLoading } = useGetChatQuery(chatId, {
+    refetchOnMountOrArgChange: true,
+  });
+  const loadedMessages = data ? data.data : [];
+  const noMessages = loadedMessages.length === 0 && newMessages.length === 0;
 
   if (isLoading) return <p>Loading messages...</p>;
 
-  if (data.data.length === 0) return <p>No messages. Start conversation.</p>;
+  if (noMessages) return <p>No messages. Start conversation.</p>;
 
-  return data.data.map((message) => (
-    <p
-      className={
-        message.chatMessageUser._id === currentUserId
-          ? "userMessage"
-          : "friendMessage"
-      }
-      key={message._id}
-    >
-      {message.chatMessageText}
-    </p>
+  console.log(loadedMessages);
+  return loadedMessages.map((message) => (
+    <SingleMessage key={message._id} message={message}>
+      <SingleMessageHeader message={message} />
+      <SingleMessageBody message={message} />
+      <SingleMessageFooter message={message} />
+    </SingleMessage>
   ));
 }
 

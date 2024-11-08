@@ -7,17 +7,17 @@ function Posts() {
 
   if (isLoading) {
     return <PostLoader />;
-  } else {
-    return posts.length === 0 ? (
-      <h2>No posts at this location</h2>
-    ) : (
-      <div>
-        {posts.map((outfit) => (
-          <Post key={outfit._id} outfit={outfit} />
-        ))}
-      </div>
-    );
   }
+  if (posts.length === 0) {
+    return <h2>No posts at this location</h2>;
+  }
+  return (
+    <div>
+      {posts.map((outfit) => (
+        <Post key={outfit._id} outfit={outfit} />
+      ))}
+    </div>
+  );
 }
 
 export default Posts;
