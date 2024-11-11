@@ -1,5 +1,5 @@
 import FacebookLogin from "react-facebook-login";
-import { FACEBOOK_LOGIN_APP_ID } from "../../utils/config.js";
+
 import { getRegisterCredentialsFromFB } from "../../utils/helpers";
 import {
   useFacebookLoginMutation,
@@ -38,7 +38,7 @@ function FacebookLoginButton() {
 
   return (
     <FacebookLogin
-      appId={FACEBOOK_LOGIN_APP_ID}
+      appId={import.meta.REACT_APP_FACEBOOK_LOGIN_APP_ID}
       autoLoad={false}
       fields="email, name, picture, gender, first_name"
       callback={responseFacebook}

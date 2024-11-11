@@ -1,16 +1,15 @@
 import { apiSlice } from "../../app/api/apiSlice";
-import { ADD_CHAT_URL, CHAT_URL } from "../../utils/config.js";
 
 export const messagesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getChats: builder.query({
-      query: () => CHAT_URL,
+      query: () => import.meta.env.VITE_CHAT_URL,
       providesTags: ["Conversations"],
     }),
 
     createGroupChat: builder.mutation({
       query: (chatName) => ({
-        url: CHAT_URL,
+        url: import.meta.env.VITE_CHAT_URL,
         method: "POST",
         body: { chatName },
       }),
@@ -21,7 +20,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
       query: ({ groupId, usersIds }) => {
         console.log(usersIds);
         return {
-          url: `${CHAT_URL}/${groupId}/members`,
+          url: `${import.meta.env.VITE_CHAT_URL}/${groupId}/members`,
           method: "POST",
           body: usersIds,
         };
@@ -30,7 +29,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
 
     addToChat: builder.mutation({
       query: (userId) => ({
-        url: ADD_CHAT_URL,
+        url: import.meta.env.VITE_ADD_CHAT_URL,
         method: "POST",
         body: { user: userId },
       }),
@@ -38,7 +37,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
     }),
 
     getChat: builder.query({
-      query: (chatId) => `${CHAT_URL}/${chatId}/message`,
+      query: (chatId) => `${import.meta.env.VITE_CHAT_URL}/${chatId}/message`,
       transformResponse: (res) => {
         return { ...res, data: res.data.reverse() };
       },
@@ -46,14 +45,14 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
 
     sendMessage: builder.mutation({
       query: ({ message, chatId }) => ({
-        url: `${CHAT_URL}/${chatId}/message/text`,
+        url: `${import.meta.env.VITE_CHAT_URL}/${chatId}/message/text`,
         method: "POST",
         body: { chatMessageUnique: chatId, chatMessageText: message },
       }),
     }),
     sendAttachment: builder.mutation({
       query: ({ data, chatId }) => ({
-        url: `${CHAT_URL}/${chatId}/message/media`,
+        url: `${import.meta.env.VITE_CHAT_URL}/${chatId}/message/media`,
         method: "POST",
         body: data,
       }),
