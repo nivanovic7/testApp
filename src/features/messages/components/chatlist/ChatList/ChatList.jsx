@@ -1,11 +1,11 @@
-import ChatListItem from "./ChatListItem";
 import styles from "./ChatList.module.css";
-import { useGetChatsQuery } from "../../messagesApiSlice";
-import CreateGroupChat from "./CreateGroupChat";
+import { useGetChatsQuery } from "../../../messagesApiSlice";
+import CreateGroupChat from "../CreateGroupChat";
 import {
   filterChatsByType,
   removeChatsWithOnlyOneMember,
-} from "../../../../utils/helpers";
+} from "../../../../../utils/helpers";
+import ChatListItem from "../chatListItem/ChatListItem";
 
 function ChatList({ setSelectedChatId }) {
   const { data, isLoading } = useGetChatsQuery();

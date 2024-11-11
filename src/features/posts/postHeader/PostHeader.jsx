@@ -1,5 +1,5 @@
 import styles from "./PostHeader.module.css";
-import { useAddToChatMutation } from "../messages/messagesApiSlice";
+import { useAddToChatMutation } from "../../messages/messagesApiSlice";
 import { useSelector } from "react-redux";
 
 function PostHeader({ outfit }) {

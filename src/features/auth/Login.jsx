@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/ui/Input";
-import Form from "../../components/Form";
+import Form from "../../components/Form/Form";
 import FacebookLoginButton from "./FacebookLoginButton";
 import { useLoginMutation } from "./authApislice";
 import { setCredentials } from "./authSlice";
 import { useDispatch } from "react-redux";
-import ErrorMessage from "../../components/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 function Login() {
   const dispatch = useDispatch();

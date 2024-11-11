@@ -1,9 +1,9 @@
 import styles from "./Post.module.css";
-import { useDeleteOutfitMutation } from "./postApiSlice";
-import Comments from "./Comments";
+import { useDeleteOutfitMutation } from "../postApiSlice";
 
-import CustomCarousel from "../../components/CustomCarousel";
-import PostHeader from "./PostHeader";
+import CustomCarousel from "../../../components/CustomCarousel/CustomCarousel";
+import PostHeader from "../postHeader/PostHeader";
+import Comments from "./comments/Comments";
 
 function Post({ outfit }) {
   const [deletePost] = useDeleteOutfitMutation();

@@ -1,5 +1,5 @@
-import { getChatMembersUsernames } from "../../../../utils/helpers";
-import { useAddUserToGroupChatMutation } from "../../messagesApiSlice";
+import { getChatMembersUsernames } from "../../../../../utils/helpers";
+import { useAddUserToGroupChatMutation } from "../../../messagesApiSlice";
 import styles from "./ChatListItem.module.css";
 
 function ChatListItem({ chat, setSelectedChatId, availableGroupChats = [] }) {

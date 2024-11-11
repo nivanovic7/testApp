@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./CreateComment.module.css";
-import { useCreateCommentMutation } from "./postApiSlice";
-import ErrorMessage from "../../components/ErrorMessage";
+import { useCreateCommentMutation } from "../../postApiSlice";
+import ErrorMessage from "../../../../components/ErrorMessage/ErrorMessage";
 
 function CreateComment({ postId }) {
   const [createComment, { error }] = useCreateCommentMutation();

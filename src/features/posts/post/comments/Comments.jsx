@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Comments.module.css";
-import CreateComment from "./CreateComment";
+import CreateComment from "../createComment/CreateComment";
 
 function Comments({ comments, postId }) {
   const [isOpen, setIsOpen] = useState(false);

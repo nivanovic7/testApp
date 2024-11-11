@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./features/auth/Login";
 import Register from "./features/auth/Register";
-import Dashboard from "./features/user/Dashboard";
 import Profile from "./features/posts/Profile";
 import GuardRoute from "./features/auth/GuardRoute";
 import CreatePost from "./features/posts/CreatePost";
 import Map from "./features/user/Map";
-import Inbox from "./features/messages/components/Inbox";
 import PersistedLogin from "./features/auth/PersistedLogin";
+import Dashboard from "./features/user/dashboard/Dashboard";
+import Inbox from "./features/messages/inbox/Inbox";
 
 function App() {
   return (

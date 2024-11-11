@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/ui/Input";
-import Form from "../../components/Form";
+import Form from "../../components/Form/Form.jsx";
 import { useRegisterMutation } from "./authApislice";
 import { REGISTER_CREDENTIALS } from "../../utils/config.js";
-import ErrorMessage from "../../components/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 
 function Register() {
   const navigate = useNavigate();

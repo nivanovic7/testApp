@@ -2,7 +2,7 @@ import Input from "../../components/ui/Input";
 import { useState } from "react";
 import { useGetUserSettingsQuery } from "../user/userApiSlice";
 import { useCreateOutfitMutation } from "./postApiSlice";
-import ErrorMessage from "../../components/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 function CreatePost() {
   const [createOutfit, { isLoading, isSuccess, error }] =

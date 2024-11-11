@@ -4,9 +4,9 @@ import { useState } from "react";
 import {
   useSendAttachmentMutation,
   useSendMessageMutation,
-} from "../../messagesApiSlice";
+} from "../../../messagesApiSlice";
 import { useSelector } from "react-redux";
-import { generateMessageObj, sendImage } from "../../../../utils/helpers";
+import { generateMessageObj, sendImage } from "../../../../../utils/helpers";
 
 function SendMessage({ chatId, setNewMessages }) {
   const { sub: currentUserId, userName } = useSelector(
