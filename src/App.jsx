@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "./features/auth/Login";
-import Register from "./features/auth/Register";
-import Profile from "./features/posts/Profile";
-import GuardRoute from "./features/auth/GuardRoute";
-import CreatePost from "./features/posts/CreatePost";
-import Map from "./features/user/Map";
-import PersistedLogin from "./features/auth/PersistedLogin";
-import Dashboard from "./features/user/dashboard/Dashboard";
-import Inbox from "./features/messages/inbox/Inbox";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
+import GuardRoute from "./components/GuardRoute";
+import CreatePost from "./components/CreatePost";
+import PersistedLogin from "./components/PersistedLogin";
+import Dashboard from "./components/dashboard/Dashboard";
+import Inbox from "./components/inbox/Inbox";
+import Map from "./components/Map";
 
 function App() {
   return (
