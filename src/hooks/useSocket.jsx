@@ -9,7 +9,7 @@ const useSocket = (chatId) => {
   useEffect(() => {
     const connectSocket = () => {
       if (!socket) {
-        const newSocket = io("https://laterz.api.exebyte.io", {
+        const newSocket = io(import.meta.env.VITE_SOCKET_URL, {
           transports: ["websocket"],
           query: { jwt: token },
         });

@@ -44,6 +44,7 @@ function CreatePost() {
         onChange={(e) => setDescription(e.target.value)}
         value={description}
         label="Post description"
+        required
       />
 
       <Input
@@ -53,6 +54,7 @@ function CreatePost() {
         multiple
         name="file"
         id="outfitsImage"
+        required
       />
 
       <Input
@@ -61,6 +63,7 @@ function CreatePost() {
         type="file"
         name="file"
         id="outfitsVideos"
+        required
       />
 
       <button disabled={isLoading} type="submit">
