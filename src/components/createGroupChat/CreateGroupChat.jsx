@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCreateGroupChatMutation } from "../app/api/messagesApiSlice";
+import { useCreateGroupChatMutation } from "../../app/api/messagesApiSlice";
 
 function CreateGroupChat() {
   const [isOpen, setIsOpen] = useState(false);

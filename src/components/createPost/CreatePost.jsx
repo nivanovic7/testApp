@@ -1,8 +1,8 @@
-import Input from "./ui/Input";
 import { useState } from "react";
-import { useGetUserSettingsQuery } from "../app/api/userApiSlice";
-import ErrorMessage from "./ErrorMessage/ErrorMessage";
-import { useCreateOutfitMutation } from "../app/api/postApiSlice";
+import { useGetUserSettingsQuery } from "../../app/api/userApiSlice";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { useCreateOutfitMutation } from "../../app/api/postApiSlice";
+import Input from "../input/Input";
 
 function CreatePost() {
   const [createOutfit, { isLoading, isSuccess, error }] =

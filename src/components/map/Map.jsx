@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvent } from "react-leaflet";
-import { getUserLocation } from "../utils/helpers";
-import { useSetUserLocationMutation } from "../app/api/userApiSlice";
+import { useSetUserLocationMutation } from "../../app/api/userApiSlice";
+import { getUserLocation } from "../../utils/helpers";
 
 function Map() {
   const [setUserLocation] = useSetUserLocationMutation();

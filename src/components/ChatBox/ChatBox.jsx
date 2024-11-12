@@ -1,8 +1,8 @@
 import styles from "./ChatBox.module.css";
 
 import SendMessage from "../SendMessage/SendMessage";
-import LoadedMessagesList from "../LoadedMessagesList";
-import NewMessagesList from "../NewMessagesList";
+import LoadedMessagesList from "../loadedMessagesList/LoadedMessagesList";
+import NewMessagesList from "../newMessagesList/NewMessagesList";
 import { useEffect, useState } from "react";
 
 function ChatBox({ chatId }) {

@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import SingleMessage from "./SingleMessage";
-import useSocket from "../hooks/useSocket";
 import { useSelector } from "react-redux";
-import SingleMessageHeader from "./SingleMessageHeader";
-import SingleMessageFooter from "./SingleMessageFooter";
-import SingleMessageBody from "./SingleMessageBody";
+import useSocket from "../../hooks/useSocket";
+import SingleMessage from "../singleMessage/SingleMessage";
+import SingleMessageHeader from "../singleMessageHeader/SingleMessageHeader";
+import SingleMessageFooter from "../singleMessageFooter/SingleMessageFooter";
+import SingleMessageBody from "../singleMessageBody/SingleMessageBody";
 
 function NewMessagesList({ chatId, newMessages, setNewMessages }) {
   const scrollToBottomTarget = useRef(null);

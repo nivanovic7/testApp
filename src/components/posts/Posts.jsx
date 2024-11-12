@@ -1,6 +1,6 @@
-import { useGetOutfitsQuery } from "../app/api/postApiSlice";
-import Post from "./post/Post";
-import PostLoader from "./postLoader/PostLoader";
+import { useGetOutfitsQuery } from "../../app/api/postApiSlice";
+import Post from "../post/Post";
+import PostLoader from "../postLoader/PostLoader";
 
 function Posts() {
   const { data: { data: posts } = {}, isLoading } = useGetOutfitsQuery();

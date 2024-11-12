@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
-import CustomNavLink from "./ui/CustomNavLink";
-import { getNavLinksByStatus } from "../utils/helpers";
-import LogoutButton from "./ui/LogoutButton";
+import { getNavLinksByStatus } from "../../utils/helpers";
+import LogoutButton from "../logoutButton/LogoutButton";
+import CustomNavLink from "../customNavLink/CustomNavLink";
 
 function Navigation() {
   const { isLoggedIn } = useSelector((state) => state.auth);

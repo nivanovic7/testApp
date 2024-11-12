@@ -1,6 +1,6 @@
 import styles from "./ChatList.module.css";
 import { useGetChatsQuery } from "../../app/api/messagesApiSlice";
-import CreateGroupChat from "../CreateGroupChat";
+import CreateGroupChat from "../createGroupChat/CreateGroupChat";
 import {
   filterChatsByType,
   removeChatsWithOnlyOneMember,

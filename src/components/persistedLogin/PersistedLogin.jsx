@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { setCredentials } from "../app/api/authSlice";
 import { useDispatch } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
+import { setCredentials } from "../../app/slices/authSlice";
 
 function PersistedLogin() {
   const dispatch = useDispatch();

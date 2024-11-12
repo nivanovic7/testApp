@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "./ui/Input";
-import Form from "./Form/Form";
-import FacebookLoginButton from "./FacebookLoginButton";
-import { useLoginMutation } from "../app/api/authApislice";
-import { setCredentials } from "../app/api/authSlice";
+import Input from "../input/Input";
+import Form from "../Form/Form";
+import FacebookLoginButton from "../facebookLoginButton/FacebookLoginButton";
+import { useLoginMutation } from "../../app/api/authApislice";
+import { setCredentials } from "../../app/slices/authSlice";
 import { useDispatch } from "react-redux";
-import ErrorMessage from "./ErrorMessage/ErrorMessage";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 function Login() {
   const dispatch = useDispatch();

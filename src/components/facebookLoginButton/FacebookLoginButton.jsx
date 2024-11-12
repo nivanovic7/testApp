@@ -1,13 +1,13 @@
 import FacebookLogin from "react-facebook-login";
 
-import { getRegisterCredentialsFromFB } from "../utils/helpers";
+import { getRegisterCredentialsFromFB } from "../../utils/helpers";
 import {
   useFacebookLoginMutation,
   useFacebookRegisterMutation,
-} from "../app/api/authApislice";
+} from "../../app/api/authApislice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../app/api/authSlice";
+import { setCredentials } from "../../app/slices/authSlice";
 
 function FacebookLoginButton() {
   const navigate = useNavigate();

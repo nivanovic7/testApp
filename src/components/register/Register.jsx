@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "./ui/Input.jsx";
-import Form from "./Form/Form.jsx";
-import { useRegisterMutation } from "../app/api/authApislice.js";
-import { REGISTER_CREDENTIALS } from "../utils/config.js";
-import ErrorMessage from "./ErrorMessage/ErrorMessage.jsx";
+import Form from "../Form/Form.jsx";
+import { useRegisterMutation } from "../../app/api/authApislice.js";
+import { REGISTER_CREDENTIALS } from "../../utils/config.js";
+import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
+import Input from "../input/Input.jsx";
 
 function Register() {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
-import { useGetChatQuery } from "../app/api/messagesApiSlice";
-import SingleMessage from "./SingleMessage";
-import SingleMessageFooter from "./SingleMessageFooter";
-import SingleMessageHeader from "./SingleMessageHeader";
-import SingleMessageBody from "./SingleMessageBody";
+import SingleMessage from "../singleMessage/SingleMessage";
+import SingleMessageFooter from "../singleMessageFooter/SingleMessageFooter";
+import SingleMessageHeader from "../singleMessageHeader/SingleMessageHeader";
+import SingleMessageBody from "../singleMessageBody/SingleMessageBody";
+import { useGetChatQuery } from "../../app/api/messagesApiSlice";
 
 function LoadedMessagesList({ chatId, newMessages }) {
   const { data, isLoading } = useGetChatQuery(chatId, {
