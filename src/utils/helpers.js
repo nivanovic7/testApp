@@ -1,4 +1,3 @@
-// import { setAuthHeader, setRefreshToken } from "../api/api";
 import { v4 as uuidv4 } from "uuid";
 import { navLinks } from "./config.js";
 
@@ -64,11 +63,19 @@ export function filterChatsByType(chats, type) {
   return chats.filter((chat) => chat.chatType === type);
 }
 
-export function sendImage(prepareObj, sendAttachment, attachment, chatId) {
-  const data = new FormData();
-  data.append("chatMessageUnique", chatId);
-  data.append("chatMessageMedia", attachment);
-  sendAttachment({ data, chatId });
-  prepareObj.type = "media";
-  prepareObj.message = URL.createObjectURL(attachment);
+export function prepareNewMessageObjectType(type, item) {
+  if (type === "text") {
+    return { type, message: item };
+  }
+  if (type === "media") {
+    return { type, message: URL.createObjectURL(item) };
+  }
+}
+
+export function prepareFormData({ dataObj }) {
+  const formData = new FormData();
+  Object.entries(dataObj).forEach(([key, value]) => {
+    formData.append(key, value);
+  });
+  return formData;
 }

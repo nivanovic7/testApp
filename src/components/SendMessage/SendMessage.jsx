@@ -6,7 +6,11 @@ import {
   useSendMessageMutation,
 } from "../../app/api/messagesApiSlice";
 import { useSelector } from "react-redux";
-import { generateMessageObj, sendImage } from "../../utils/helpers";
+import {
+  generateMessageObj,
+  prepareFormData,
+  prepareNewMessageObjectType,
+} from "../../utils/helpers";
 
 function SendMessage({ chatId, setNewMessages }) {
   const { sub: currentUserId, userName } = useSelector(
@@ -20,25 +24,25 @@ function SendMessage({ chatId, setNewMessages }) {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!attachment && !message) return;
-    const prepareObj = { type: "", message: null };
+
+    let newMessageObjType = {};
     if (attachment) {
-      sendImage(prepareObj, sendAttachment, attachment, chatId);
+      const data = prepareFormData({
+        chatMessageUnique: chatId,
+        chatMessageMedia: attachment,
+      });
+      sendAttachment({ data, chatId });
+      newMessageObjType = prepareNewMessageObjectType("media", attachment);
     }
+
     if (message) {
       sendMessage({ message, chatId });
-      prepareObj.type = "text";
-      prepareObj.message = message;
+      newMessageObjType = prepareNewMessageObjectType("text", message);
     }
 
     setNewMessages((state) => [
       ...state,
-      generateMessageObj(
-        chatId,
-        currentUserId,
-        userName,
-        prepareObj.type,
-        prepareObj.message
-      ),
+      generateMessageObj(chatId, currentUserId, userName, ...newMessageObjType),
     ]);
     setMessage("");
   }
