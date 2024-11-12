@@ -31,6 +31,7 @@ function SendMessage({ chatId, setNewMessages }) {
         chatMessageUnique: chatId,
         chatMessageMedia: attachment,
       });
+
       sendAttachment({ data, chatId });
       newMessageObjType = prepareNewMessageObjectType("media", attachment);
     }
@@ -39,10 +40,15 @@ function SendMessage({ chatId, setNewMessages }) {
       sendMessage({ message, chatId });
       newMessageObjType = prepareNewMessageObjectType("text", message);
     }
-
     setNewMessages((state) => [
       ...state,
-      generateMessageObj(chatId, currentUserId, userName, ...newMessageObjType),
+      generateMessageObj(
+        chatId,
+        currentUserId,
+        userName,
+        newMessageObjType.type,
+        newMessageObjType.message
+      ),
     ]);
     setMessage("");
   }

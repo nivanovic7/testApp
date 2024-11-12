@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useGetUserSettingsQuery } from "../../app/api/userApiSlice";
+import { useGetUserSettingsQuery } from "../../api/userApiSlice";
 import { useDispatch } from "react-redux";
-import { logOut } from "../../app/slices/authSlice";
-import Posts from "../posts/Posts";
+import { logOut } from "../../slices/authSlice";
+import Posts from "../../../components/posts/Posts";
 
 function Profile() {
   const { data, error, isLoading } = useGetUserSettingsQuery();
