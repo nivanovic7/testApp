@@ -1,0 +1,10 @@
+.footer {
+  background-color: rgb(78, 57, 57);
+  color: whitesmoke;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer img {
+  width: 30px;
+}
