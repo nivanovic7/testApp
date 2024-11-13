@@ -72,10 +72,19 @@ export function prepareNewMessageObjectType(type, item) {
   }
 }
 
-export function prepareFormData({ dataObj }) {
+export function prepareFormData(dataObj) {
   const formData = new FormData();
   Object.entries(dataObj).forEach(([key, value]) => {
-    formData.append(key, value);
+    console.log(value);
+    console.log(Array.isArray(value));
+    if (Array.isArray(value)) {
+      value.forEach((item) => formData.append(key, item));
+    } else {
+      formData.append(key, value);
+    }
   });
   return formData;
+}
+export function capitalizeFirstLetter(val) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
