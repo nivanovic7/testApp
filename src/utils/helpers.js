@@ -75,8 +75,6 @@ export function prepareNewMessageObjectType(type, item) {
 export function prepareFormData(dataObj) {
   const formData = new FormData();
   Object.entries(dataObj).forEach(([key, value]) => {
-    console.log(value);
-    console.log(Array.isArray(value));
     if (Array.isArray(value)) {
       value.forEach((item) => formData.append(key, item));
     } else {

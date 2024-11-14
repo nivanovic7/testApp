@@ -23,6 +23,7 @@ function CreatePost() {
     const formData = prepareFormData({
       outfitsDescription: description,
       outfitsVideos: video,
+      outfitsImages: Array.from(image),
       longitude: data.userCurrentLocation.longitude,
       latitude: data.userCurrentLocation.latitude,
       likeSetting: "true",
