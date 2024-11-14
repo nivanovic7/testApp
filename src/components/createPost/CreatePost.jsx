@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useCreateOutfitMutation } from "../../api/postApiSlice";
-import { useGetUserSettingsQuery } from "../../api/userApiSlice";
-import ErrorMessage from "../../../components/ErrorMessage/ErrorMessage";
-import Input from "../../../components/input/Input";
-import { prepareFormData } from "../../../utils/helpers";
+import { useCreateOutfitMutation } from "../../app/api/postApiSlice";
+import { useGetUserSettingsQuery } from "../../app/api/userApiSlice";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Input from "../input/Input";
+import { prepareFormData } from "../../utils/helpers";
 
 function CreatePost() {
   const [createOutfit, { isLoading, isSuccess, error }] =

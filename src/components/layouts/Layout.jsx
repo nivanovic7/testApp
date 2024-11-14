@@ -6,7 +6,7 @@ import GuardRoute from "../guardRoute/GuardRoute";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Map from "../../components/map/Map";
 import Profile from "../../pages/profile/Profile";
-import CreatePost from "../../app/pages/createPost/CreatePost";
+import CreatePost from "../../components/createPost/CreatePost";
 import Inbox from "../../pages/inbox/Inbox";
 import Header from "../headers/header/Header";
 import Footer from "../footers/footer/Footer";
