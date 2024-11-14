@@ -1,10 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { logOut, setCredentials } from "../slices/authSlice";
 
-console.log();
+const REFRESH_TOKEN_URL = " auth/refresh-token";
+
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL,
   credentials: "include",
+  // mode: "no-cors",
   prepareHeaders: (headers, { getState }) => {
     const accessToken = getState().auth.accessToken;
     if (accessToken) {
@@ -15,13 +17,12 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
-  console.log(api);
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.originalStatus === 403) {
     console.log("Sending refresh token!");
     const refreshToken = api.getState().auth.refreshToken;
     const refreshResult = await baseQuery(
-      { url: import.meta.env.VITE_REFRESH_TOKEN_URL, refreshToken },
+      { url: REFRESH_TOKEN_URL, refreshToken },
       api,
       extraOptions
     );

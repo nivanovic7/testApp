@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Form from "../../components/Form/Form";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -31,7 +31,7 @@ function Login() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form title="Login" onSubmit={handleSubmit}>
       {error && <ErrorMessage error={error} />}
 
       <Input
@@ -53,6 +53,7 @@ function Login() {
 
       <button disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</button>
       <FacebookLoginButton />
+      <Link to="/register">You don&apos;t have account? Reqister!</Link>
     </Form>
   );
 }

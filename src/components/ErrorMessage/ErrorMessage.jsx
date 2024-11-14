@@ -1,6 +1,7 @@
 import styles from "./ErrorMessage.module.css";
 
 function ErrorMessage({ error }) {
+  console.log(error);
   if (error.data.message) {
     return <p className={styles.error}>{error.data.message}</p>;
   }

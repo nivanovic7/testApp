@@ -1,14 +1,17 @@
 import { apiSlice } from "./apiSlice";
 
+const GET_USER_SETTINGS_API = "user/settings/getUser";
+const UPDATE_USER_SETTINGS_API = "user/settings";
+
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUserSettings: builder.query({
-      query: () => import.meta.env.VITE_GET_USER_SETTINGS_API,
+      query: () => GET_USER_SETTINGS_API,
       providesTags: ["UserSettings"],
     }),
     setUserLocation: builder.mutation({
       query: ({ longitude, latitude }) => ({
-        url: import.meta.env.VITE_UPDATE_USER_SETTINGS_API,
+        url: UPDATE_USER_SETTINGS_API,
         method: "PUT",
         body: {
           userCurrentLocation: {

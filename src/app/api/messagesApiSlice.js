@@ -1,15 +1,22 @@
 import { apiSlice } from "./apiSlice";
 
+const CHAT_URL = "chat";
+const ADD_CHAT_URL = "chat/getChat";
+const MEMBERS = "members";
+const MESSAGE = "message";
+const MESSAGE_TEXT = "message/text";
+const MESSAGE_MEDIA = "message/media";
+
 export const messagesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getChats: builder.query({
-      query: () => import.meta.env.VITE_CHAT_URL,
+      query: () => CHAT_URL,
       providesTags: ["Conversations"],
     }),
 
     createGroupChat: builder.mutation({
       query: (chatName) => ({
-        url: import.meta.env.VITE_CHAT_URL,
+        url: CHAT_URL,
         method: "POST",
         body: { chatName },
       }),
@@ -20,7 +27,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
       query: ({ groupId, usersIds }) => {
         console.log(usersIds);
         return {
-          url: `${import.meta.env.VITE_CHAT_URL}/${groupId}/members`,
+          url: `${CHAT_URL}/${groupId}/${MEMBERS}`,
           method: "POST",
           body: usersIds,
         };
@@ -29,7 +36,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
 
     addToChat: builder.mutation({
       query: (userId) => ({
-        url: import.meta.env.VITE_ADD_CHAT_URL,
+        url: ADD_CHAT_URL,
         method: "POST",
         body: { user: userId },
       }),
@@ -37,7 +44,7 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
     }),
 
     getChat: builder.query({
-      query: (chatId) => `${import.meta.env.VITE_CHAT_URL}/${chatId}/message`,
+      query: (chatId) => `${CHAT_URL}/${chatId}/${MESSAGE}`,
       transformResponse: (res) => {
         return { ...res, data: res.data.reverse() };
       },
@@ -45,14 +52,14 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
 
     sendMessage: builder.mutation({
       query: ({ message, chatId }) => ({
-        url: `${import.meta.env.VITE_CHAT_URL}/${chatId}/message/text`,
+        url: `${CHAT_URL}/${chatId}/${MESSAGE_TEXT}`,
         method: "POST",
         body: { chatMessageUnique: chatId, chatMessageText: message },
       }),
     }),
     sendAttachment: builder.mutation({
       query: ({ data, chatId }) => ({
-        url: `${import.meta.env.VITE_CHAT_URL}/${chatId}/message/media`,
+        url: `${CHAT_URL}/${chatId}/${MESSAGE_MEDIA}`,
         method: "POST",
         body: data,
       }),

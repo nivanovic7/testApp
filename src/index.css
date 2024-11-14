@@ -1,5 +1,17 @@
 @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+}
 ul {
   list-style: none;
   display: flex;

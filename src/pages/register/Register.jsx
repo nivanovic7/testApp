@@ -32,7 +32,6 @@ function Register() {
 
   return (
     <div>
-      {/* TODO - add all fields requered for reqistering */}
       <Form onSubmit={handleSubmit} title="Register">
         {error && <ErrorMessage error={error} />}
         <Input
@@ -66,8 +65,8 @@ function Register() {
           required
         />
         <button disabled={isLoading}>Register</button>
+        <Link to="/login">Already have account? Login</Link>
       </Form>
-      <Link to="/login">Already have account? Login</Link>
     </div>
   );
 }
