@@ -1,49 +1,57 @@
-// import FacebookLogin from "react-facebook-login";
+import { getRegisterCredentialsFromFacebookResponse } from "../../utils/helpers";
+import {
+  useFacebookLoginMutation,
+  useFacebookRegisterMutation,
+} from "../../app/api/authApislice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../app/slices/authSlice";
+import { LoginSocialFacebook } from "reactjs-social-login";
 
-// import { getRegisterCredentialsFromFB } from "../../utils/helpers";
-// import {
-//   useFacebookLoginMutation,
-//   useFacebookRegisterMutation,
-// } from "../../app/api/authApislice";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { setCredentials } from "../../app/slices/authSlice";
+function FacebookLoginButton() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [facebookLogin] = useFacebookLoginMutation();
+  const [facebookRegister] = useFacebookRegisterMutation();
 
-// function FacebookLoginButton() {
-//   const navigate = useNavigate();
-//   const dispatch = useDispatch();
-//   const [facebookLogin] = useFacebookLoginMutation();
-//   const [facebookRegister] = useFacebookRegisterMutation();
+  async function handleFacebookResponse(res) {
+    const credentials = getRegisterCredentialsFromFacebookResponse(res.data);
 
-//   async function responseFacebook(res) {
-//     const credentials = getRegisterCredentialsFromFB(res);
+    try {
+      await facebookRegister(credentials).unwrap();
+      navigate("/dashboard");
+    } catch (registerError) {
+      if (registerError.status === 409) {
+        try {
+          const { data: userData } = await facebookLogin(credentials).unwrap();
+          dispatch(setCredentials(userData));
+          navigate("/profile");
+        } catch (loginError) {
+          console.log(loginError, "FB LOGIN NOT SUCCESSFULL");
+        }
+      } else {
+        console.log(registerError, "FB REGISTRATION NOT SUCCESSFULL");
+      }
+    }
+  }
 
-//     try {
-//       await facebookRegister(credentials).unwrap();
-//       navigate("/profile");
-//     } catch (registerError) {
-//       if (registerError.status === 409) {
-//         try {
-//           const { data: userData } = await facebookLogin(credentials).unwrap();
-//           dispatch(setCredentials(userData));
-//           navigate("/profile");
-//         } catch (loginError) {
-//           console.log(loginError, "FB LOGIN NOT SUCCESSFULL");
-//         }
-//       } else {
-//         console.log(registerError, "FB REGISTRATION NOT SUCCESSFULL");
-//       }
-//     }
-//   }
+  return (
+    <div>
+      <LoginSocialFacebook
+        fields="name, email, username"
+        appId={import.meta.env.VITE_FACEBOOK_LOGIN_APP_ID}
+        onLoginStart={(start) => console.log(start)}
+        onResolve={(res) => {
+          handleFacebookResponse(res);
+        }}
+        onReject={(err) => {
+          console.log(err);
+        }}
+      >
+        <button type="button">Login with Facebook</button>
+      </LoginSocialFacebook>
+    </div>
+  );
+}
 
-//   return (
-//     <FacebookLogin
-//       appId={import.meta.REACT_APP_FACEBOOK_LOGIN_APP_ID}
-//       autoLoad={false}
-//       fields="email, name, picture, gender, first_name"
-//       callback={responseFacebook}
-//     />
-//   );
-// }
-
-// export default FacebookLoginButton;
+export default FacebookLoginButton;

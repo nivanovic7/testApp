@@ -8,6 +8,7 @@ import Input from "../../components/input/Input";
 // import FacebookLoginButton from "../../components/facebookLoginButton/FacebookLoginButton";
 import { useLoginMutation } from "../../app/api/authApislice";
 import { setCredentials } from "../../app/slices/authSlice";
+import FacebookLoginButton from "../../components/facebookLoginButton/FacebookLoginButton";
 
 function Login() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ function Login() {
       />
 
       <button disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</button>
-      {/* <FacebookLoginButton /> */}
+      <FacebookLoginButton />
       <Link to="/register">You don&apos;t have account? Reqister!</Link>
     </Form>
   );

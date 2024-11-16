@@ -17,13 +17,14 @@ export function getNavLinksByStatus(status) {
   return navLinks.filter((link) => link.status === status);
 }
 
-export function getRegisterCredentialsFromFB(res) {
+export function getRegisterCredentialsFromFacebookResponse(data) {
+  console.log(data);
   const credentials = {
-    facebookID: res.id,
-    facebookAccessToken: res.accessToken,
-    userEmail: res.email,
-    userName: res.name,
-    userGender: res.gender || 1,
+    facebookID: data.userID,
+    facebookAccessToken: data.accessToken,
+    userEmail: data.email,
+    userName: data.name,
+    userGender: data.gender || 1,
     facebookDetails: "",
   };
 
