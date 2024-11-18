@@ -1,0 +1,21 @@
+.button {
+  flex: 1;
+  color: var(--color-neutral-900);
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  border: 0;
+  padding: 0.3rem;
+
+  padding-left: 0.75rem;
+  background-color: rgb(26, 228, 166);
+  border-radius: 200px;
+}
+
+.button img {
+  padding: 5px;
+  background-color: var(--color-neutral-900);
+  border-radius: 50%;
+  /* width: 28px;
+  height: 28px; */
+}

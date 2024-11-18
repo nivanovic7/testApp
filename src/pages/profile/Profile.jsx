@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useGetUserSettingsQuery } from "../../app/api/userApiSlice";
 import { logOut } from "../../app/slices/authSlice";
 import Posts from "../../components/posts/Posts";
+import styles from "./Profile.module.css";
 
 function Profile() {
   const { data, error, isLoading } = useGetUserSettingsQuery();
+  if (data) console.log(data);
   const dispatch = useDispatch();
   if (error) {
     dispatch(logOut());
@@ -13,12 +14,12 @@ function Profile() {
 
   if (isLoading) return <p>Loading user data...</p>;
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Wellcome {data.data.userName}</h2>
-      <button>
-        <Link to="/createPost">New Post</Link>
-      </button>
-      <Posts />
+    <div className={styles.profileLayout}>
+      <aside>Some profile info</aside>
+      <div>
+        <Posts />
+      </div>
+      <aside>Recomendations</aside>
     </div>
   );
 }

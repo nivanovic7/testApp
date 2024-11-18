@@ -8,10 +8,9 @@ import { prepareFormData } from "../../utils/helpers";
 function CreatePost() {
   const [createOutfit, { isLoading, isSuccess, error }] =
     useCreateOutfitMutation();
-  const {
-    data: { data },
-  } = useGetUserSettingsQuery();
+  const { data } = useGetUserSettingsQuery();
 
+  console.log(data);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
@@ -24,8 +23,8 @@ function CreatePost() {
       outfitsDescription: description,
       outfitsVideos: video,
       outfitsImages: Array.from(image),
-      longitude: data.userCurrentLocation.longitude,
-      latitude: data.userCurrentLocation.latitude,
+      longitude: data.data.userCurrentLocation.longitude,
+      latitude: data.data.userCurrentLocation.latitude,
       likeSetting: "true",
       commentSettings: "true",
     });
@@ -35,6 +34,8 @@ function CreatePost() {
     setVideo(null);
     setDescription("");
   }
+
+  if (!data) return <p>Loading...</p>;
 
   return (
     <form onSubmit={handleSubmit}>

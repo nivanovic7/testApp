@@ -22,6 +22,7 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+
   return (
     <Carousel showDots className={styles.carousel} responsive={responsive}>
       {outfitImages.map((img, i) => (

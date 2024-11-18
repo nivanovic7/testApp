@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(221, 231, 228);
   text-align: center;
+  box-shadow: var(--box-shadow-primary);
   padding: 1rem;
 }

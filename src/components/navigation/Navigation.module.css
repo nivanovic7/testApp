@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nav li:hover {
+  color: var(--color-accent);
+}

@@ -1,17 +1,30 @@
 @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+@import url("https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --color-primary: rgba(0, 158, 253, 1);
+  --color-accent: rgba(26, 228, 166, 1);
+  --color-neutral-100: white;
+  --color-neutral-900: rgb(36, 36, 36);
+
+  --box-shadow-primary: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --border-radius-primary: 10px;
+}
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
   margin: 0;
-}
-
-#root {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-neutral-900);
 }
+
 ul {
   list-style: none;
   display: flex;
@@ -22,6 +35,10 @@ ul {
 
 p {
   margin: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 .map {
@@ -37,8 +54,14 @@ a {
 }
 
 .active {
-  color: blue;
+  color: var(--color-accent);
 }
+
+img {
+  max-width: 300px;
+}
+/*
+Commented this to see if it works without it and it does somehow. Will delete afterwards */
 .userMessage,
 .friendMessage {
   color: white;

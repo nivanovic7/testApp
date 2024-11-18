@@ -1,6 +1,7 @@
 import { useGetOutfitsQuery } from "../../app/api/postApiSlice";
 import Post from "../post/Post";
 import PostLoader from "../postLoader/PostLoader";
+import styles from "./Posts.module.css";
 
 function Posts() {
   const { data: { data: posts } = {}, isLoading } = useGetOutfitsQuery();
@@ -12,7 +13,7 @@ function Posts() {
     return <h2>No posts at this location</h2>;
   }
   return (
-    <div>
+    <div className={styles.posts}>
       {posts.map((outfit) => (
         <Post key={outfit._id} outfit={outfit} />
       ))}

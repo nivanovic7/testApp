@@ -1,3 +1,4 @@
+import styles from "./LogoutButton.module.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../app/slices/authSlice";
@@ -13,8 +14,10 @@ function LogoutButton() {
     navigate("/login");
   }
   return (
-    <li>
-      <button onClick={handleLogout}>Logout</button>
+    <li className={styles.logoutButtonItem}>
+      <button className={styles.logoutButton} onClick={handleLogout}>
+        Logout
+      </button>
     </li>
   );
 }

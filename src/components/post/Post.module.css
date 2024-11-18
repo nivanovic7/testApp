@@ -1,0 +1,7 @@
+.post {
+  width: min-content;
+  box-shadow: var(--box-shadow-primary);
+  border-radius: var(--border-radius-primary);
+  padding: 1rem;
+  max-width: 550px;
+}

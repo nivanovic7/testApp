@@ -1,0 +1,11 @@
+.logoutButtonItem {
+  margin-left: auto;
+}
+
+.logoutButton {
+  border-radius: 200px;
+  color: var(--color-neutral-900);
+  background-color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border: 0;
+}

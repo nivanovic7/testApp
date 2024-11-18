@@ -11,7 +11,9 @@ function Post({ outfit }) {
   async function handleDelete() {
     try {
       await deletePost(outfit._id).unwrap();
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
