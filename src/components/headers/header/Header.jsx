@@ -13,7 +13,7 @@ function Header() {
     <div className={styles.header}>
       {isLoggedIn && (
         <>
-          <Navigation toggle={isMenuOpen ? "hideNav" : ""} />
+          <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <span>{user.userName}</span>
           <span
             onClick={() => setIsMenuOpen(!isMenuOpen)}

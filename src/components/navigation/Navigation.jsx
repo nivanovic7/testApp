@@ -7,12 +7,15 @@ import CustomNavLink from "../customNavLink/CustomNavLink";
 import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
 import { Link } from "react-router-dom";
 
-function Navigation({ toggle }) {
+function Navigation({ isMenuOpen, setIsMenuOpen }) {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const status = isLoggedIn ? "private" : "public";
 
   return (
-    <ul className={`${styles.nav} ${styles[toggle]}`}>
+    <ul
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+      className={`${styles.nav} ${styles[isMenuOpen ? "toggleNav" : ""]}`}
+    >
       {getNavLinksByStatus(status).map((link) => (
         <CustomNavLink key={link.path} path={link.path} text={link.text} />
       ))}
