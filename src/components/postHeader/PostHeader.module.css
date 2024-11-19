@@ -25,3 +25,36 @@
   font-style: italic;
   color: gray;
 }
+
+.dropdownWrap {
+  margin-left: auto;
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--color-neutral-100);
+  min-width: 100px;
+  z-index: 10;
+  box-shadow: var(--box-shadow-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown button {
+  border: 0;
+  background-color: transparent;
+  padding: 0.5rem;
+}
+
+.dropdown button:hover {
+  background-color: rgb(221, 218, 218);
+}
+
+.toggle {
+  width: 30px;
+  margin-left: auto;
+  cursor: pointer;
+}

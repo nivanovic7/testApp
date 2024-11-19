@@ -1,5 +1,5 @@
 .post {
   box-shadow: var(--box-shadow-primary);
   border-radius: var(--border-radius-primary);
-  overflow: hidden;
+  /* overflow: hidden; */
 }

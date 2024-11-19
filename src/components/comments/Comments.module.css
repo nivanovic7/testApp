@@ -3,6 +3,8 @@
   flex-direction: column;
   padding: 0.5rem 0;
   max-height: 200px;
+
+  /* SCROLLBAR */
   overflow-x: scroll;
   scrollbar-gutter: none;
   -ms-overflow-style: none;
