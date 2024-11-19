@@ -1,5 +1,27 @@
 .header {
-  text-align: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
   box-shadow: var(--box-shadow-primary);
   padding: 1rem;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menuCheckbox :checked + ul {
+  background-color: red;
+}
+
+.menuIcon {
+  display: block;
+}
+
+.menuIcon img {
+  width: 30px;
+}
+
+@media only screen and (min-width: 800px) {
+  .menuIcon {
+    display: none;
+  }
 }

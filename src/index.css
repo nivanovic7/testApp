@@ -54,7 +54,7 @@ a {
 }
 
 .active {
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
 }
 
 img {

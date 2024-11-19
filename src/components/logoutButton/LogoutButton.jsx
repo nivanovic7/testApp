@@ -14,11 +14,9 @@ function LogoutButton() {
     navigate("/login");
   }
   return (
-    <li className={styles.logoutButtonItem}>
-      <button className={styles.logoutButton} onClick={handleLogout}>
-        Logout
-      </button>
-    </li>
+    <button className={styles.logoutButton} onClick={handleLogout}>
+      Logout
+    </button>
   );
 }
 

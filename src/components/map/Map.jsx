@@ -30,6 +30,7 @@ function Map() {
         center={[latitude, longitude]}
         zoom={4}
         scrollWheelZoom={false}
+        style={{ zIndex: "-10" }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

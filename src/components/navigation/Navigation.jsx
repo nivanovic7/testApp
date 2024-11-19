@@ -7,31 +7,29 @@ import CustomNavLink from "../customNavLink/CustomNavLink";
 import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
 import { Link } from "react-router-dom";
 
-function Navigation() {
-  const { isLoggedIn, user } = useSelector((state) => state.auth);
+function Navigation({ toggle }) {
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const status = isLoggedIn ? "private" : "public";
 
   return (
-    <ul className={styles.nav}>
+    <ul className={`${styles.nav} ${styles[toggle]}`}>
       {getNavLinksByStatus(status).map((link) => (
         <CustomNavLink key={link.path} path={link.path} text={link.text} />
       ))}
-
-      {isLoggedIn && (
-        <>
+      <>
+        <li className={styles.loginWrap}>
           <LogoutButton />
-          <li>
-            <Link to="/createPost">
-              <ButtonWithIcon
-                text="New post"
-                iconSrc="../../../public/assets/plus.png"
-              />
-            </Link>
-          </li>
-        </>
-      )}
+        </li>
 
-      <li>{user.userName}</li>
+        <li>
+          <Link to="/createPost">
+            <ButtonWithIcon
+              text="New post"
+              iconSrc="../../../public/assets/plus.png"
+            />
+          </Link>
+        </li>
+      </>
     </ul>
   );
 }
