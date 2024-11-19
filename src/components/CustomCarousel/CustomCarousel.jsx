@@ -33,7 +33,6 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
           </div>
         ))}
         {outfitVideos.map((video) => {
-          console.log(video);
           return (
             outfitVideos[0] && (
               <div key={video.id} className={styles.carouselSlide}>

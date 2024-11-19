@@ -1,3 +1,18 @@
 .postFooter {
   background-color: var(--color-accent);
+  padding: 1rem;
+}
+
+.postFooter button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  color: var(--color-neutral-100);
+  background-color: transparent;
+}
+
+.footerButtons {
+  display: flex;
+  justify-content: space-between;
 }

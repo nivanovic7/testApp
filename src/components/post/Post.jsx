@@ -12,7 +12,11 @@ function Post({ outfit }) {
         outfitVideos={outfit.outfitVideos}
         outfitImages={outfit.outfitImages}
       />
-      <PostFooter id={outfit._id} comments={outfit.outfitPostComment} />
+      <PostFooter
+        userId={outfit.user[0]._id}
+        id={outfit._id}
+        comments={outfit.outfitPostComment}
+      />
     </div>
   );
 }

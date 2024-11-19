@@ -5,11 +5,14 @@
   max-height: 200px;
   overflow-x: scroll;
   scrollbar-gutter: none;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  overflow-x: hidden;
+  scrollbar-color: #eeecec #25202000; /* Thumb color and track background */
 }
-.comments::-webkit-scrollbar {
-  display: none;
+
+.button img {
+  width: 20px;
 }
 
 .comment {
@@ -38,5 +41,4 @@
 
 .comment i {
   font-size: 0.75rem;
-  color: gray;
 }
