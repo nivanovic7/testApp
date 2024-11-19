@@ -7,6 +7,10 @@
   padding: 2rem 0;
 }
 
+.profileLayout aside {
+  min-height: 200px;
+}
+
 @media only screen and (max-width: 900px) {
   .profileLayout {
     flex-direction: column;

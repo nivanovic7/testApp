@@ -1,50 +1,29 @@
-/* .video video,
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.carousel {
-  height: 300px;
-}
-
-.carousel ul {
-  gap: 0;
-} */
-/* Carousel Container */
-
 .carousel {
   position: relative;
   overflow: hidden;
   margin: auto;
 }
 
-/* Track that holds all slides */
 .carouselTrack {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(0); /* Initial position */
+  transform: translateX(0);
+  height: 300px;
 }
 
-/* Individual Slide */
 .carouselSlide {
-  min-width: 100%; /* Each slide takes full container width */
-  flex-shrink: 0;
+  min-width: 100%;
   max-height: 100%;
 }
 
-/* Slide Images */
 .carouselSlide img {
   width: 100%;
   max-width: 100%;
-  height: 300px;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
 
-/* Navigation Buttons */
 .carouselBtn {
   position: absolute;
   top: 50%;
