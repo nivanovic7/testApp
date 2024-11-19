@@ -1,21 +1,27 @@
 .postHeader {
-  display: flex;
-  justify-content: space-between;
   padding: 1rem;
 }
 
-.userName {
-  position: relative;
+.userInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: smaller;
 }
 
-.userName:hover .addUser {
-  display: block;
+.userName,
+.desc {
+  font-weight: bold;
 }
 
-.addUser {
-  position: absolute;
-  top: -120%;
-  right: 0;
-  background-color: red;
-  display: none;
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.created {
+  font-size: 10px;
+  font-style: italic;
+  color: gray;
 }
