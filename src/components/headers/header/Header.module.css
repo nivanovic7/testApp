@@ -1,11 +1,16 @@
+.headerWrap {
+  box-shadow: var(--box-shadow-primary);
+}
+
 .header {
   display: flex;
   gap: 1rem;
   align-items: center;
-  box-shadow: var(--box-shadow-primary);
   padding: 1rem;
   justify-content: space-between;
   position: relative;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .menuCheckbox :checked + ul {

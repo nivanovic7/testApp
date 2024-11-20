@@ -10,22 +10,24 @@ function Header() {
   if (!isLoggedIn) return false;
 
   return (
-    <div className={styles.header}>
-      {isLoggedIn && (
-        <>
-          <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          <span>{user.userName}</span>
-          <span
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={styles.menuIcon}
-          >
-            <img
-              src={`../../public/assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
-              alt="menu icon"
-            />
-          </span>
-        </>
-      )}
+    <div className={styles.headerWrap}>
+      <div className={styles.header}>
+        {isLoggedIn && (
+          <>
+            <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            <span>{user.userName}</span>
+            <span
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={styles.menuIcon}
+            >
+              <img
+                src={`../../public/assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
+                alt="menu icon"
+              />
+            </span>
+          </>
+        )}
+      </div>
     </div>
   );
 }

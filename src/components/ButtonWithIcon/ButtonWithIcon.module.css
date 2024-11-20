@@ -1,6 +1,6 @@
 .button {
   flex: 1;
-  color: var(--color-neutral-900);
+  color: var(--color-neutral-100);
   gap: 5px;
   display: flex;
   align-items: center;
@@ -8,7 +8,7 @@
   padding: 0.3rem;
 
   padding-left: 0.75rem;
-  background-color: rgb(26, 228, 166);
+  background-color: var(--color-accent);
   border-radius: 200px;
 }
 
