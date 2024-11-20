@@ -13,7 +13,7 @@ function PostFooter({ id, comments }) {
           className={styles.button}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
         >
-          <img src="../../public/assets/comment.svg" alt="comm" />
+          <img src="../../assets/comment.svg" alt="comm" />
           Comments({comments.length})
         </button>
       </div>

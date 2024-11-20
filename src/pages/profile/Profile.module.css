@@ -11,6 +11,11 @@
   min-height: 200px;
 }
 
+.main {
+  padding: 0 1rem;
+  flex-grow: 2;
+}
+
 @media only screen and (max-width: 900px) {
   .profileLayout {
     flex-direction: column;
@@ -20,13 +25,19 @@
     order: 1;
   }
 
-  .profileLayout div {
+  .main {
     order: 2;
   }
 }
 
 .profileLayout > * {
   flex: 1;
+}
+
+.main {
+  overflow: scroll;
+  scrollbar-width: none; /* For Firefox */
+  max-height: 700px;
 }
 
 .profileLayout aside {

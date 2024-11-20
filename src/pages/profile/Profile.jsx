@@ -3,6 +3,7 @@ import { useGetUserSettingsQuery } from "../../app/api/userApiSlice";
 import { logOut } from "../../app/slices/authSlice";
 import Posts from "../../components/posts/Posts";
 import styles from "./Profile.module.css";
+import Map from "../../components/map/Map";
 
 function Profile() {
   const { data, error, isLoading } = useGetUserSettingsQuery();
@@ -15,10 +16,12 @@ function Profile() {
   if (isLoading) return <p>Loading user data...</p>;
   return (
     <div className={styles.profileLayout}>
-      <aside>Some profile info</aside>
-      <div>
+      <aside>
+        <Map />
+      </aside>
+      <main className={styles.main}>
         <Posts />
-      </div>
+      </main>
       <aside>Recomendations</aside>
     </div>
   );

@@ -42,7 +42,7 @@ function PostHeader({ outfit }) {
           <img
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className={styles.toggle}
-            src="../../public/assets/menu (1).png"
+            src="../../assets/menu (1).png"
             alt="three dots toggle"
           />
           {isDropdownOpen && (

@@ -2,7 +2,7 @@ import styles from "./CustomNavLink.module.css";
 import { NavLink } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-const BASE_PATH = "../../../public/assets/";
+const BASE_PATH = "../../../assets/";
 
 function CustomNavLink({ path, text }) {
   return (

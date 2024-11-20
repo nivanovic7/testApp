@@ -13,8 +13,3 @@
   color: var(--color-neutral-100);
   background-color: transparent;
 }
-
-.footerButtons {
-  display: flex;
-  justify-content: space-between;
-}

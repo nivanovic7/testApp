@@ -7,6 +7,7 @@ function Map() {
   const [setUserLocation] = useSetUserLocationMutation();
   const [latitude, setLatitude] = useState(48.9);
   const [longitude, setLongitude] = useState(2.4);
+  const [inputValue, setInputValue] = useState("");
 
   function handleMapLocation() {
     setUserLocation({ latitude, longitude });
@@ -25,17 +26,20 @@ function Map() {
 
   return (
     <>
+      <form>
+        <input
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          type="text"
+        />
+      </form>
       <MapContainer
         className="map"
         center={[latitude, longitude]}
         zoom={4}
         scrollWheelZoom={false}
-        style={{ zIndex: "-10" }}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={[latitude, longitude]}></Marker>
         <ClickEvent setLatitude={setLatitude} setLongitude={setLongitude} />
       </MapContainer>
