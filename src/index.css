@@ -9,6 +9,7 @@
 
   --box-shadow-primary: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --border-radius-primary: 10px;
+  --border-radius-round: 50px;
 }
 
 * {
@@ -39,13 +40,11 @@ p {
 
 button {
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-.map {
-  height: 400px;
-  width: 90%;
-  max-width: 600px;
-  margin: 2rem auto;
+button:hover {
+  transform: translateY(-2px);
 }
 
 a {

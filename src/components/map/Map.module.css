@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.form {
+  background-color: rgba(242, 242, 244, 1);
+  display: flex;
+  position: relative;
+  border-radius: var(--border-radius-round);
+  min-width: 250px;
+}
+
+.form input {
+  border: 0;
+  background-color: transparent;
+  padding: 0.75rem 0.75rem 0.75rem 2rem;
+  flex: 1;
+  border-radius: var(--border-radius-round);
+  font-size: 10px;
+  outline-color: var(--color-primary);
+}
+
+.form button {
+  position: absolute;
+  background-color: transparent;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  border: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--border-radius-primary);
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-round);
+  border: 0;
+  background-color: var(--color-accent);
+  color: var(--color-neutral-100);
+}

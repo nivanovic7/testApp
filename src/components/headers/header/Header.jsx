@@ -19,7 +19,10 @@ function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={styles.menuIcon}
           >
-            <img src="../../public/assets/menu.png" alt="menu icon" />
+            <img
+              src={`../../public/assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
+              alt="menu icon"
+            />
           </span>
         </>
       )}

@@ -1,8 +1,9 @@
+import styles from "./Map.module.css";
+
 import { useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvent } from "react-leaflet";
 import { useSetUserLocationMutation } from "../../app/api/userApiSlice";
 import { getUserLocation } from "../../utils/helpers";
-
 function Map() {
   const [setUserLocation] = useSetUserLocationMutation();
   const [latitude, setLatitude] = useState(48.9);
@@ -25,16 +26,20 @@ function Map() {
   }
 
   return (
-    <>
-      <form>
+    <div className={styles.container}>
+      <form className={styles.form}>
+        <button>
+          <img src="../../assets/searchIcon.svg" alt="search icon" />
+        </button>
         <input
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           type="text"
+          placeholder="Search locations...  "
         />
       </form>
       <MapContainer
-        className="map"
+        className={styles.map}
         center={[latitude, longitude]}
         zoom={4}
         scrollWheelZoom={false}
@@ -44,10 +49,11 @@ function Map() {
         <ClickEvent setLatitude={setLatitude} setLongitude={setLongitude} />
       </MapContainer>
 
-      <button onClick={handleMapLocation}>Use map location</button>
-      <span> Or... </span>
-      <button onClick={handleUserCoords}>Use your coordinates</button>
-    </>
+      <div className={styles.buttons}>
+        <button onClick={handleMapLocation}>Use map location</button>
+        <button onClick={handleUserCoords}>Use your coordinates</button>
+      </div>
+    </div>
   );
 }
 
