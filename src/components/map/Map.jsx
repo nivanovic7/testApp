@@ -2,18 +2,9 @@ import styles from "./Map.module.css";
 import axios from "axios";
 import { useSetUserLocationMutation } from "../../app/api/userApiSlice";
 import { getUserLocation } from "../../utils/helpers";
-import { useEffect, useRef, useState } from "react";
-import { MapContainer, TileLayer, useMap, useMapEvent } from "react-leaflet";
-
-function MapView({ latitude, longitude }) {
-  const map = useMap();
-
-  useEffect(() => {
-    map.setView([latitude, longitude], 4);
-  }, [latitude, longitude, map]);
-
-  return null;
-}
+import { useRef, useState } from "react";
+import { MapContainer, Marker, TileLayer, useMapEvent } from "react-leaflet";
+import MapView from "../MapView/MapView";
 
 function Map() {
   const [setUserLocation] = useSetUserLocationMutation();
@@ -22,16 +13,18 @@ function Map() {
   const [query, setQuery] = useState("");
   const inputRef = useRef();
 
-  const fetchCoordinates = async () => {
-    const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
+  const fetchCoordinates = async (e) => {
+    e.preventDefault();
+
     const query = inputRef.current.value;
     if (!query) return;
+
     try {
       const response = await axios.get(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json`,
         {
           params: {
-            access_token: MAPBOX_TOKEN,
+            access_token: import.meta.env.VITE_MAPBOX_TOKEN,
             limit: 1,
           },
         }
@@ -49,15 +42,6 @@ function Map() {
     }
   };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetchCoordinates();
-  }
-
-  function handleMapLocation() {
-    setUserLocation({ latitude, longitude });
-  }
-
   async function handleUserCoords() {
     try {
       const {
@@ -71,7 +55,7 @@ function Map() {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={fetchCoordinates} className={styles.form}>
         <button>
           <img src="../../assets/searchIcon.svg" alt="search icon" />
         </button>
@@ -89,13 +73,15 @@ function Map() {
         scrollWheelZoom={false}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {/* <Marker position={[latitude, longitude]}></Marker> */}
+        <Marker position={[latitude, longitude]}></Marker>
         <MapView longitude={longitude} latitude={latitude} />
         <ClickEvent setLatitude={setLatitude} setLongitude={setLongitude} />
       </MapContainer>
 
       <div className={styles.buttons}>
-        <button onClick={handleMapLocation}>Use map location</button>
+        <button onClick={() => setUserLocation({ latitude, longitude })}>
+          Use map location
+        </button>
         <button onClick={handleUserCoords}>Use your coordinates</button>
       </div>
     </div>
