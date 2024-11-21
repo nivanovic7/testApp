@@ -21,7 +21,7 @@ function Header() {
               className={styles.menuIcon}
             >
               <img
-                src={`../../public/assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
+                src={`../../assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
                 alt="menu icon"
               />
             </span>
