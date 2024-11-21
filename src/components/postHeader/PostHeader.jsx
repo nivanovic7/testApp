@@ -12,6 +12,8 @@ function PostHeader({ outfit }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [deletePost] = useDeleteOutfitMutation();
 
+  console.log(outfit);
+
   async function handleDelete() {
     try {
       await deletePost(outfit._id).unwrap();
@@ -30,7 +32,11 @@ function PostHeader({ outfit }) {
       <div className={styles.userInfo}>
         <img
           className={styles.avatar}
-          src={AVATAR_PLACEHOLDER_URL}
+          src={
+            outfit.user[0]?.avatar
+              ? outfit.user[0]?.avatar.imageSmallSource
+              : AVATAR_PLACEHOLDER_URL
+          }
           alt="avatar icon"
         />
         <div>

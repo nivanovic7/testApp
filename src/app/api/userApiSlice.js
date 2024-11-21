@@ -3,6 +3,8 @@ import { apiSlice } from "./apiSlice";
 const GET_USER_SETTINGS_API = "user/settings/getUser";
 const UPDATE_USER_SETTINGS_API = "user/settings";
 const GET_RECOMMENDED_FRIENDS = "account/recommended-friends";
+const UPDATE_PROFILE_IMAGE = "/user/settings/update-profile-image";
+
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUserSettings: builder.query({
@@ -25,6 +27,13 @@ export const userApiSlice = apiSlice.injectEndpoints({
     getRecommendedFriends: builder.query({
       query: () => GET_RECOMMENDED_FRIENDS,
     }),
+    updateProfileImage: builder.mutation({
+      query: (userProfileImage) => ({
+        url: UPDATE_PROFILE_IMAGE,
+        method: "PUT",
+        body: userProfileImage,
+      }),
+    }),
   }),
 });
 
@@ -32,4 +41,5 @@ export const {
   useGetUserSettingsQuery,
   useSetUserLocationMutation,
   useGetRecommendedFriendsQuery,
+  useUpdateProfileImageMutation,
 } = userApiSlice;
