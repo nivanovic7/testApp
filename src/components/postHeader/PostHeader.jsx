@@ -3,8 +3,7 @@ import { useAddToChatMutation } from "../../app/api/messagesApiSlice";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useDeleteOutfitMutation } from "../../app/api/postApiSlice";
-const AVATAR_PLACEHOLDER_URL =
-  "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
+const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
 function PostHeader({ outfit }) {
   const [addToChat] = useAddToChatMutation();

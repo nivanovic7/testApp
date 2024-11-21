@@ -2,7 +2,7 @@ import { apiSlice } from "./apiSlice";
 
 const GET_USER_SETTINGS_API = "user/settings/getUser";
 const UPDATE_USER_SETTINGS_API = "user/settings";
-
+const GET_RECOMMENDED_FRIENDS = "account/recommended-friends";
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUserSettings: builder.query({
@@ -22,8 +22,14 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["UserSettings", "Outfits"],
     }),
+    getRecommendedFriends: builder.query({
+      query: () => GET_RECOMMENDED_FRIENDS,
+    }),
   }),
 });
 
-export const { useGetUserSettingsQuery, useSetUserLocationMutation } =
-  userApiSlice;
+export const {
+  useGetUserSettingsQuery,
+  useSetUserLocationMutation,
+  useGetRecommendedFriendsQuery,
+} = userApiSlice;

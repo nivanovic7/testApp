@@ -45,3 +45,48 @@
   border-radius: var(--border-radius-primary);
   height: fit-content;
 }
+
+.recommendedFriendsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.recommendedFriendsWrap h3 {
+  color: var(--color-primary);
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  /* border: 1px solid var(--color-accent);
+   */
+  border-bottom: 1px solid var(--color-accent);
+  /* border-radius: var(--border-radius-primary); */
+}
+
+.friend img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.fullName {
+  font-weight: bold;
+}
+
+.userName {
+  color: gray;
+}
+
+.friend button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-round);
+  background-color: var(--color-accent);
+  border: 0;
+  color: var(--color-neutral-100);
+  margin-top: 0.5rem;
+}
