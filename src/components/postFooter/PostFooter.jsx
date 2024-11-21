@@ -1,4 +1,4 @@
-import styles from "./postFooter.module.css";
+import styles from "./PostFooter.module.css";
 
 import Comments from "../comments/Comments";
 import { useState } from "react";
