@@ -2,7 +2,7 @@ import styles from "./Post.module.css";
 
 import CustomCarousel from "../CustomCarousel/CustomCarousel";
 import PostHeader from "../postHeader/PostHeader";
-import PostFooter from "../postFooter/postFooter";
+import PostFooter from "../postFooter/PostFooter";
 
 function Post({ outfit }) {
   return (
