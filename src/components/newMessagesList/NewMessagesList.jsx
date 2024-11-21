@@ -29,7 +29,6 @@ function NewMessagesList({ chatId, newMessages, setNewMessages }) {
     scrollToBottomTarget.current.scrollIntoView({ behaviour: "smooth" });
   }, [newMessages]);
 
-  console.log(newMessages);
   return (
     <>
       {newMessages.map((msg) => {

@@ -1,0 +1,30 @@
+:global(.userMessage),
+:global(.friendMessage) {
+  color: var(--color-neutral-100);
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+:global(.messageUserName) {
+  color: var(--color-accent);
+}
+
+:global(.userMessage) {
+  margin-left: auto;
+}
+
+:global(.messageText) {
+  border-radius: var(--border-radius-round);
+  padding: 0.5rem 1rem;
+}
+
+:global(.userMessage) :global(.messageText) {
+  background-color: var(--color-primary);
+}
+
+:global(.friendMessage) :global(.messageText) {
+  background-color: gray;
+}
+
+:global(.friendMessage) {
+  margin-right: auto;
+}

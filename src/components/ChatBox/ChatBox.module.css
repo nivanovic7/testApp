@@ -1,7 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 .chat {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow-y: scroll;
-  padding-bottom: 2rem;
+  position: relative;
 }

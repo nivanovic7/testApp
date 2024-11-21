@@ -13,14 +13,16 @@ function ChatBox({ chatId }) {
   }, [chatId]);
 
   return (
-    <div className={styles.chat}>
-      <LoadedMessagesList chatId={chatId} newMessages={newMessages} />
-      <NewMessagesList
-        key={chatId}
-        chatId={chatId}
-        newMessages={newMessages}
-        setNewMessages={setNewMessages}
-      />
+    <div className={styles.container}>
+      <div className={styles.chat}>
+        <LoadedMessagesList chatId={chatId} newMessages={newMessages} />
+        <NewMessagesList
+          key={chatId}
+          chatId={chatId}
+          newMessages={newMessages}
+          setNewMessages={setNewMessages}
+        />
+      </div>
       <SendMessage chatId={chatId} setNewMessages={setNewMessages} />
     </div>
   );

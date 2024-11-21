@@ -12,8 +12,6 @@ function PostHeader({ outfit }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [deletePost] = useDeleteOutfitMutation();
 
-  console.log(outfit);
-
   async function handleDelete() {
     try {
       await deletePost(outfit._id).unwrap();

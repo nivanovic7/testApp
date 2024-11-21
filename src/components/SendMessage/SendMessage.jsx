@@ -65,16 +65,23 @@ function SendMessage({ chatId, setNewMessages }) {
         style={{ backgroundClip: "white" }}
         title="Upload file"
         htmlFor="file-upload"
-        className={styles.uploadFile}
+        className={`${styles.uploadFile} ${
+          attachment && styles.uploadFileReady
+        }`}
       >
-        {attachment ? <span>&#x21ef;</span> : <span> &#x21d1;</span>}
+        &#8679;
       </label>
       <input
         id="file-upload"
         type="file"
         onChange={(e) => setAttachment(e.target.files[0])}
       />
-      <button type="submit">Send</button>
+      <button
+        className={!message && !attachment && styles.buttonDisabled}
+        type="submit"
+      >
+        Send
+      </button>
     </form>
   );
 }

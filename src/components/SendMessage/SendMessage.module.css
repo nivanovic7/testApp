@@ -1,11 +1,21 @@
 .form {
-  position: fixed;
+  position: sticky;
   bottom: 0;
+  width: 100%;
   display: flex;
+}
+
+.form label {
+  position: relative;
 }
 
 .form input {
   padding: 0.5rem;
+  flex: 1;
+  border-top-left-radius: var(--border-radius-round);
+  border-bottom-left-radius: var(--border-radius-round);
+  border: 2px solid var(--color-accent);
+  outline-color: var(--color-primary);
 }
 
 .form input[type="file"] {
@@ -17,4 +27,24 @@
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+  background-color: var(--color-neutral-100);
+}
+
+.uploadFileReady {
+  background-color: var(--color-accent);
+  color: var(--color-neutral-100);
+}
+
+.form button {
+  border-top-right-radius: var(--border-radius-round);
+  border-bottom-right-radius: var(--border-radius-round);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-100);
+  border: 0;
+  padding: 0 0.7rem;
+}
+
+.buttonDisabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
