@@ -6,11 +6,18 @@ import { useState } from "react";
 
 function Inbox() {
   const [selectedChatId, setSelectedChatId] = useState(null);
+  console.log(selectedChatId);
   return (
     <div className={styles.inbox}>
-      <ChatList setSelectedChatId={setSelectedChatId} />
-      {selectedChatId && <ChatBox chatId={selectedChatId} />}
-      {!selectedChatId && <h3>Please select user to start chat!</h3>}
+      <ChatList
+        selectedChatId={selectedChatId}
+        setSelectedChatId={setSelectedChatId}
+      />
+      {selectedChatId ? (
+        <ChatBox chatId={selectedChatId} />
+      ) : (
+        <h3>Please select user to start chat!</h3>
+      )}
     </div>
   );
 }

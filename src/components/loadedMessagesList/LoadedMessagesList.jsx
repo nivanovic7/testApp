@@ -15,7 +15,6 @@ function LoadedMessagesList({ chatId, newMessages }) {
 
   if (noMessages) return <p>No messages. Start conversation.</p>;
 
-  console.log(loadedMessages);
   return loadedMessages.map((message) => (
     <SingleMessage key={message._id} message={message}>
       <SingleMessageHeader message={message} />

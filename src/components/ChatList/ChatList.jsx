@@ -7,7 +7,7 @@ import {
 } from "../../utils/helpers";
 import ChatListItem from "../chatListItem/ChatListItem";
 
-function ChatList({ setSelectedChatId }) {
+function ChatList({ setSelectedChatId, selectedChatId }) {
   const { data, isLoading } = useGetChatsQuery();
 
   function renderChatList() {
@@ -25,6 +25,7 @@ function ChatList({ setSelectedChatId }) {
               key={chat._id}
               chat={chat}
               setSelectedChatId={setSelectedChatId}
+              selectedChatId={selectedChatId}
             />
           ))}
         </ul>

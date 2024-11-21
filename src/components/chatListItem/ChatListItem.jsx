@@ -2,7 +2,12 @@ import { getChatMembersUsernames } from "../../utils/helpers";
 import { useAddUserToGroupChatMutation } from "../../app/api/messagesApiSlice";
 import styles from "./ChatListItem.module.css";
 
-function ChatListItem({ chat, setSelectedChatId, availableGroupChats = [] }) {
+function ChatListItem({
+  chat,
+  setSelectedChatId,
+  selectedChatId,
+  availableGroupChats = [],
+}) {
   const chatMemebers = getChatMembersUsernames(chat, chat.user._id);
   const [addUserToGroupChat] = useAddUserToGroupChatMutation();
 
@@ -24,9 +29,18 @@ function ChatListItem({ chat, setSelectedChatId, availableGroupChats = [] }) {
       </select>
     );
   }
-
+  console.log("SELected");
+  console.log(selectedChatId);
+  console.log("................");
+  console.log("CURRENT");
+  console.log(chat._id);
   return (
-    <li className={styles.chatItem} onClick={() => setSelectedChatId(chat._id)}>
+    <li
+      className={`${styles.chatItem} ${
+        selectedChatId === chat._id ? styles.selectedChat : null
+      }`}
+      onClick={() => setSelectedChatId(chat._id)}
+    >
       {chat.chatType === "group" ? (
         <p>{chat.chatName}</p>
       ) : (

@@ -2,6 +2,8 @@
   width: 30%;
   background-color: aliceblue;
   height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 
 .chatList ul {
