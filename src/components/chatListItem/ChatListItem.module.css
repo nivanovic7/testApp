@@ -1,5 +1,7 @@
 .chatItem {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   transition: all 0.3s;
 }
@@ -7,6 +9,10 @@
 .chatItem:hover {
   background-color: rgb(223, 232, 239);
   cursor: pointer;
+}
+
+.chatItem img {
+  width: 30px;
 }
 
 .selectedChat {

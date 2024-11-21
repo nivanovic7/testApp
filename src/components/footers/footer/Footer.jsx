@@ -8,7 +8,6 @@ function Footer() {
 
   return (
     <div className={styles.footer}>
-      <img src="https://pimengineering.com/images/Logo.PIM.png" alt="logo" />
       <h2>Social app</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto

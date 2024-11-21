@@ -1,6 +1,7 @@
 import { getChatMembersUsernames } from "../../utils/helpers";
 import { useAddUserToGroupChatMutation } from "../../app/api/messagesApiSlice";
 import styles from "./ChatListItem.module.css";
+import ChatItemAvatar from "../ChatItemAvatar/ChatItemAvatar";
 
 function ChatListItem({
   chat,
@@ -29,11 +30,7 @@ function ChatListItem({
       </select>
     );
   }
-  console.log("SELected");
-  console.log(selectedChatId);
-  console.log("................");
-  console.log("CURRENT");
-  console.log(chat._id);
+
   return (
     <li
       className={`${styles.chatItem} ${
@@ -41,16 +38,17 @@ function ChatListItem({
       }`}
       onClick={() => setSelectedChatId(chat._id)}
     >
+      <ChatItemAvatar members={chat.chatMembers} />
       {chat.chatType === "group" ? (
         <p>{chat.chatName}</p>
       ) : (
         chatMemebers.map((member) => (
           <div key={member._id}>
             <p>{member.userName}</p>
-            {groupList()}
           </div>
         ))
       )}
+      <img src="../../assets/menu (1).png" alt="" />
     </li>
   );
 }

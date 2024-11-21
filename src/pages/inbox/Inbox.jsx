@@ -6,7 +6,6 @@ import { useState } from "react";
 
 function Inbox() {
   const [selectedChatId, setSelectedChatId] = useState(null);
-  console.log(selectedChatId);
   return (
     <div className={styles.inbox}>
       <ChatList
