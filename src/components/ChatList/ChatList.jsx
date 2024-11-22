@@ -14,7 +14,6 @@ function ChatList({ setSelectedChatId, selectedChatId }) {
     if (isLoading) {
       return <p>Loading chats</p>;
     }
-
     return (
       <>
         <CreateGroupChat />

@@ -2,10 +2,10 @@ import { apiSlice } from "./apiSlice";
 
 const CHAT_URL = "chat";
 const ADD_CHAT_URL = "chat/getChat";
-const MEMBERS = "members";
 const MESSAGE = "message";
 const MESSAGE_TEXT = "message/text";
 const MESSAGE_MEDIA = "message/media";
+const MEMBERS = "members";
 
 export const messagesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -64,6 +64,9 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getGroupMembers: builder.query({
+      query: (chatId) => `${CHAT_URL}/${chatId}/${MEMBERS}`,
+    }),
   }),
 });
 
@@ -75,4 +78,5 @@ export const {
   useSendAttachmentMutation,
   useCreateGroupChatMutation,
   useAddUserToGroupChatMutation,
+  useGetGroupMembersQuery,
 } = messagesApiSlice;
