@@ -1,8 +1,8 @@
 export const navLinks = [
   { path: "login", text: "login", status: "public" },
   { path: "register", text: "register", status: "public" },
+  { path: "", text: "", status: "private" },
   { path: "dashboard", text: "dashboard", status: "private" },
-  { path: "profile", text: "profile", status: "private" },
   { path: "inbox", text: "inbox", status: "private" },
 ];
 

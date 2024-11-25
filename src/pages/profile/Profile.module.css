@@ -1,5 +1,5 @@
 .profileLayout {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 90%;
   margin: auto;
   display: flex;
@@ -9,28 +9,12 @@
 
 .profileLayout aside {
   min-height: 200px;
-  max-width: 290px;
+  overflow: hidden;
 }
 
 .main {
   padding: 0 1rem;
   flex-grow: 2;
-}
-
-@media only screen and (max-width: 900px) {
-  .profileLayout {
-    flex-direction: column;
-  }
-
-  .profileLayout aside {
-    order: 1;
-  }
-
-  .main {
-    order: 2;
-    padding: 0;
-    padding: 0 1rem;
-  }
 }
 
 .profileLayout > * {
@@ -41,6 +25,8 @@
   overflow: scroll;
   scrollbar-width: none; /* For Firefox */
   max-height: 700px;
+  flex-basis: 500px;
+  max-width: 600px;
 }
 
 .profileLayout aside {
@@ -97,4 +83,25 @@
   font-size: 12px;
   width: 100px;
   margin-top: 0.5rem;
+}
+@media only screen and (max-width: 1100px) {
+  .mobileHide {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .profileLayout {
+    flex-direction: column;
+  }
+
+  .profileLayout aside {
+    order: 1;
+  }
+
+  .main {
+    order: 2;
+    padding: 0;
+    padding: 0 1rem;
+  }
 }

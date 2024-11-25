@@ -18,7 +18,6 @@ function Layout() {
       <Header />
       <div className={styles.content}>
         <Routes>
-          <Route path="/" element={<Navigate to="login" />} />
           <Route element={<PersistedLogin />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -29,7 +28,7 @@ function Layout() {
               <Route path="map" element={<Map />} />
               <Route />
             </Route>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="" element={<Profile />} />
             <Route path="/createPost" element={<CreatePost />} />
             <Route path="/inbox" element={<Inbox />} />
           </Route>

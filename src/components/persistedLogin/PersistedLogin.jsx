@@ -12,7 +12,7 @@ function PersistedLogin() {
 
     if (userData?.refreshToken) {
       dispatch(setCredentials(userData));
-      navigate("/dashboard");
+      navigate("/");
     }
   }, [dispatch, navigate]);
 

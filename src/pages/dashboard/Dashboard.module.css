@@ -1,3 +1,6 @@
+.dashboard {
+  min-height: 100vh;
+}
 .dashboard > a {
   margin: 1rem;
 }

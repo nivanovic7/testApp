@@ -24,7 +24,7 @@ function Register() {
     try {
       await register(credentials).unwrap();
       //TODO - Tell user to set location on registering!
-      navigate("/profile");
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }

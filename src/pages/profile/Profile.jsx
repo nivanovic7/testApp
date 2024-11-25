@@ -4,6 +4,7 @@ import { logOut } from "../../app/slices/authSlice";
 import Posts from "../../components/posts/Posts";
 import styles from "./Profile.module.css";
 import Map from "../../components/map/Map";
+import User from "../../components/user/User";
 
 const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
@@ -22,13 +23,12 @@ function Profile() {
   return (
     <div className={styles.profileLayout}>
       <aside>
-        <Map />
+        <User />
       </aside>
       <main className={styles.main}>
         <Posts />
       </main>
-      <aside>
-        {console.log(data)}
+      <aside className={styles.mobileHide}>
         <div className={styles.recommendedFriendsWrap}>
           <h3>Recomended friends</h3>
           <div>

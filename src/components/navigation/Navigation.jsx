@@ -27,7 +27,7 @@ function Navigation({ isMenuOpen, setIsMenuOpen }) {
         <li>
           <Link to="/createPost">
             <ButtonWithIcon
-              text="New post"
+              text="Create post"
               iconSrc="../../../assets/plus.svg"
             />
           </Link>

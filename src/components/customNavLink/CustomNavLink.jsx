@@ -5,11 +5,14 @@ import { capitalizeFirstLetter } from "../../utils/helpers";
 const BASE_PATH = "../../../assets/";
 
 function CustomNavLink({ path, text }) {
+  console.log(path);
   return (
     <li className={styles.link}>
-      <NavLink to={`/${path}`}>{capitalizeFirstLetter(text)}</NavLink>
+      <NavLink to={`/${path}`}>
+        {text ? capitalizeFirstLetter(text) : "Profile"}
+      </NavLink>
       <img
-        src={`${BASE_PATH}${path}.svg
+        src={`${BASE_PATH}/${path}.svg
         `}
         alt={`${path} icon`}
       />

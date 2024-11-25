@@ -19,13 +19,13 @@ function FacebookLoginButton() {
 
     try {
       await facebookRegister(credentials).unwrap();
-      navigate("/dashboard");
+      navigate("/");
     } catch (registerError) {
       if (registerError.status === 409) {
         try {
           const { data: userData } = await facebookLogin(credentials).unwrap();
           dispatch(setCredentials(userData));
-          navigate("/profile");
+          navigate("/");
         } catch (loginError) {
           console.log(loginError, "FB LOGIN NOT SUCCESSFULL");
         }

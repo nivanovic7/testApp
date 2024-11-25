@@ -7,8 +7,8 @@
   --color-accent-secondary: rgba(33, 244, 179, 1);
 
   --color-neutral-100: white;
-  --color-neutral-900: rgb(36, 36, 36);
   --color-neutral-400: rgba(176, 176, 176, 1);
+  --color-neutral-900: rgb(36, 36, 36);
 
   --box-shadow-primary: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
   --box-shadow-secondary: 3px 8px 20px 0px rgba(0, 0, 0, 0.2);
