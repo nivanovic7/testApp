@@ -1,36 +1,12 @@
 import { getChatMembersUsernames } from "../../utils/helpers";
-import { useAddUserToGroupChatMutation } from "../../app/api/messagesApiSlice";
 import styles from "./ChatListItem.module.css";
 import ChatItemAvatar from "../ChatItemAvatar/ChatItemAvatar";
+import PrivateChatsList from "../PrivateChatsList.jsx/PrivateChatsList";
+import { useState } from "react";
 
-function ChatListItem({
-  chat,
-  setSelectedChatId,
-  selectedChatId,
-  availableGroupChats = [],
-}) {
+function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
   const chatMemebers = getChatMembersUsernames(chat, chat.user._id);
-  const [addUserToGroupChat] = useAddUserToGroupChatMutation();
-
-  function handleAddToGroup(e) {
-    const groupId = e.target.value;
-    if (!groupId) return;
-    addUserToGroupChat({ groupId, usersIds: [chat._id] });
-  }
-
-  function groupList() {
-    return (
-      <select onChange={handleAddToGroup}>
-        <option value={null}>...</option>
-        {availableGroupChats.map((group) => (
-          <option key={group._id} value={group._id}>
-            Add to: {group.chatName}
-          </option>
-        ))}
-      </select>
-    );
-  }
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <li
       className={`${styles.chatItem} ${
@@ -40,15 +16,26 @@ function ChatListItem({
     >
       <ChatItemAvatar members={chat.chatMembers} />
       {chat.chatType === "group" ? (
-        <p>{chat.chatName}</p>
+        <>
+          <p>{chat.chatName}</p>
+          <img
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            src="../../assets/menu (1).png"
+            alt=""
+          />
+
+          {/* //Refactor Make reusable toggle/menu component*/}
+          {isMenuOpen && (
+            <PrivateChatsList
+              groupId={chat._id}
+              chatMembers={chatMemebers}
+              setIsMenuOpen={setIsMenuOpen}
+            />
+          )}
+        </>
       ) : (
-        chatMemebers.map((member) => (
-          <div key={member._id}>
-            <p>{member.userName}</p>
-          </div>
-        ))
+        chatMemebers.map((member) => <p key={member._id}>{member.userName}</p>)
       )}
-      <img src="../../assets/menu (1).png" alt="" />
     </li>
   );
 }

@@ -25,7 +25,6 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
 
     addUserToGroupChat: builder.mutation({
       query: ({ groupId, usersIds }) => {
-        console.log(usersIds);
         return {
           url: `${CHAT_URL}/${groupId}/${MEMBERS}`,
           method: "POST",

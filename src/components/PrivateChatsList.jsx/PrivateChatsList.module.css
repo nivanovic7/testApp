@@ -1,0 +1,16 @@
+.list {
+  position: absolute;
+  background-color: var(--color-neutral-100);
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 100;
+  border: 1px solid gray;
+}
+
+.list li {
+  padding: 0.5rem;
+}
+.selected {
+  background-color: var(--color-accent);
+}

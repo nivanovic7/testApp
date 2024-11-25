@@ -1,3 +1,5 @@
+import styles from "./CreateGroupChat.module.css";
+
 import { useState } from "react";
 import { useCreateGroupChatMutation } from "../../app/api/messagesApiSlice";
 
@@ -12,11 +14,7 @@ function CreateGroupChat() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <button type="button" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? "Close" : "Create group chat"}
-      </button>
-
+    <form onSubmit={handleSubmit} className={styles.form}>
       {isOpen && (
         <>
           <input
@@ -25,9 +23,12 @@ function CreateGroupChat() {
             type="text"
             placeholder="Chat name"
           />
-          <button type="submit">Confirm</button>
+          <button type="submit">Ok</button>
         </>
       )}
+      <button type="button" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "x" : "Create group chat"}
+      </button>
     </form>
   );
 }

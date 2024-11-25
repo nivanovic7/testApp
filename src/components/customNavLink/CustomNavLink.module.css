@@ -1,5 +1,16 @@
 .link {
   display: flex;
+  flex-direction: row-reverse;
   gap: 5px;
   align-items: center;
+}
+
+.link img {
+  filter: invert(38%) sepia(90%) saturate(1229%) hue-rotate(179deg)
+    brightness(103%) contrast(101%);
+}
+
+:global(.active) + img {
+  filter: brightness(0%) invert(83%) sepia(42%) saturate(100%) hue-rotate(57deg)
+    contrast(91%);
 }

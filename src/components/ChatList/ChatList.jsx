@@ -1,10 +1,7 @@
 import styles from "./ChatList.module.css";
 import { useGetChatsQuery } from "../../app/api/messagesApiSlice";
 import CreateGroupChat from "../createGroupChat/CreateGroupChat";
-import {
-  filterChatsByType,
-  removeChatsWithOnlyOneMember,
-} from "../../utils/helpers";
+import { removeChatsWithOnlyOneMember } from "../../utils/helpers";
 import ChatListItem from "../chatListItem/ChatListItem";
 
 function ChatList({ setSelectedChatId, selectedChatId }) {
@@ -14,13 +11,13 @@ function ChatList({ setSelectedChatId, selectedChatId }) {
     if (isLoading) {
       return <p>Loading chats</p>;
     }
+
     return (
       <>
         <CreateGroupChat />
         <ul>
           {removeChatsWithOnlyOneMember(data.data).map((chat) => (
             <ChatListItem
-              availableGroupChats={filterChatsByType(data.data, "group")}
               key={chat._id}
               chat={chat}
               setSelectedChatId={setSelectedChatId}

@@ -7,12 +7,12 @@ const BASE_PATH = "../../../assets/";
 function CustomNavLink({ path, text }) {
   return (
     <li className={styles.link}>
+      <NavLink to={`/${path}`}>{capitalizeFirstLetter(text)}</NavLink>
       <img
-        src={`${BASE_PATH}${path}.png
+        src={`${BASE_PATH}${path}.svg
         `}
         alt={`${path} icon`}
       />
-      <NavLink to={`/${path}`}>{capitalizeFirstLetter(text)}</NavLink>
     </li>
   );
 }
