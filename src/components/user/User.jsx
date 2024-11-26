@@ -6,13 +6,14 @@ function User() {
     (state) => state.auth.userProfileImage
   );
   return (
-    <div className={`${styles.userContainer} `}>
-      <div className={`${styles.profileImageContainer} p-10`}>
-        <img className={`img-50 b-radius-circle`} src={imageSmallSource} />
+    <div className={`${styles.userContainer} b-radius-10 box-shadow-tertiary `}>
+      <div className={`${styles.profileImageContainer} p-15`}>
+        <img className={`img-90 b-radius-circle`} src={imageSmallSource} />
       </div>
-      <div className={`${styles.middle} d-flex align-center gap-10`}>
+      <div className={`${styles.middle} d-flex align-center gap-10 p-15`}>
         <div className={`${styles.userName} d-flex f-col mr-auto`}>
-          <span>Sam smith</span> <span>@samsmih</span>
+          <span className="fs-600 ">Sam smith</span>{" "}
+          <span className="clr-neutral-300">@samsmih</span>
         </div>
         <button className={`d-flex align-center b-radius-round bg-transparent`}>
           <img
@@ -28,15 +29,17 @@ function User() {
           alt="menu icon"
         />
       </div>
-      <div className={`${styles.stats} d-flex space-btw`}>
-        <div className={`d-flex f-col align-center`}>
+      <div className={`${styles.stats} d-flex space-btw p-15`}>
+        <div className={`d-flex f-col align-center fs-600 clr-accent-primary`}>
           <span>2</span> <span>Pods</span>
         </div>
-        <div className={`d-flex f-col align-center `}>
-          <span>45</span> <span>Followers</span>
+        <div className={`d-flex f-col align-center fs-600 clr-accent-primary`}>
+          <span className="">45</span>
+          <span>Followers</span>
         </div>
-        <div className={`d-flex f-col align-center `}>
-          <span>5</span> <span>Following</span>
+        <div className={`d-flex f-col align-center fs-600 clr-accent-primary `}>
+          <span>5</span>
+          <span>Following</span>
         </div>
       </div>
     </div>

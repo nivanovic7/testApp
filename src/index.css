@@ -8,6 +8,7 @@
 
   --clr-neutral-100: white;
   --clr-neutral-200: rgba(242, 242, 244, 1);
+  --clr-neutral-300: rgba(176, 176, 176, 1);
   --clr-neutral-400: rgba(114, 114, 114, 1);
   --clr-neutral-800: rgba(58, 58, 58, 1);
 
@@ -102,6 +103,10 @@
   color: var(--clr-neutral-400);
 }
 
+.clr-neutral-300 {
+  color: var(--clr-neutral-300);
+}
+
 .clr-neutral-100 {
   color: var(--clr-neutral-100);
 }
@@ -156,6 +161,10 @@
 
 .p-10 {
   padding: 10px;
+}
+
+.p-15 {
+  padding: 15px;
 }
 
 .p-20 {
@@ -234,6 +243,10 @@ img {
 
 .img-50 {
   width: 50px;
+}
+
+.img-90 {
+  width: 90px;
 }
 
 .active {

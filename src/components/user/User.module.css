@@ -1,6 +1,30 @@
+.userContainer {
+  overflow: hidden;
+}
+
 .profileImageContainer {
   background: url("https://picsum.photos/200");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+.profileImageContainer img {
+  position: relative;
+  top: 50px;
+  border: 3px solid var(--clr-neutral-100);
+}
+.middle {
+  margin-bottom: 20px;
+}
+
+.userName {
+  position: relative;
+  top: 30px;
+}
+
+.middle button {
+  border: 1px solid var(--clr-accent-primary);
+  padding: 0.3rem 1.5rem;
 }

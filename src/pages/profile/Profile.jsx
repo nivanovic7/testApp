@@ -50,7 +50,7 @@ function Profile() {
 
   if (isLoading) return <p>Loading user data...</p>;
   return (
-    <div className={`${styles.profileLayout} `}>
+    <div className={`${styles.profileLayout} m-auto  `}>
       <aside>
         <User />
       </aside>
