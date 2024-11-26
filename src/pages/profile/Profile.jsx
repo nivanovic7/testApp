@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   useGetRecommendedFriendsQuery,
   useGetUserSettingsQuery,
@@ -9,25 +9,47 @@ import Posts from "../../components/posts/Posts";
 import styles from "./Profile.module.css";
 import User from "../../components/user/User";
 import { useEffect } from "react";
-import { getUserLocation } from "../../utils/helpers";
-
+import { getDistanceBetweenPoints, getUserLocation } from "../../utils/helpers";
+const ALLOWED_DISTANCE_FROM_SAVED_LOCATION = 1; // in kilometers
 const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
 function Profile() {
   const { data, error, isLoading } = useGetRecommendedFriendsQuery();
   const [setUserLocation] = useSetUserLocationMutation();
-  const { data: userSettings, isUserLoading } = useGetUserSettingsQuery();
+  const { data: userSettings } = useGetUserSettingsQuery();
 
+  let savedLatitude, savedLongitude;
+
+  if (userSettings) {
+    savedLatitude = userSettings.data.userCurrentLocation.latitude;
+    savedLongitude = userSettings.data.userCurrentLocation.longitude;
+  }
   useEffect(() => {
     async function initUserLocation() {
-      const location = await getUserLocation();
-      setUserLocation(location.coords);
+      const {
+        coords: { longitude, latitude },
+      } = await getUserLocation();
+
+      const distanceFromSavedLocation = getDistanceBetweenPoints(
+        latitude,
+        longitude,
+        savedLatitude,
+        savedLongitude
+      );
+
+      if (distanceFromSavedLocation > ALLOWED_DISTANCE_FROM_SAVED_LOCATION) {
+        console.log(distanceFromSavedLocation);
+        setUserLocation({ latitude, longitude });
+      }
     }
 
-    initUserLocation();
-  }, [setUserLocation]);
+    if (savedLatitude && savedLongitude) {
+      initUserLocation();
+    }
+  }, [setUserLocation, savedLatitude, savedLongitude]);
 
-  if (!isUserLoading) console.log(userSettings);
+  if (userSettings) console.log();
+
   let recommendedFriendShortList;
 
   if (!isLoading) {

@@ -5,7 +5,6 @@ import { capitalizeFirstLetter } from "../../utils/helpers";
 const BASE_PATH = "../../../assets/";
 
 function CustomNavLink({ path, text }) {
-  console.log(path);
   return (
     <li className={styles.link}>
       <NavLink to={`/${path}`}>

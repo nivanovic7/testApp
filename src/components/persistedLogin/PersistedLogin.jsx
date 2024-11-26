@@ -9,8 +9,7 @@ function PersistedLogin() {
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
-
-    if (userData?.refreshToken) {
+    if (userData?.data.refreshToken) {
       dispatch(setCredentials(userData));
       navigate("/");
     }

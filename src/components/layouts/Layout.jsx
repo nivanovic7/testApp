@@ -23,14 +23,14 @@ function Layout() {
             <Route path="/register" element={<Register />} />
           </Route>
           <Route element={<GuardRoute />}>
+            <Route path="" element={<Profile />} />
+            <Route path="/createPost" element={<CreatePost />} />
+            <Route path="/inbox" element={<Inbox />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Navigate to="map" />} />
               <Route path="map" element={<Map />} />
               <Route />
             </Route>
-            <Route path="" element={<Profile />} />
-            <Route path="/createPost" element={<CreatePost />} />
-            <Route path="/inbox" element={<Inbox />} />
           </Route>
         </Routes>
       </div>
