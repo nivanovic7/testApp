@@ -1,7 +1,6 @@
 import { useGetRecommendedFriendsQuery } from "../../app/api/userApiSlice";
+import RecommendedFriend from "../recommendedFriend/RecommendedFriend";
 import styles from "./RecommendedFriendsList.module.css";
-
-const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
 function RecommendedFriendsList() {
   const { data, isLoading } = useGetRecommendedFriendsQuery();
@@ -14,25 +13,7 @@ function RecommendedFriendsList() {
       <h3>Recomended friends</h3>
       <div>
         {recommendedFriendShortList.map((friend) => (
-          <div className={styles.friend} key={friend._id}>
-            <img
-              src={
-                friend.userProfileImage
-                  ? friend.userProfileImage.imageSmallSource
-                  : AVATAR_PLACEHOLDER_URL
-              }
-              alt="profile img"
-            />
-            <div>
-              <div>
-                <span className={styles.fullName}>
-                  {friend.userFirstName} {friend.userLastName}
-                </span>
-                <span className={styles.userName}> @{friend.userName}</span>
-              </div>
-              <button>Follow</button>
-            </div>
-          </div>
+          <RecommendedFriend key={friend._id} friend={friend} />
         ))}
       </div>
     </div>
