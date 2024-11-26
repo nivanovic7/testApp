@@ -1,10 +1,14 @@
+import { useSelector } from "react-redux";
 import styles from "./User.module.css";
 
 function User() {
+  const { imageSmallSource } = useSelector(
+    (state) => state.auth.userProfileImage
+  );
   return (
     <div className={styles.userContainer}>
       <div className={styles.bgImage}>
-        <img src="../../assets/avatar.png" alt="profile image" />
+        <img src={imageSmallSource} />
       </div>
       <div className={styles.middle}>
         <div className={styles.userName}>
