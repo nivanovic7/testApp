@@ -6,11 +6,9 @@ const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 function RecommendedFriendsList() {
   const { data, isLoading } = useGetRecommendedFriendsQuery();
 
-  let recommendedFriendShortList;
+  if (isLoading) return <p>Loading...</p>;
 
-  if (!isLoading) {
-    recommendedFriendShortList = data.data.slice(0, 5);
-  }
+  const recommendedFriendShortList = data.data.slice(0, 5);
   return (
     <div className={styles.recommendedFriendsWrap}>
       <h3>Recomended friends</h3>

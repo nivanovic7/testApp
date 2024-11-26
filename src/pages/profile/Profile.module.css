@@ -36,60 +36,6 @@
   max-width: 350px;
 }
 
-.recommendedFriendsWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.recommendedFriendsWrap h3 {
-  color: var(--color-primary);
-}
-
-.friend {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem;
-  transition: all 0.3s;
-}
-
-.friend:not(:last-child) {
-  border-bottom: 1px solid rgb(222, 222, 222);
-}
-
-.friend:hover {
-  cursor: pointer;
-  background-color: rgb(229, 229, 229);
-}
-
-.friend img {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-}
-
-.userName {
-  color: gray;
-}
-
-.friend button {
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius-round);
-  background-color: var(--color-accent);
-  border: 0;
-  color: var(--color-neutral-100);
-  font-size: 12px;
-  width: 100px;
-  margin-top: 0.5rem;
-}
-@media only screen and (max-width: 1100px) {
-  .mobileHide {
-    display: none;
-  }
-}
-
 @media only screen and (max-width: 900px) {
   .profileLayout {
     flex-direction: column;
