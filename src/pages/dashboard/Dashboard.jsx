@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import { getUserLocation } from "../../utils/helpers";
+import { useState } from "react";
 import styles from "./Dashboard.module.css";
 import { Outlet } from "react-router-dom";
-import {
-  useSetUserLocationMutation,
-  useUpdateProfileImageMutation,
-} from "../../app/api/userApiSlice";
+import { useUpdateProfileImageMutation } from "../../app/api/userApiSlice";
 
 function Dashboard() {
-  const [setUserLocation] = useSetUserLocationMutation();
   const [avatar, setAvatar] = useState(null);
   const [updateUserImage] = useUpdateProfileImageMutation();
 
@@ -21,15 +16,6 @@ function Dashboard() {
       console.log(err);
     }
   }
-
-  useEffect(() => {
-    async function initUserLocation() {
-      const location = await getUserLocation();
-      setUserLocation(location.coords);
-    }
-
-    initUserLocation();
-  }, [setUserLocation]);
 
   return (
     <div className={styles.dashboard}>

@@ -1,16 +1,35 @@
 import { useDispatch } from "react-redux";
-import { useGetRecommendedFriendsQuery } from "../../app/api/userApiSlice";
+import {
+  useGetRecommendedFriendsQuery,
+  useGetUserSettingsQuery,
+  useSetUserLocationMutation,
+} from "../../app/api/userApiSlice";
 import { logOut } from "../../app/slices/authSlice";
 import Posts from "../../components/posts/Posts";
 import styles from "./Profile.module.css";
-import Map from "../../components/map/Map";
 import User from "../../components/user/User";
+import { useEffect } from "react";
+import { getUserLocation } from "../../utils/helpers";
 
 const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
 function Profile() {
   const { data, error, isLoading } = useGetRecommendedFriendsQuery();
+  const [setUserLocation] = useSetUserLocationMutation();
+  const { data: userSettings, isUserLoading } = useGetUserSettingsQuery();
+
+  useEffect(() => {
+    async function initUserLocation() {
+      const location = await getUserLocation();
+      setUserLocation(location.coords);
+    }
+
+    initUserLocation();
+  }, [setUserLocation]);
+
+  if (!isUserLoading) console.log(userSettings);
   let recommendedFriendShortList;
+
   if (!isLoading) {
     recommendedFriendShortList = data.data.slice(0, 5);
   }

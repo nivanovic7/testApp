@@ -1,5 +1,3 @@
-import styles from "./Login.module.css";
-
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Input from "../../components/input/Input";
-// import FacebookLoginButton from "../../components/facebookLoginButton/FacebookLoginButton";
 import { useLoginMutation } from "../../app/api/authApislice";
 import { setCredentials } from "../../app/slices/authSlice";
 import FacebookLoginButton from "../../components/facebookLoginButton/FacebookLoginButton";
@@ -22,11 +19,11 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const { data: userData } = await login({
+      const data = await login({
         userEmail,
         userPassword,
       }).unwrap();
-      dispatch(setCredentials(userData));
+      dispatch(setCredentials(data));
       navigate("/");
     } catch (err) {
       console.log(err);

@@ -18,6 +18,11 @@
   background-color: red;
 }
 
+.profileImage {
+  width: 48px;
+  border-radius: var(--border-radius-round);
+}
+
 .menuIcon {
   display: block;
 }

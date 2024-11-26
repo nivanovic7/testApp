@@ -4,7 +4,7 @@ import Navigation from "../../navigation/Navigation";
 import { useState } from "react";
 
 function Header() {
-  const { isLoggedIn, user } = useSelector((state) => state.auth);
+  const { isLoggedIn, userProfileImage } = useSelector((state) => state.auth);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   if (!isLoggedIn) return false;
@@ -15,7 +15,11 @@ function Header() {
         {isLoggedIn && (
           <>
             <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            <span>{user.userName}</span>
+            <img
+              className={styles.profileImage}
+              src={userProfileImage.imageSmallSource}
+              alt="profile image"
+            />
             <span
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={styles.menuIcon}

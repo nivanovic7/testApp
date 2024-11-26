@@ -4,6 +4,7 @@ const initialState = {
   accessToken: null,
   refreshToken: null,
   user: null,
+  userProfileImage: null,
   isLoggedIn: false,
   error: null,
 };
@@ -14,9 +15,10 @@ const authSlice = createSlice({
   reducers: {
     setCredentials: (state, action) => {
       state.isLoggedIn = true;
-      state.user = action.payload.user;
-      state.accessToken = action.payload.accessToken;
-      state.refreshToken = action.payload.refreshToken;
+      state.user = action.payload.data.user;
+      state.userProfileImage = action.payload.data.userProfileImage;
+      state.accessToken = action.payload.data.accessToken;
+      state.refreshToken = action.payload.data.refreshToken;
       localStorage.setItem("userData", JSON.stringify(action.payload));
     },
     logOut: (state) => {
