@@ -1,0 +1,10 @@
+.friend:not(:last-child) {
+  border-bottom: 1px solid var(--clr-neutral-200);
+  padding: 10px 0;
+}
+
+.button {
+  align-self: self-start;
+  padding: 0.3rem 1.5rem;
+  border: 0;
+}

@@ -9,8 +9,10 @@ function RecommendedFriendsList() {
 
   const recommendedFriendShortList = data.data.slice(0, 5);
   return (
-    <div className={styles.recommendedFriendsWrap}>
-      <h3>Recomended friends</h3>
+    <div
+      className={`${styles.recommendedFriendsWrap} p-20 box-shadow-tertiary b-radius-10`}
+    >
+      <h3 className={`${styles.heading} clr-primary`}>Recomended friends</h3>
       <div>
         {recommendedFriendShortList.map((friend) => (
           <RecommendedFriend key={friend._id} friend={friend} />
