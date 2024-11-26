@@ -7,13 +7,13 @@ function PostFooter({ id, comments }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={styles.postFooter}>
+    <div className={`${styles.postFooter} p-20 bg-accent-primary`}>
       <div className={styles.footerButtons}>
         <button
-          className={styles.button}
+          className={`${styles.button} d-flex align-center gap-10 clr-neutral-100 fw-700`}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
         >
-          <img src="../../assets/comment.svg" alt="comm" />
+          <img className="img-25" src="../../assets/comment.svg" alt="comm" />
           Comments({comments.length})
         </button>
       </div>

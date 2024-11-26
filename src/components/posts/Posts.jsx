@@ -13,7 +13,7 @@ function Posts() {
     return <h2>No posts at this location</h2>;
   }
   return (
-    <div className={styles.posts}>
+    <div className={`${styles.posts} d-flex f-col gap-20`}>
       {posts.map((outfit) => (
         <Post key={outfit._id} outfit={outfit} />
       ))}

@@ -26,10 +26,10 @@ function PostHeader({ outfit }) {
   }
 
   return (
-    <div className={styles.postHeader}>
-      <div className={styles.userInfo}>
+    <div className={`${styles.postHeader} p-20`}>
+      <div className={`${styles.userInfo} d-flex gap-10 align-center`}>
         <img
-          className={styles.avatar}
+          className={`${styles.avatar} b-radius-circle img-56`}
           src={
             outfit.user[0]?.avatar
               ? outfit.user[0]?.avatar.imageSmallSource
@@ -37,14 +37,16 @@ function PostHeader({ outfit }) {
           }
           alt="avatar icon"
         />
-        <div>
+        <div className={`d-flex f-col gap-10 mr-auto`}>
           <p className={styles.userName}> {outfit.user[0].name}</p>
-          <p className={styles.created}>{outfit.created}</p>
+          <p className={`${styles.created} fs-300 clr-neutral-300`}>
+            {outfit.created}
+          </p>
         </div>
         <div className={styles.dropdownWrap}>
           <img
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className={styles.toggle}
+            className={`${styles.toggle} img-20`}
             src="../../assets/menu (1).png"
             alt="three dots toggle"
           />
@@ -62,7 +64,9 @@ function PostHeader({ outfit }) {
           )}
         </div>
       </div>
-      <p className={styles.desc}>{outfit.outfitDescription}</p>
+      <p className={`${styles.desc} fs-600 fw-700`}>
+        {outfit.outfitDescription}
+      </p>
     </div>
   );
 }

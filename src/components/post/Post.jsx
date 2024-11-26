@@ -6,7 +6,7 @@ import PostFooter from "../postFooter/PostFooter";
 
 function Post({ outfit }) {
   return (
-    <div className={styles.post}>
+    <div className={`${styles.post} box-shadow-secondary b-radius-15 `}>
       <PostHeader outfit={outfit} />
       <CustomCarousel
         outfitVideos={outfit.outfitVideos}

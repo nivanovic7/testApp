@@ -27,7 +27,7 @@
   --fs-300: 12px;
   --fs-400: 14px;
   --fs-500: 16px;
-  --fs-600: 18px;
+  --fs-600: 17px;
   --fs-700: 20px;
 
   --fw-400: 400;
@@ -195,6 +195,10 @@
   gap: 10px;
 }
 
+.gap-20 {
+  gap: 20px;
+}
+
 /* ----------GENERAL STYLES------------- */
 
 * {
@@ -207,7 +211,7 @@ body {
   font-weight: var(--fw-400);
   font-family: var(--ff-primary);
   font-size: var(--fs-400);
-  color: var(--color-neutral-900);
+  color: var(--clr-neutral-800);
 }
 
 ul {
@@ -241,8 +245,12 @@ img {
   width: 20px;
 }
 
-.img-50 {
-  width: 50px;
+.img-25 {
+  width: 25px;
+}
+
+.img-56 {
+  width: 56px;
 }
 
 .img-90 {
