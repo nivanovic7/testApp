@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  useGetRecommendedFriendsQuery,
   useGetUserSettingsQuery,
   useSetUserLocationMutation,
 } from "../../app/api/userApiSlice";
@@ -10,14 +9,18 @@ import styles from "./Profile.module.css";
 import User from "../../components/user/User";
 import { useEffect } from "react";
 import { getDistanceBetweenPoints, getUserLocation } from "../../utils/helpers";
+import RecommendedFriendsList from "../../components/recommendedFriendsList/RecommendedFriendsList";
 
 const ALLOWED_DISTANCE_FROM_SAVED_LOCATION = 1; // in kilometers
-const AVATAR_PLACEHOLDER_URL = "../../assets/avatar.png";
 
 function Profile() {
-  const { data, error, isLoading } = useGetRecommendedFriendsQuery();
+  const dispatch = useDispatch();
   const [setUserLocation] = useSetUserLocationMutation();
-  const { data: userSettings } = useGetUserSettingsQuery();
+  const { data: userSettings, isLoading, error } = useGetUserSettingsQuery();
+
+  if (error) {
+    dispatch(logOut());
+  }
 
   useEffect(() => {
     async function initUserLocation() {
@@ -44,16 +47,6 @@ function Profile() {
     }
   }, [setUserLocation, userSettings]);
 
-  let recommendedFriendShortList;
-
-  if (!isLoading) {
-    recommendedFriendShortList = data.data.slice(0, 5);
-  }
-  const dispatch = useDispatch();
-  if (error) {
-    dispatch(logOut());
-  }
-
   if (isLoading) return <p>Loading user data...</p>;
   return (
     <div className={styles.profileLayout}>
@@ -64,32 +57,7 @@ function Profile() {
         <Posts />
       </main>
       <aside className={styles.mobileHide}>
-        <div className={styles.recommendedFriendsWrap}>
-          <h3>Recomended friends</h3>
-          <div>
-            {recommendedFriendShortList.map((friend) => (
-              <div className={styles.friend} key={friend._id}>
-                <img
-                  src={
-                    friend.userProfileImage
-                      ? friend.userProfileImage.imageSmallSource
-                      : AVATAR_PLACEHOLDER_URL
-                  }
-                  alt="profile img"
-                />
-                <div>
-                  <div>
-                    <span className={styles.fullName}>
-                      {friend.userFirstName} {friend.userLastName}
-                    </span>
-                    <span className={styles.userName}> @{friend.userName}</span>
-                  </div>
-                  <button>Follow</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <RecommendedFriendsList />
       </aside>
     </div>
   );
