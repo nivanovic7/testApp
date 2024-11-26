@@ -1,0 +1,6 @@
+.profileImageContainer {
+  background: url("https://picsum.photos/200");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

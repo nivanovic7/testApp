@@ -1,11 +1,12 @@
-import { useDispatch } from "react-redux";
+import styles from "./Profile.module.css";
+
 import {
   useGetUserSettingsQuery,
   useSetUserLocationMutation,
 } from "../../app/api/userApiSlice";
+import { useDispatch } from "react-redux";
 import { logOut } from "../../app/slices/authSlice";
 import Posts from "../../components/posts/Posts";
-import styles from "./Profile.module.css";
 import User from "../../components/user/User";
 import { useEffect } from "react";
 import { getDistanceBetweenPoints, getUserLocation } from "../../utils/helpers";
@@ -49,11 +50,11 @@ function Profile() {
 
   if (isLoading) return <p>Loading user data...</p>;
   return (
-    <div className={styles.profileLayout}>
+    <div className={`${styles.profileLayout} `}>
       <aside>
         <User />
       </aside>
-      <main className={styles.main}>
+      <main className={`${styles.main} m-auto`}>
         <Posts />
       </main>
       <aside className={styles.mobileHide}>

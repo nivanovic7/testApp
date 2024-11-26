@@ -15,8 +15,8 @@
   --box-shadow-secondary: 3px 8px 20px 0px rgba(0, 0, 0, 0.2);
   --box-shadow-tertiary: 3px 4px 15px 0px rgba(0, 0, 0, 0.15);
 
-  --border-radius-primary: 15px;
   --border-radius-secondary: 10px;
+  --border-radius-primary: 15px;
   --border-radius-tertiary: 20px;
   --border-radius-round: 50px;
   --border-radius-circle: 50%;
@@ -34,6 +34,26 @@
 }
 
 /* ----------UTILITY CLASSES------------- */
+
+.b-radius-10 {
+  border-radius: var(--border-radius-secondary);
+}
+
+.b-radius-15 {
+  border-radius: var(--border-radius-primary);
+}
+
+.b-radius-20 {
+  border-radius: var(--border-radius-tertiary);
+}
+
+.b-radius-round {
+  border-radius: var(--border-radius-round);
+}
+
+.b-radius-circle {
+  border-radius: var(--border-radius-circle);
+}
 
 /* Font  */
 .ff-primary {
@@ -82,7 +102,15 @@
   color: var(--clr-neutral-400);
 }
 
+.clr-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
 /* Background */
+
+.bg-transparent {
+  background-color: transparent;
+}
 
 .bg-neutral-100 {
   background-color: var(--clr-neutral-100);
@@ -108,7 +136,57 @@
   box-shadow: var(--box-shadow-tertiary);
 }
 
-/* ----------CSS RESET------------- */
+/* layot */
+
+.text-center {
+  text-align: center;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-col {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-btw {
+  justify-content: space-between;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+/* ----------GENERAL STYLES------------- */
 
 * {
   box-sizing: border-box;
@@ -117,19 +195,14 @@
 }
 
 body {
-  margin: 0;
-  margin: 0;
-  padding: 0;
   font-weight: var(--fw-400);
   font-family: var(--ff-primary);
-  font-size: 14px;
+  font-size: var(--fs-400);
   color: var(--color-neutral-900);
 }
 
 ul {
   list-style: none;
-  display: flex;
-  gap: 1rem;
   padding: 0;
   margin: 0;
 }
@@ -148,10 +221,21 @@ a {
   text-decoration: none;
 }
 
-.active {
-  color: var(--color-accent) !important;
+img {
+  display: block;
+  width: 100%;
+  /* delete */
+  max-width: 300px;
 }
 
-img {
-  max-width: 300px;
+.img-20 {
+  width: 20px;
+}
+
+.img-50 {
+  width: 50px;
+}
+
+.active {
+  color: var(--color-accent) !important;
 }

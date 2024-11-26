@@ -1,0 +1,13 @@
+@media (min-width: 768px) {
+  .profileLayout {
+    display: flex;
+  }
+
+  .profileLayout main {
+    order: 0;
+  }
+
+  .profileLayout aside {
+    order: 0;
+  }
+}
