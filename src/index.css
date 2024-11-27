@@ -290,7 +290,6 @@ img {
 
 /* Max width */
 
-/* or max-width-page */
 .max-width-primary {
   max-width: 768px;
 }
@@ -317,13 +316,11 @@ img {
 }
 
 @media (min-width: 1024px) {
-  /* Styles for tablets and larger screens */
-
   .d-none-md {
     display: block;
   }
 
   .max-width-secondary {
-    max-width: 560px;
+    max-width: 568px;
   }
 }
