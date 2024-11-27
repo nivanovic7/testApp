@@ -13,7 +13,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [login, { isLoading, error }] = useLoginMutation();
-  const [userEmail, setUserEmail] = useState("nikola851@yahoo.com");
+  const [userEmail, setUserEmail] = useState("test@yahoo.com");
   const [userPassword, setUserPassword] = useState("Password1!");
 
   async function handleSubmit(e) {
