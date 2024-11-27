@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import styles from "./User.module.css";
 
 function User() {
-  const { imageSmallSource } = useSelector(
-    (state) => state.auth.userProfileImage
-  );
+  const userImage = useSelector((state) => state.auth.userProfileImage);
   return (
     <div className={`${styles.userContainer} b-radius-10 box-shadow-tertiary `}>
       <div className={`${styles.profileImageContainer} p-15`}>
-        <img className={`img-90 b-radius-circle`} src={imageSmallSource} />
+        <img
+          className={`img-90 b-radius-circle`}
+          src={userImage?.imageSmallSource || "../../assets/avatar.png"}
+        />
       </div>
       <div className={`${styles.middle} d-flex align-center gap-10 p-15`}>
         <div className={`${styles.userName} d-flex f-col mr-auto`}>

@@ -20,7 +20,7 @@ function Dashboard() {
   return (
     <div className={styles.dashboard}>
       <label htmlFor="updateAvatar">
-        Update Profile Image
+        <button> Update Profile Image</button>
         {avatar ? (
           <button onClick={handleAvatarUpdate}>Update</button>
         ) : (

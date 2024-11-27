@@ -17,7 +17,9 @@ function Header() {
             <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             <img
               className={styles.profileImage}
-              src={userProfileImage?.imageSmallSource}
+              src={
+                userProfileImage?.imageSmallSource || "../../assets/avatar.png"
+              }
               alt="profile image"
             />
             <span
