@@ -1,6 +1,5 @@
 .link {
   flex-direction: row-reverse;
-  color: var(--clr-primary);
 }
 
 .link img {

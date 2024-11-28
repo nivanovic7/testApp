@@ -14,7 +14,10 @@ function LogoutButton() {
     navigate("/login");
   }
   return (
-    <button className={styles.logoutButton} onClick={handleLogout}>
+    <button
+      className={`${styles.logoutButton} bg-accent-primary clr-neutral-100 px-20 fs-300`}
+      onClick={handleLogout}
+    >
       Logout
     </button>
   );

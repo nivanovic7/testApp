@@ -12,7 +12,7 @@ function Header() {
   return (
     <div className={`${styles.headerWrap} d-flex px-20-md box-shadow-primary`}>
       <div
-        className={`${styles.header} d-flex align-center mx-auto max-width-primary w-90 px-20 `}
+        className={`${styles.header} d-flex align-center mx-auto max-width-primary w-90 px-20 gap-20`}
       >
         {isLoggedIn && (
           <>

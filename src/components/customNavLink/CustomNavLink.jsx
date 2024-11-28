@@ -6,7 +6,7 @@ const BASE_PATH = "../../../assets/";
 
 function CustomNavLink({ path, text }) {
   return (
-    <li className={`${styles.link} d-flex align-center gap-5`}>
+    <li className={`${styles.link} d-flex align-center gap-5 clr-primary`}>
       <NavLink to={`/${path}`}>
         {text ? capitalizeFirstLetter(text) : "Profile"}
       </NavLink>

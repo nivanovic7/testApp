@@ -1,8 +1,5 @@
 .button {
   flex: 1;
-  color: var(--color-neutral-100);
-  display: flex;
-  align-items: center;
   border: 0;
   padding: 0 5px;
 
@@ -11,13 +8,13 @@
 }
 
 .button span {
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  text-wrap: nowrap;
 }
 
 .button img {
   padding: 5px;
-  background-color: var(--color-accent-secondary);
-  border-radius: 50%;
+
   /* width: 28px;
   height: 28px; */
 }

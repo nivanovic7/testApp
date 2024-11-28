@@ -4,8 +4,6 @@
 
 .logoutButton {
   border-radius: 200px;
-  color: var(--color-neutral-100);
-  background-color: var(--color-accent);
   padding: 0.5rem 1rem;
   border: 0;
 }
