@@ -2,11 +2,13 @@ import styles from "./CustomNavLink.module.css";
 import { NavLink } from "react-router-dom";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-const BASE_PATH = "../../../assets/";
+const BASE_PATH = "../../../assets";
 
 function CustomNavLink({ path, text }) {
   return (
-    <li className={`${styles.link} d-flex align-center gap-5 clr-primary`}>
+    <li
+      className={`${styles.link} d-flex align-center gap-5 clr-primary fw-700`}
+    >
       <NavLink to={`/${path}`}>
         {text ? capitalizeFirstLetter(text) : "Profile"}
       </NavLink>
