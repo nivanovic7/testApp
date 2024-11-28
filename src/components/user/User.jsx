@@ -3,6 +3,8 @@ import styles from "./User.module.css";
 
 function User() {
   const userImage = useSelector((state) => state.auth.userProfileImage);
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
   return (
     <div className={`${styles.userContainer} b-radius-10 box-shadow-tertiary `}>
       <div className={`${styles.profileImageContainer} p-15`}>
@@ -13,8 +15,8 @@ function User() {
       </div>
       <div className={`${styles.middle} d-flex align-center gap-10 p-15`}>
         <div className={`${styles.userName} d-flex f-col mr-auto`}>
-          <span className="fs-600 ">Sam smith</span>{" "}
-          <span className="clr-neutral-300">@samsmih</span>
+          <span className="fs-600 ">{user.userName}</span>
+          <span className="clr-neutral-300">@{user.userName}</span>
         </div>
         <button className={`d-flex align-center b-radius-round bg-transparent`}>
           <img

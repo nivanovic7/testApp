@@ -46,17 +46,30 @@ function PostHeader({ outfit }) {
         <div className={styles.dropdownWrap}>
           <img
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className={`${styles.toggle} img-20`}
+            className={`${styles.toggle} img-30`}
             src="../../assets/menu (1).png"
             alt="three dots toggle"
           />
           {isDropdownOpen && (
-            <div className={styles.dropdown}>
+            <div className={`${styles.dropdown}`}>
               {userId === currentUserId && (
-                <button onClick={handleDelete}>Delete Post</button>
+                <button
+                  className="bg-neutral-100 clr-neutral-800 box-shadow-primary d-flex align-center gap-10"
+                  onClick={handleDelete}
+                >
+                  Delete Post
+                  <img
+                    className="img-20"
+                    src="../../assets/delete.svg"
+                    alt="delete icon"
+                  />
+                </button>
               )}
               {currentUserId !== userId && (
-                <button onClick={handleAddToChat} className={styles.addUser}>
+                <button
+                  onClick={handleAddToChat}
+                  className={`${styles.addUser} bg-neutral-100 clr-neutral-800 box-shadow-primary `}
+                >
                   Add to chat+
                 </button>
               )}

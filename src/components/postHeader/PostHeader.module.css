@@ -1,3 +1,22 @@
 .userInfo {
   margin-bottom: 20px;
 }
+
+.toggle {
+  cursor: pointer;
+}
+
+.dropdownWrap {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+}
+
+.dropdown button {
+  text-wrap: nowrap;
+  padding: 0.5rem 1rem;
+  border: 0;
+}
