@@ -13,7 +13,7 @@ function Navigation({ isMenuOpen, setIsMenuOpen }) {
 
   return (
     <ul
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
+      onClick={() => setIsMenuOpen(false)}
       className={`${styles.nav} ${
         styles[isMenuOpen ? "toggleNav" : ""]
       } d-flex align-center gap-20 `}

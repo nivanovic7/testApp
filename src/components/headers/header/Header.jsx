@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Header() {
   const { isLoggedIn, userProfileImage } = useSelector((state) => state.auth);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   if (!isLoggedIn) return false;
 
@@ -24,16 +24,13 @@ function Header() {
               }
               alt="profile image"
             />
-            <span
+
+            <img
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={styles.menuIcon}
-            >
-              <img
-                className={`img-48 `}
-                src={`../../assets/${isMenuOpen ? "menu.svg" : "x.svg"}`}
-                alt="menu icon"
-              />
-            </span>
+              className={` ${styles.toggle} img-48 `}
+              src={`../../assets/${isMenuOpen ? "x.svg" : "menu.svg"}`}
+              alt="menu icon"
+            />
           </>
         )}
       </div>

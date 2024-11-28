@@ -3,7 +3,7 @@ import styles from "./ButtonWithIcon.module.css";
 function ButtonWithIcon({ text, iconSrc }) {
   return (
     <button
-      className={`${styles.button} d-flex align-center bg-accent-primary clr-neutral-100 fs-300`}
+      className={`${styles.button} d-flex align-center bg-accent-primary clr-neutral-100 fs-300 fw-700`}
     >
       <span>{text}</span>
       <img

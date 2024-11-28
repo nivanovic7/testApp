@@ -1,3 +1,30 @@
-.nav {
-  flex: 1;
+@media (max-width: 1024px) {
+  .nav {
+    display: none !important;
+  }
+
+  .nav li {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    flex: 1;
+    display: flex;
+  }
+}
+.toggleNav {
+  position: absolute;
+  display: flex !important;
+  flex-direction: column;
+  background-color: white;
+  z-index: 1111;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(70px);
+  padding: 1rem;
+  box-shadow: var(--box-shadow-primary);
+  border-radius: var(--border-radius-secondary);
 }
