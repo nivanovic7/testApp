@@ -10,9 +10,9 @@ function Header() {
   if (!isLoggedIn) return false;
 
   return (
-    <div className={`${styles.headerWrap} d-flex px-20`}>
+    <div className={`${styles.headerWrap} d-flex px-20-md box-shadow-primary`}>
       <div
-        className={`${styles.header} d-flex align-center mx-auto max-width-primary w-90 px-20-md`}
+        className={`${styles.header} d-flex align-center mx-auto max-width-primary w-90 px-20 `}
       >
         {isLoggedIn && (
           <>
@@ -30,7 +30,7 @@ function Header() {
             >
               <img
                 className={`img-48 `}
-                src={`../../assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
+                src={`../../assets/${isMenuOpen ? "menu.svg" : "x.svg"}`}
                 alt="menu icon"
               />
             </span>

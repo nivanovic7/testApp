@@ -1,3 +1,8 @@
+.link {
+  flex-direction: row-reverse;
+  color: var(--clr-primary);
+}
+
 .link img {
   filter: invert(38%) sepia(90%) saturate(1229%) hue-rotate(179deg)
     brightness(103%) contrast(101%);

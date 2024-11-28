@@ -16,7 +16,7 @@ function Navigation({ isMenuOpen, setIsMenuOpen }) {
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       className={`${styles.nav} ${
         styles[isMenuOpen ? "toggleNav" : ""]
-      } d-flex align-center gap-10`}
+      } d-flex align-center gap-20 `}
     >
       {getNavLinksByStatus(status).map((link) => (
         <CustomNavLink key={link.path} path={link.path} text={link.text} />

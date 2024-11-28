@@ -79,7 +79,7 @@ img {
 }
 
 .active {
-  color: var(--color-accent) !important;
+  color: var(--clr-accent-primary) !important;
 }
 
 /* ----------UTILITY CLASSES------------- */
@@ -244,6 +244,21 @@ img {
   padding: 20px;
 }
 
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .px-20-md {
   padding-left: 0;
   padding-right: 0;
@@ -269,6 +284,10 @@ img {
 
 .space-btw {
   justify-content: space-between;
+}
+
+.gap-5 {
+  gap: 5px;
 }
 
 .gap-10 {
@@ -305,7 +324,7 @@ img {
 /* Max width */
 
 .max-width-primary {
-  max-width: 768px;
+  max-width: 570px;
 }
 .max-width-tertiary,
 .max-width-secondary {
