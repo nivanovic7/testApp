@@ -7,6 +7,7 @@
 
 .main {
   flex-grow: 1;
+  overflow-y: scroll;
   /* header - footer  */
   max-height: calc(100vh - 69px - 75px);
 }
@@ -19,7 +20,6 @@
 
   .main {
     padding: 0;
-    overflow-y: scroll;
   }
 
   .main::-webkit-scrollbar {
@@ -30,11 +30,11 @@
 
   /* Styling the scrollbar track */
   main::-webkit-scrollbar-track {
-    background: #5f5f5f00; /* Light gray background */
+    background: transparent; /* Light gray background */
     border-radius: 10px; /* Rounded corners */
   }
   .main::-webkit-scrollbar-thumb {
-    background: #c0c0c0; /* Darker gray for the thumb */
+    background: var(--clr-neutral-250); /* Darker gray for the thumb */
     border-radius: 10px; /* Rounded corners */
     margin: 1rem;
   }

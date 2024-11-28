@@ -51,14 +51,14 @@ function Profile() {
   if (isLoading) return <p>Loading user data...</p>;
   return (
     <div className={`${styles.profileLayout} mx-auto  gap-20 flex-col-sm `}>
-      <aside className="max-width-tertiary p-20  w-90">
+      <aside className="max-width-tertiary px-20-md  w-90">
         <User />
       </aside>
-      <main className={`${styles.main} max-width-secondary p-20  w-90 `}>
+      <main className={`${styles.main} max-width-secondary px-20-md  w-90 `}>
         <Posts />
       </main>
       <aside
-        className={`${styles.mobileHide} p-20 max-width-tertiary w-90 d-none-md `}
+        className={`${styles.mobileHide} px-20-md max-width-tertiary w-90 d-none-md `}
       >
         <RecommendedFriendsList />
       </aside>
