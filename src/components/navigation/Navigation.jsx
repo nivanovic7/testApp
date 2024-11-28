@@ -14,13 +14,15 @@ function Navigation({ isMenuOpen, setIsMenuOpen }) {
   return (
     <ul
       onClick={() => setIsMenuOpen(!isMenuOpen)}
-      className={`${styles.nav} ${styles[isMenuOpen ? "toggleNav" : ""]}`}
+      className={`${styles.nav} ${
+        styles[isMenuOpen ? "toggleNav" : ""]
+      } d-flex align-center gap-10`}
     >
       {getNavLinksByStatus(status).map((link) => (
         <CustomNavLink key={link.path} path={link.path} text={link.text} />
       ))}
       <>
-        <li className={styles.loginWrap}>
+        <li className={`${styles.loginWrap} ml-auto`}>
           <LogoutButton />
         </li>
 

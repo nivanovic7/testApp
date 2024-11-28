@@ -36,6 +36,52 @@
   --fw-700: 700;
 }
 
+/* ----------GENERAL STYLES------------- */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-weight: var(--fw-400);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  color: var(--clr-neutral-800);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  /* delete */
+  max-width: 300px;
+}
+
+.active {
+  color: var(--color-accent) !important;
+}
+
 /* ----------UTILITY CLASSES------------- */
 
 .b-radius-10 {
@@ -56,6 +102,31 @@
 
 .b-radius-circle {
   border-radius: var(--border-radius-circle);
+}
+
+.img-20 {
+  width: 20px;
+  height: 20px;
+}
+
+.img-25 {
+  width: 25px;
+  height: 25px;
+}
+
+.img-48 {
+  width: 48px;
+  height: 48px;
+}
+
+.img-56 {
+  width: 56px;
+  height: 56px;
+}
+
+.img-90 {
+  width: 90px;
+  height: 90px;
 }
 
 /* Font  */
@@ -161,11 +232,6 @@
   margin-left: auto;
 }
 
-.px-20-md {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .p-10 {
   padding: 10px;
 }
@@ -178,9 +244,16 @@
   padding: 20px;
 }
 
+.px-20-md {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .d-block {
   display: block;
 }
+
+/* Flexbox */
 
 .d-flex {
   display: flex;
@@ -204,72 +277,6 @@
 
 .gap-20 {
   gap: 20px;
-}
-
-/* ----------GENERAL STYLES------------- */
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-weight: var(--fw-400);
-  font-family: var(--ff-primary);
-  font-size: var(--fs-400);
-  color: var(--clr-neutral-800);
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  width: 100%;
-  /* delete */
-  max-width: 300px;
-}
-
-.img-20 {
-  width: 20px;
-  height: 20px;
-}
-
-.img-25 {
-  width: 25px;
-  height: 25px;
-}
-
-.img-56 {
-  width: 56px;
-  height: 56px;
-}
-
-.img-90 {
-  width: 90px;
-  height: 90px;
-}
-
-.active {
-  color: var(--color-accent) !important;
 }
 
 /* Display and hode elements on breakpoints */
@@ -330,6 +337,10 @@ img {
 @media (min-width: 1024px) {
   .d-none-md {
     display: block;
+  }
+
+  .max-width-primary {
+    max-width: 1215px;
   }
 
   .max-width-secondary {

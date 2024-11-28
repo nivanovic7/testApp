@@ -29,8 +29,8 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--clr-neutral-100);
   color: white;
-  border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;

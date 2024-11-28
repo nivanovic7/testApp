@@ -6,11 +6,12 @@ const BASE_PATH = "../../../assets/";
 
 function CustomNavLink({ path, text }) {
   return (
-    <li className={styles.link}>
+    <li className={`{styles.link} d-flex align-center`}>
       <NavLink to={`/${path}`}>
         {text ? capitalizeFirstLetter(text) : "Profile"}
       </NavLink>
       <img
+        className={`img-20 `}
         src={`${BASE_PATH}/${path}.svg
         `}
         alt={`${path} icon`}

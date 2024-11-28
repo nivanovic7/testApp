@@ -10,13 +10,15 @@ function Header() {
   if (!isLoggedIn) return false;
 
   return (
-    <div className={styles.headerWrap}>
-      <div className={styles.header}>
+    <div className={`${styles.headerWrap} d-flex px-20`}>
+      <div
+        className={`${styles.header} d-flex align-center mx-auto max-width-primary w-90 px-20-md`}
+      >
         {isLoggedIn && (
           <>
             <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             <img
-              className={styles.profileImage}
+              className={`${styles.profileImage} img-48 b-radius-circle`}
               src={
                 userProfileImage?.imageSmallSource || "../../assets/avatar.png"
               }
@@ -27,6 +29,7 @@ function Header() {
               className={styles.menuIcon}
             >
               <img
+                className={`img-48 `}
                 src={`../../assets/${isMenuOpen ? "menu.png" : "x.svg"}`}
                 alt="menu icon"
               />

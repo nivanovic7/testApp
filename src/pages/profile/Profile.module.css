@@ -12,6 +12,22 @@
   max-height: calc(100vh - 69px - 75px);
 }
 
+.main::-webkit-scrollbar {
+  width: 6px; /* Width for vertical scrollbar */
+  background-color: #ffffff;
+  margin: 1rem;
+}
+
+/* Styling the scrollbar track */
+main::-webkit-scrollbar-track {
+  background: transparent; /* Light gray background */
+  border-radius: 10px; /* Rounded corners */
+}
+.main::-webkit-scrollbar-thumb {
+  background: var(--clr-neutral-250); /* Darker gray for the thumb */
+  border-radius: 10px; /* Rounded corners */
+  margin: 1rem;
+}
 @media (min-width: 768px) {
   .profileLayout {
     align-items: start;
@@ -20,22 +36,5 @@
 
   .main {
     padding: 0;
-  }
-
-  .main::-webkit-scrollbar {
-    width: 6px; /* Width for vertical scrollbar */
-    background-color: #ffffff;
-    margin: 1rem;
-  }
-
-  /* Styling the scrollbar track */
-  main::-webkit-scrollbar-track {
-    background: transparent; /* Light gray background */
-    border-radius: 10px; /* Rounded corners */
-  }
-  .main::-webkit-scrollbar-thumb {
-    background: var(--clr-neutral-250); /* Darker gray for the thumb */
-    border-radius: 10px; /* Rounded corners */
-    margin: 1rem;
   }
 }
