@@ -1,24 +1,2 @@
 .chatItem {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s;
-  position: relative;
-}
-
-.chatItem:hover {
-  background-color: rgb(223, 232, 239);
-  cursor: pointer;
-}
-
-.chatItem p {
-  margin-right: auto;
-}
-
-.chatItem img {
-  width: 30px;
-}
-
-.selectedChat {
-  background-color: var(--color-neutral-100);
 }

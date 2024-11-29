@@ -1,12 +1,9 @@
 .inbox {
-  display: flex;
-  height: 94vh;
-  font-weight: 400;
-  font-style: normal;
-  max-height: calc(100vh - 147px);
+  min-height: calc(100vh - 135px);
 }
 
-.inbox h3 {
-  margin: 1rem;
-  width: 100%;
+.sidebar {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
 }

@@ -11,7 +11,7 @@ function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
     <li
       className={`${styles.chatItem} ${
         selectedChatId === chat._id ? styles.selectedChat : null
-      }`}
+      } d-flex align-center w-full`}
       onClick={() => setSelectedChatId(chat._id)}
     >
       <ChatItemAvatar members={chat.chatMembers} />
@@ -19,6 +19,7 @@ function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
         <>
           <p>{chat.chatName}</p>
           <img
+            className="img-30"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             src="../../assets/menu (1).png"
             alt=""
