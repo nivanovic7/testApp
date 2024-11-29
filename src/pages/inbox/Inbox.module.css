@@ -3,7 +3,13 @@
 }
 
 .sidebar {
+  max-width: 100%;
   flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    min-width: 200px;
+    max-width: 300px;
+  }
 }

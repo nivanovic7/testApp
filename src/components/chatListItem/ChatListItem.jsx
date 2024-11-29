@@ -7,17 +7,18 @@ import { useState } from "react";
 function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
   const chatMemebers = getChatMembersUsernames(chat, chat.user._id);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <li
       className={`${styles.chatItem} ${
         selectedChatId === chat._id ? styles.selectedChat : null
-      } d-flex align-center w-full`}
+      } d-flex align-center w-full gap-10`}
       onClick={() => setSelectedChatId(chat._id)}
     >
       <ChatItemAvatar members={chat.chatMembers} />
       {chat.chatType === "group" ? (
         <>
-          <p>{chat.chatName}</p>
+          <p className="mr-auto">{chat.chatName}</p>
           <img
             className="img-30"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -1,2 +1,7 @@
 .chatItem {
+  padding: 1rem;
+}
+
+.chatItem:hover {
+  background-color: var(--clr-neutral-100);
 }

@@ -7,19 +7,41 @@ import CreateGroupChat from "../../components/createGroupChat/CreateGroupChat";
 
 function Inbox() {
   const [selectedChatId, setSelectedChatId] = useState(null);
+  const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
+
   return (
     <div className={`${styles.inbox} d-flex`}>
-      <div className={`${styles.sidebar} d-flex f-col bg-neutral-200`}>
-        <CreateGroupChat />
-        <ChatList
-          selectedChatId={selectedChatId}
-          setSelectedChatId={setSelectedChatId}
-        />
-      </div>
-      {selectedChatId ? (
-        <ChatBox chatId={selectedChatId} />
+      {isSmallScreen ? (
+        selectedChatId ? (
+          <ChatBox
+            isSmallScreen={isSmallScreen}
+            chatId={selectedChatId}
+            setSelectedChatId={setSelectedChatId}
+          />
+        ) : (
+          <div className={`${styles.sidebar} d-flex f-col bg-neutral-200`}>
+            <CreateGroupChat />
+            <ChatList
+              selectedChatId={selectedChatId}
+              setSelectedChatId={setSelectedChatId}
+            />
+          </div>
+        )
       ) : (
-        <h3>Please select user to start chat!</h3>
+        <>
+          <div className={`${styles.sidebar} d-flex f-col bg-neutral-200`}>
+            <CreateGroupChat />
+            <ChatList
+              selectedChatId={selectedChatId}
+              setSelectedChatId={setSelectedChatId}
+            />
+          </div>
+          {selectedChatId ? (
+            <ChatBox chatId={selectedChatId} />
+          ) : (
+            <h3>Please select user to start chat!</h3>
+          )}
+        </>
       )}
     </div>
   );
