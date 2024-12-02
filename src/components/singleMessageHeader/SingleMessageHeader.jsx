@@ -1,6 +1,6 @@
 function SingleMessageHeader({ message }) {
   return (
-    <p className="messageUserName">
+    <p className="clr-neutral-300">
       <small>
         <i>{message.chatMessageUser.userName}:</i>
       </small>

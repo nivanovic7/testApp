@@ -55,7 +55,7 @@ function SendMessage({ chatId, setNewMessages }) {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`${styles.form} d-flex`} onSubmit={handleSubmit}>
       <input
         value={message}
         onChange={(e) => setMessage(e.target.value)}

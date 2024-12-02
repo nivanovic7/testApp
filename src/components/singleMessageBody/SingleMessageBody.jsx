@@ -1,6 +1,10 @@
 function SingleMessageBody({ message }) {
   if (message.chatMessageType === "text") {
-    return <p className="messageText">{message.chatMessageText}</p>;
+    return (
+      <p className="b-radius-round messageText clr-neutral-100">
+        {message.chatMessageText}
+      </p>
+    );
   }
 
   if (message.chatMessageType === "media") {

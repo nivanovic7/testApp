@@ -11,7 +11,7 @@ function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
   return (
     <li
       className={`${styles.chatItem} ${
-        selectedChatId === chat._id ? styles.selectedChat : null
+        selectedChatId === chat._id ? "bg-neutral-100" : ""
       } d-flex align-center w-full gap-10`}
       onClick={() => setSelectedChatId(chat._id)}
     >
