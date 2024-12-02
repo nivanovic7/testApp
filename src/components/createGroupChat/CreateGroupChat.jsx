@@ -17,7 +17,7 @@ function CreateGroupChat() {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`${styles.form} d-flex gap-5 p-10 `}
+      className={`${styles.form} d-flex gap-5 p-15 `}
     >
       {isOpen && (
         <>
