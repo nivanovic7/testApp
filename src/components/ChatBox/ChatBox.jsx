@@ -4,9 +4,12 @@ import SendMessage from "../SendMessage/SendMessage";
 import LoadedMessagesList from "../loadedMessagesList/LoadedMessagesList";
 import NewMessagesList from "../newMessagesList/NewMessagesList";
 import { useEffect, useState } from "react";
+import { useGetChatsQuery } from "../../app/api/messagesApiSlice";
+import ChatBoxHeader from "../ChatBoxHeader/ChatBoxHeader";
 
 function ChatBox({ chatId, setSelectedChatId, isSmallScreen }) {
   const [newMessages, setNewMessages] = useState([]);
+  const { data } = useGetChatsQuery();
 
   useEffect(() => {
     setNewMessages([]);
@@ -18,6 +21,7 @@ function ChatBox({ chatId, setSelectedChatId, isSmallScreen }) {
         {isSmallScreen && (
           <button onClick={() => setSelectedChatId(null)}>Back</button>
         )}
+        {data?.data && <ChatBoxHeader chatId={chatId} data={data.data} />}
         <div className={styles.chat}>
           <LoadedMessagesList chatId={chatId} newMessages={newMessages} />
           <NewMessagesList

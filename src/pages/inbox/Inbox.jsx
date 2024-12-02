@@ -9,7 +9,7 @@ function Inbox() {
   const [selectedChatId, setSelectedChatId] = useState(null);
   const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
 
-  function showOneView() {
+  function showOneByOne() {
     return selectedChatId ? (
       <ChatBox
         isSmallScreen={isSmallScreen}
@@ -27,7 +27,7 @@ function Inbox() {
     );
   }
 
-  function showTwoViews() {
+  function showSideBySide() {
     return (
       <>
         <div className={`${styles.sidebar} d-flex f-col bg-neutral-200`}>
@@ -48,7 +48,7 @@ function Inbox() {
 
   return (
     <div className={`${styles.inbox} d-flex`}>
-      {isSmallScreen ? showOneView() : showTwoViews()}
+      {isSmallScreen ? showOneByOne() : showSideBySide()}
     </div>
   );
 }

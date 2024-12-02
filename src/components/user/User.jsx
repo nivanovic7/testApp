@@ -4,7 +4,6 @@ import styles from "./User.module.css";
 function User() {
   const userImage = useSelector((state) => state.auth.userProfileImage);
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
   return (
     <div className={`${styles.userContainer} b-radius-10 box-shadow-tertiary `}>
       <div className={`${styles.profileImageContainer} p-15`}>

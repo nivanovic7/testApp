@@ -88,6 +88,14 @@ export function capitalizeFirstLetter(val) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
+export function getUsersFromChat(data, chatId, currentUserId) {
+  const currentChat = data.filter((chat) => chat._id === chatId);
+  const userNamesInChat = currentChat[0].chatMembers.filter(
+    (member) => member._id !== currentUserId
+  );
+  return userNamesInChat;
+}
+
 export function getDistanceBetweenPoints(lat1, lon1, lat2, lon2) {
   const R = 6371;
 
