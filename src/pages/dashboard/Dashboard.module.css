@@ -8,7 +8,6 @@
 .dashboard label button {
   padding: 0.5rem 1.5rem;
   border-radius: var(--border-radius-round);
-  border: 0;
   margin-left: 6.8rem;
   margin-top: 2rem;
   background-color: var(--clr-primary);

@@ -2,6 +2,7 @@ import styles from "./Header.module.css";
 import { useSelector } from "react-redux";
 import Navigation from "../../navigation/Navigation";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { isLoggedIn, userProfileImage } = useSelector((state) => state.auth);
@@ -17,13 +18,16 @@ function Header() {
         {isLoggedIn && (
           <>
             <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            <img
-              className={`${styles.profileImage} img-48 b-radius-circle`}
-              src={
-                userProfileImage?.imageSmallSource || "../../assets/avatar.png"
-              }
-              alt="profile image"
-            />
+            <Link to="/">
+              <img
+                className={`${styles.profileImage} img-48 b-radius-circle`}
+                src={
+                  userProfileImage?.imageSmallSource ||
+                  "../../assets/avatar.png"
+                }
+                alt="profile image"
+              />
+            </Link>
 
             <img
               onClick={() => setIsMenuOpen(!isMenuOpen)}

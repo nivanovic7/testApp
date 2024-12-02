@@ -1,0 +1,6 @@
+.container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-top: 1px solid var(--clr-neutral-200);
+}

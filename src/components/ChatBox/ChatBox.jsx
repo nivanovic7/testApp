@@ -18,23 +18,15 @@ function ChatBox({ chatId, setSelectedChatId, isSmallScreen }) {
   function chatView() {
     return (
       <div className={styles.container}>
-        <div
-          className={`${styles.chatBoxHeaderWrap} d-flex w-full box-shadow-primary  p-10  bg-neutral-100`}
-        >
-          {isSmallScreen && (
-            <button
-              onClick={() => setSelectedChatId(null)}
-              className="px-10 bg-transparent border-0"
-            >
-              <img
-                className="img-20"
-                src="../../assets/back.svg"
-                alt="arrow back"
-              />
-            </button>
-          )}
-          {data?.data && <ChatBoxHeader chatId={chatId} data={data.data} />}
-        </div>
+        {data?.data && (
+          <ChatBoxHeader
+            isSmallScreen={isSmallScreen}
+            setSelectedChatId={setSelectedChatId}
+            chatId={chatId}
+            data={data.data}
+          />
+        )}
+
         <div className={styles.chat}>
           <LoadedMessagesList chatId={chatId} newMessages={newMessages} />
           <NewMessagesList
