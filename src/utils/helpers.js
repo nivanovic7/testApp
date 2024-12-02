@@ -96,6 +96,16 @@ export function getUsersFromChat(data, chatId, currentUserId) {
   return userNamesInChat;
 }
 
+export function getAvatarImages(members, currentUserId, defaultPath) {
+  return members
+    .filter((member) => member._id !== currentUserId)
+    .map((member) =>
+      member.userProfileImage
+        ? member.userProfileImage.imageSmallSource
+        : defaultPath
+    );
+}
+
 export function getDistanceBetweenPoints(lat1, lon1, lat2, lon2) {
   const R = 6371;
 
