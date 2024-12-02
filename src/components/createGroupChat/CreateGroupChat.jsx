@@ -29,7 +29,7 @@ function CreateGroupChat() {
             required
           />
 
-          <button type="submit">
+          <button className="border-0" type="submit">
             <img
               className="img-20 bg-transparent"
               src="../../assets/ok.svg"
@@ -39,7 +39,7 @@ function CreateGroupChat() {
         </>
       )}
       <button
-        className="bg-transparent"
+        className="bg-transparent border-0"
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >

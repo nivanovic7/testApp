@@ -78,7 +78,9 @@ function SendMessage({ chatId, setNewMessages }) {
         onChange={(e) => setAttachment(e.target.files[0])}
       />
       <button
-        className={!message && !attachment ? styles.buttonDisabled : ""}
+        className={`${
+          !message && !attachment ? styles.buttonDisabled : ""
+        } border-0`}
         type="submit"
       >
         Send

@@ -10,7 +10,7 @@ function PostFooter({ id, comments }) {
     <div className={`${styles.postFooter} p-20 bg-accent-primary`}>
       <div className={styles.footerButtons}>
         <button
-          className={`${styles.button} d-flex align-center gap-10 clr-neutral-100 fw-700`}
+          className={`${styles.button} d-flex align-center gap-10 border-0 clr-neutral-100 fw-700`}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
         >
           <img className="img-25" src="../../assets/comment.svg" alt="comm" />

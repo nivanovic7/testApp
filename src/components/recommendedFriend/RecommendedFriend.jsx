@@ -25,7 +25,7 @@ function RecommendedFriend({ friend }) {
           <span className={` clr-neutral-400`}>@{friend.userName}</span>
         </div>
         <button
-          className={`${styles.button} b-radius-round bg-accent-primary clr-neutral-100 fw-700`}
+          className={`${styles.button} border-0 b-radius-round bg-accent-primary clr-neutral-100 fw-700`}
         >
           Follow
         </button>

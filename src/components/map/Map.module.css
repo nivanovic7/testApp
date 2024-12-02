@@ -15,7 +15,6 @@
 }
 
 .form input {
-  border: 0;
   background-color: transparent;
   padding: 0.75rem 0.75rem 0.75rem 2rem;
   flex: 1;
@@ -30,7 +29,6 @@
   left: 0.5rem;
   top: 0;
   bottom: 0;
-  border: 0;
 
   display: flex;
   align-items: center;
@@ -51,7 +49,7 @@
 .buttons button {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-round);
-  border: 0;
+
   background-color: var(--color-accent);
   color: var(--color-neutral-100);
 }

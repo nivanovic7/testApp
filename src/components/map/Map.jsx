@@ -56,7 +56,7 @@ function Map() {
   return (
     <div className={styles.container}>
       <form onSubmit={fetchCoordinates} className={styles.form}>
-        <button>
+        <button className="border-0">
           <img src="../../assets/searchIcon.svg" alt="search icon" />
         </button>
         <input
@@ -79,10 +79,15 @@ function Map() {
       </MapContainer>
 
       <div className={styles.buttons}>
-        <button onClick={() => setUserLocation({ latitude, longitude })}>
+        <button
+          className="border-0"
+          onClick={() => setUserLocation({ latitude, longitude })}
+        >
           Use map location
         </button>
-        <button onClick={handleUserCoords}>Use your coordinates</button>
+        <button className="border-0" onClick={handleUserCoords}>
+          Use your coordinates
+        </button>
       </div>
     </div>
   );

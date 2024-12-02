@@ -54,7 +54,7 @@ function PostHeader({ outfit }) {
             <div className={`${styles.dropdown}`}>
               {userId === currentUserId && (
                 <button
-                  className="bg-neutral-100 clr-neutral-800 box-shadow-primary d-flex align-center gap-10"
+                  className="bg-neutral-100 clr-neutral-800 box-shadow-primary d-flex align-center gap-10 border-0"
                   onClick={handleDelete}
                 >
                   Delete Post
@@ -68,7 +68,7 @@ function PostHeader({ outfit }) {
               {currentUserId !== userId && (
                 <button
                   onClick={handleAddToChat}
-                  className={`${styles.addUser} bg-neutral-100 clr-neutral-800 box-shadow-primary `}
+                  className={`${styles.addUser} bg-neutral-100 clr-neutral-800 box-shadow-primary border-0`}
                 >
                   Add to chat+
                 </button>
