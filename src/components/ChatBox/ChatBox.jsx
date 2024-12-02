@@ -15,7 +15,7 @@ function ChatBox({ chatId, setSelectedChatId, isSmallScreen }) {
     setNewMessages([]);
   }, [chatId]);
 
-  function chatView() {
+  function displayChat() {
     return (
       <div className={styles.container}>
         {data?.data && (
@@ -41,7 +41,7 @@ function ChatBox({ chatId, setSelectedChatId, isSmallScreen }) {
     );
   }
 
-  return chatId ? chatView() : <p>Select chat to see messages!</p>;
+  return chatId ? displayChat() : <p>Select chat to see messages!</p>;
 }
 
 export default ChatBox;

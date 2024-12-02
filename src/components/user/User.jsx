@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import styles from "./User.module.css";
+import UpdateAvatar from "../UpdateAvatar/UpdateAvatar";
 
 function User() {
   const userImage = useSelector((state) => state.auth.userProfileImage);
@@ -8,9 +9,10 @@ function User() {
     <div className={`${styles.userContainer} b-radius-10 box-shadow-tertiary `}>
       <div className={`${styles.profileImageContainer} p-15`}>
         <img
-          className={`img-90 b-radius-circle`}
+          className={`${styles.profileImage} img-90 b-radius-circle`}
           src={userImage?.imageSmallSource || "../../assets/avatar.png"}
         />
+        <UpdateAvatar />
       </div>
       <div className={`${styles.middle} d-flex align-center gap-10 p-15`}>
         <div className={`${styles.userName} d-flex f-col mr-auto`}>

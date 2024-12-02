@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styles from "./PrivateChatsList.module.css";
 import {
   useAddUserToGroupChatMutation,
   useGetChatsQuery,
 } from "../../app/api/messagesApiSlice";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function PrivateChatsList({ chatMembers, groupId, setIsMenuOpen }) {
@@ -43,7 +43,10 @@ function PrivateChatsList({ chatMembers, groupId, setIsMenuOpen }) {
   }
 
   return (
-    <div>
+    <div className={`${styles.container} bg-neutral-100`}>
+      {selectedMembers.length > 0 && (
+        <button onClick={handleAddUsers}>Add users</button>
+      )}
       <ul className={styles.list}>
         {filteredMembers.map((member) => (
           <li
@@ -55,9 +58,6 @@ function PrivateChatsList({ chatMembers, groupId, setIsMenuOpen }) {
           </li>
         ))}
       </ul>
-      {selectedMembers.length > 0 && (
-        <button onClick={handleAddUsers}>Add users</button>
-      )}
     </div>
   );
 }

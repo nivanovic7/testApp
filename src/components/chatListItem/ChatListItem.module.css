@@ -1,3 +1,7 @@
+.chatItem {
+  position: relative;
+}
+
 .chatItem:hover {
   background-color: var(--clr-neutral-100);
 }

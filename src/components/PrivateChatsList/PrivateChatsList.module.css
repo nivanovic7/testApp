@@ -1,6 +1,5 @@
-.list {
+.container {
   position: absolute;
-  background-color: var(--color-neutral-100);
   left: 0;
   right: 0;
   top: 100%;
@@ -11,6 +10,12 @@
 .list li {
   padding: 0.5rem;
 }
+
+.list li:hover {
+  background-color: var(--clr-accent-primary);
+}
+
 .selected {
-  background-color: var(--color-accent);
+  background-color: var(--clr-accent-primary);
+  color: var(--clr-neutral-100);
 }

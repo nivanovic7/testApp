@@ -1,13 +1,12 @@
 import styles from "./Profile.module.css";
-
+import Posts from "../../components/posts/Posts";
+import User from "../../components/user/User";
 import {
   useGetUserSettingsQuery,
   useSetUserLocationMutation,
 } from "../../app/api/userApiSlice";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../app/slices/authSlice";
-import Posts from "../../components/posts/Posts";
-import User from "../../components/user/User";
 import { useEffect } from "react";
 import { getDistanceBetweenPoints, getUserLocation } from "../../utils/helpers";
 import RecommendedFriendsList from "../../components/recommendedFriendsList/RecommendedFriendsList";

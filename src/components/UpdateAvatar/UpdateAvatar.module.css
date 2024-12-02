@@ -1,0 +1,12 @@
+.updateImageIcon {
+  position: absolute;
+  left: calc(2rem + 50px);
+  top: 90%;
+  cursor: pointer;
+}
+
+.buttons {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
