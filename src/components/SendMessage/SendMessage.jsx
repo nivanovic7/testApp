@@ -55,7 +55,7 @@ function SendMessage({ chatId, setNewMessages }) {
   }
 
   return (
-    <form className={`${styles.form} d-flex`} onSubmit={handleSubmit}>
+    <form className={`${styles.form} d-flex p-10`} onSubmit={handleSubmit}>
       <input
         value={message}
         onChange={(e) => setMessage(e.target.value)}
@@ -68,7 +68,7 @@ function SendMessage({ chatId, setNewMessages }) {
         htmlFor="file-upload"
         className={`${styles.uploadFile} ${
           attachment && styles.uploadFileReady
-        }`}
+        } bg-neutral-100`}
       >
         &#8679;
       </label>

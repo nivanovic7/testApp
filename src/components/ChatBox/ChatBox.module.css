@@ -5,9 +5,15 @@
   position: relative;
 
   width: 100%;
-  padding-bottom: 0.5rem;
   overflow-y: scroll;
   max-height: calc(100vh - 68px - 92px);
+}
+
+.chatBoxHeaderWrap {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-top: 1px solid var(--clr-neutral-200);
 }
 
 .chat {

@@ -6,9 +6,7 @@ function ChatBoxHeader({ chatId, data }) {
   const currentUserId = useSelector((state) => state.auth.user.sub);
   const usersInChat = getUsersFromChat(data, chatId, currentUserId);
   return (
-    <div
-      className={`${styles.container} p-10 box-shadow-primary bg-neutral-100`}
-    >
+    <div className={`${styles.container} ml-auto`}>
       {usersInChat
         .map((user) => (
           <span className={`${styles.userName}  fw-700`} key={user._id}>
