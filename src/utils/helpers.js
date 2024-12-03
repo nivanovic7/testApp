@@ -26,6 +26,7 @@ export function getRegisterCredentialsFromFacebookResponse(data) {
     userName: data.name,
     userGender: data.gender || 1,
     facebookDetails: "",
+    userProfileImage: data.picture.data.url,
   };
 
   return credentials;

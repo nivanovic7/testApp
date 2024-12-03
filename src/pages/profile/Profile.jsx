@@ -36,7 +36,7 @@ function Profile() {
         savedLatitude,
         savedLongitude
       );
-
+      console.log(userSettings.data.userProfileImage);
       if (distanceFromSavedLocation > ALLOWED_DISTANCE_FROM_SAVED_LOCATION) {
         setUserLocation({ latitude, longitude });
       }

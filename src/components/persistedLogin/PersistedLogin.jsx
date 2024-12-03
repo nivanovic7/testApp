@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
-import { setCredentials } from "../../app/slices/authSlice";
+import {
+  setCredentials,
+  setUserProfileImage,
+} from "../../app/slices/authSlice";
 
 function PersistedLogin() {
   const dispatch = useDispatch();
@@ -9,9 +12,16 @@ function PersistedLogin() {
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const userProfileImage = JSON.parse(
+      localStorage.getItem("userProfileImage")
+    );
     if (userData?.data?.refreshToken) {
       dispatch(setCredentials(userData));
       navigate("/");
+    }
+
+    if (userProfileImage) {
+      dispatch(setUserProfileImage(userProfileImage));
     }
   }, [dispatch, navigate]);
 

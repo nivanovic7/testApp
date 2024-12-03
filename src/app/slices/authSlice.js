@@ -14,14 +14,18 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      console.log("AUTH SLICE");
-      console.log(action.payload);
       state.isLoggedIn = true;
+      console.log(action.payload);
       state.user = action.payload.data.user;
-      state.userProfileImage = action.payload.data.userProfileImage;
+
       state.accessToken = action.payload.data.accessToken;
       state.refreshToken = action.payload.data.refreshToken;
       localStorage.setItem("userData", JSON.stringify(action.payload));
+    },
+    setUserProfileImage: (state, action) => {
+      console.log(action.payload);
+      state.userProfileImage = action.payload;
+      localStorage.setItem("userProfileImage", JSON.stringify(action.payload));
     },
     logOut: (state) => {
       state.isLoggedIn = false;
@@ -36,6 +40,11 @@ const authSlice = createSlice({
   },
 });
 
-export const { loginSuccess, logOut, setErrors, setCredentials } =
-  authSlice.actions;
+export const {
+  loginSuccess,
+  logOut,
+  setErrors,
+  setCredentials,
+  setUserProfileImage,
+} = authSlice.actions;
 export default authSlice.reducer;

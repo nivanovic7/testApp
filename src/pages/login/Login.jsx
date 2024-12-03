@@ -6,7 +6,10 @@ import Form from "../../components/Form/Form";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Input from "../../components/input/Input";
 import { useLoginMutation } from "../../app/api/authApislice";
-import { setCredentials } from "../../app/slices/authSlice";
+import {
+  setCredentials,
+  setUserProfileImage,
+} from "../../app/slices/authSlice";
 import FacebookLoginButton from "../../components/facebookLoginButton/FacebookLoginButton";
 
 function Login() {
@@ -23,8 +26,8 @@ function Login() {
         userEmail,
         userPassword,
       }).unwrap();
-      console.log(data);
       dispatch(setCredentials(data));
+      dispatch(setUserProfileImage(data.data.userProfileImage));
       navigate("/");
     } catch (err) {
       console.log(err);
