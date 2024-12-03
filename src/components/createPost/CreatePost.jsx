@@ -18,6 +18,9 @@ function CreatePost() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(description);
+    console.log(image);
+    console.log(video);
     if (!description || !image || !video) return;
 
     const formData = prepareFormData({
@@ -41,16 +44,17 @@ function CreatePost() {
   return (
     <div className={`${styles.container} p-20 d-flex`}>
       <form
-        className={`${styles.form} d-flex gap-10 align-center f-col box-shadow-secondary mx-auto p-20 b-radius-10`}
+        className={`${styles.form} d-flex gap-10  f-col box-shadow-secondary mx-auto p-20 b-radius-10`}
         onSubmit={handleSubmit}
       >
         {error && <ErrorMessage error={error} />}
         {isSuccess && <p>Post created!</p>}
+        <h2>Create post</h2>
 
         <Input
           onChange={(e) => setDescription(e.target.value)}
           value={description}
-          label="Post description"
+          placeholder="Post description"
           required
         />
 
@@ -64,15 +68,23 @@ function CreatePost() {
           required
         /> */}
 
-        <label htmlFor="file-upload" className="custom-file-upload">
+        <label htmlFor="outfitsImage" className="custom-file-upload">
           Upload Images
         </label>
-        <input id="file-upload" type="file" />
+        <input
+          onChange={(e) => setImage(e.target.files)}
+          id="outfitsImage"
+          type="file"
+        />
 
-        <label htmlFor="video-upload" className="custom-video-upload">
+        <label htmlFor="outfitsVideos" className="custom-video-upload">
           Upload video
         </label>
-        <input id="video-upload" type="file" />
+        <input
+          onChange={(e) => setVideo(e.target.files[0])}
+          id="outfitsVideos"
+          type="file"
+        />
         {/* <Input
           label="Choose video"
           onChange={(e) => setVideo(e.target.files[0])}
@@ -82,7 +94,11 @@ function CreatePost() {
           required
         /> */}
 
-        <button disabled={isLoading} type="submit">
+        <button
+          className={`${styles.button} p-10 px-20 border-0 bg-accent-primary clr-neutral-100 b-radius-round `}
+          disabled={isLoading}
+          type="submit"
+        >
           {isLoading ? "Loading..." : "Create"}
         </button>
       </form>
