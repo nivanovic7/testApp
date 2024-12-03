@@ -14,6 +14,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
+      console.log("AUTH SLICE");
+      console.log(action.payload);
       state.isLoggedIn = true;
       state.user = action.payload.data.user;
       state.userProfileImage = action.payload.data.userProfileImage;

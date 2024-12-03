@@ -1,7 +1,7 @@
 .updateImageIcon {
   position: absolute;
-  left: calc(2rem + 50px);
-  top: 90%;
+  left: calc(2rem + 55px);
+  top: 100%;
   cursor: pointer;
 }
 

@@ -74,8 +74,8 @@ a {
 img {
   display: block;
   width: 100%;
-  /* delete */
   max-width: 300px;
+  object-fit: cover;
 }
 
 .active {

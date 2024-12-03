@@ -23,6 +23,7 @@ function Login() {
         userEmail,
         userPassword,
       }).unwrap();
+      console.log(data);
       dispatch(setCredentials(data));
       navigate("/");
     } catch (err) {
