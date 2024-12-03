@@ -39,8 +39,11 @@ function CreatePost() {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <div className={`${styles.container} p-20`}>
-      <form onSubmit={handleSubmit}>
+    <div className={`${styles.container} p-20 d-flex`}>
+      <form
+        className={`${styles.form} d-flex align-center f-col box-shadow-secondary mx-auto p-20 b-radius-10`}
+        onSubmit={handleSubmit}
+      >
         {error && <ErrorMessage error={error} />}
         {isSuccess && <p>Post created!</p>}
 

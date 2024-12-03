@@ -1,3 +1,7 @@
 .container {
   min-height: calc(100vh - 135px);
+  align-items: start;
+}
+.form {
+  text-align: center;
 }
