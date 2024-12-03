@@ -7,9 +7,7 @@
 
 .main {
   flex-grow: 1;
-  overflow-y: scroll;
-  /* header - footer  */
-  max-height: calc(100vh - 69px - 75px);
+  margin-bottom: 100px;
 }
 
 .main::-webkit-scrollbar {
@@ -36,5 +34,10 @@ main::-webkit-scrollbar-track {
 
   .main {
     padding: 0;
+  }
+
+  aside {
+    position: sticky;
+    top: 1rem;
   }
 }
