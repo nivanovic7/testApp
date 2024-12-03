@@ -41,7 +41,7 @@ function CreatePost() {
   return (
     <div className={`${styles.container} p-20 d-flex`}>
       <form
-        className={`${styles.form} d-flex align-center f-col box-shadow-secondary mx-auto p-20 b-radius-10`}
+        className={`${styles.form} d-flex gap-10 align-center f-col box-shadow-secondary mx-auto p-20 b-radius-10`}
         onSubmit={handleSubmit}
       >
         {error && <ErrorMessage error={error} />}
@@ -54,7 +54,7 @@ function CreatePost() {
           required
         />
 
-        <Input
+        {/* <Input
           label="Choose Images"
           onChange={(e) => setImage(e.target.files)}
           type="file"
@@ -62,16 +62,25 @@ function CreatePost() {
           name="file"
           id="outfitsImage"
           required
-        />
+        /> */}
 
-        <Input
+        <label htmlFor="file-upload" className="custom-file-upload">
+          Upload Images
+        </label>
+        <input id="file-upload" type="file" />
+
+        <label htmlFor="video-upload" className="custom-video-upload">
+          Upload video
+        </label>
+        <input id="video-upload" type="file" />
+        {/* <Input
           label="Choose video"
           onChange={(e) => setVideo(e.target.files[0])}
           type="file"
           name="file"
           id="outfitsVideos"
           required
-        />
+        /> */}
 
         <button disabled={isLoading} type="submit">
           {isLoading ? "Loading..." : "Create"}
