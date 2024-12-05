@@ -5,6 +5,26 @@
 
 // 1. Removes all duplicates.
 // removeDuplicates(input);
+const input = [4, 3, 1, 2, 2, 3, 4];
+
+function transform(input) {
+  const unique = [...new Set(input)].sort((a, b) => a - b);
+  return {
+    odd: unique.filter((num) => num % 2 !== 0),
+    even: unique.filter((num) => num % 2 === 0),
+  };
+}
+
+function findPath(grid) {
+  for (let i = 0; i < grid.length; i++) {
+    if (grid[i][i] !== 1) return false;
+  }
+  return true;
+}
+
+console.log(findPath(grid));
+
+// console.log(transform(input));
 
 // Sorts the array in ascending order.
 
@@ -78,8 +98,6 @@
 // 1. findMissing([1, 2, 3, 4, 5, 7, 8, 9, 10]);
 
 // ----------------------------------------------------------------
-
-const input = [4, 3, 1, 2, 2, 3, 4];
 
 // Removes all duplicates.
 function removeDuplicates(array) {
@@ -166,7 +184,7 @@ function findSum(obj) {
 
 const grid = [
   [1, 1, 0, 1],
-  [0, 1, 0, 0],
+  [0, 0, 0, 0],
   [1, 1, 1, 1],
   [0, 1, 1, 1],
 ];
@@ -189,10 +207,3 @@ function checkNextStep(grid, i, j) {
 }
 
 // pathFinder(grid, 0, 0);
-
-// const grid = [
-//   [1, 1, 0, 1],
-//   [0, 1, 0, 0],
-//   [1, 1, 1, 1],
-//   [0, 0, 1, 1],
-// ];
