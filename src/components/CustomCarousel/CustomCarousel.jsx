@@ -8,7 +8,8 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef(null);
   const slidesCount = outfitImages.length + outfitVideos.length - 1;
-
+  console.log(currentIndex === slidesCount ? "hideArrow" : "");
+  console.log(currentIndex);
   useEffect(() => {
     const track = trackRef.current;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -51,14 +52,18 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
       </div>
       <button
         onClick={handlePrev}
-        className={`${styles.carouselBtn} ${styles.prev}`}
+        className={`${styles.carouselBtn} ${
+          currentIndex === 0 ? styles.hideArrow : ""
+        } ${styles.prev}`}
       >
         &larr;
       </button>
 
       <button
         onClick={handleNext}
-        className={`${styles.carouselBtn} ${styles.next}`}
+        className={`${styles.carouselBtn} ${
+          currentIndex === slidesCount ? styles.hideArrow : ""
+        } ${styles.next}`}
       >
         &rarr;
       </button>
