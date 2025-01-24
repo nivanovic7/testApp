@@ -59,7 +59,7 @@ function Profile() {
       <aside
         className={`${styles.mobileHide} px-20-md max-width-tertiary w-90 d-none-md `}
       >
-        <RecommendedFriendsList />
+        {/*<RecommendedFriendsList /> */}
       </aside>
     </div>
   );
