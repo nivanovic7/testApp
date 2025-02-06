@@ -8,8 +8,7 @@ function CustomCarousel({ outfitVideos, outfitImages }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef(null);
   const slidesCount = outfitImages.length + outfitVideos.length - 1;
-  console.log(currentIndex === slidesCount ? "hideArrow" : "");
-  console.log(currentIndex);
+
   useEffect(() => {
     const track = trackRef.current;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;

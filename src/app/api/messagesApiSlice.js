@@ -13,7 +13,12 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
       query: () => CHAT_URL,
       providesTags: ["Conversations"],
     }),
-
+    getChat: builder.query({
+      query: (chatId) => `${CHAT_URL}/${chatId}/${MESSAGE}`,
+      transformResponse: (res) => {
+        return { ...res, data: res.data.reverse() };
+      },
+    }),
     createGroupChat: builder.mutation({
       query: (chatName) => ({
         url: CHAT_URL,
@@ -40,13 +45,6 @@ export const messagesApiSlice = apiSlice.injectEndpoints({
         body: { user: userId },
       }),
       invalidatesTags: ["Conversations"],
-    }),
-
-    getChat: builder.query({
-      query: (chatId) => `${CHAT_URL}/${chatId}/${MESSAGE}`,
-      transformResponse: (res) => {
-        return { ...res, data: res.data.reverse() };
-      },
     }),
 
     sendMessage: builder.mutation({

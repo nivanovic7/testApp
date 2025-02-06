@@ -34,7 +34,7 @@ function Layout() {
           </Route>
         </Routes>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

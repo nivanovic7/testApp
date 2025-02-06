@@ -22,30 +22,29 @@ function Profile() {
     dispatch(logOut());
   }
 
-  useEffect(() => {
-    async function initUserLocation() {
-      const {
-        coords: { longitude, latitude },
-      } = await getUserLocation();
-      const savedLatitude = userSettings.data.userCurrentLocation.latitude;
-      const savedLongitude = userSettings.data.userCurrentLocation.longitude;
+  // useEffect(() => {
+  //   async function initUserLocation() {
+  //     const {
+  //       coords: { longitude, latitude },
+  //     } = await getUserLocation();
+  //     const savedLatitude = userSettings.data.userCurrentLocation.latitude;
+  //     const savedLongitude = userSettings.data.userCurrentLocation.longitude;
 
-      const distanceFromSavedLocation = getDistanceBetweenPoints(
-        latitude,
-        longitude,
-        savedLatitude,
-        savedLongitude
-      );
-      console.log(userSettings.data.userProfileImage);
-      if (distanceFromSavedLocation > ALLOWED_DISTANCE_FROM_SAVED_LOCATION) {
-        setUserLocation({ latitude, longitude });
-      }
-    }
+  //     const distanceFromSavedLocation = getDistanceBetweenPoints(
+  //       latitude,
+  //       longitude,
+  //       savedLatitude,
+  //       savedLongitude
+  //     );
+  //     if (distanceFromSavedLocation > ALLOWED_DISTANCE_FROM_SAVED_LOCATION) {
+  //       setUserLocation({ latitude, longitude });
+  //     }
+  //   }
 
-    if (userSettings) {
-      initUserLocation();
-    }
-  }, [setUserLocation, userSettings]);
+  //   if (userSettings) {
+  //     initUserLocation();
+  //   }
+  // }, [setUserLocation, userSettings]);
 
   if (isLoading) return <p>Loading user data...</p>;
   return (

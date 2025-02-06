@@ -23,13 +23,15 @@ function ChatBoxHeader({ chatId, data, isSmallScreen, setSelectedChatId }) {
       )}
 
       <div className={`ml-auto`}>
-        {usersInChat
-          .map((user) => (
-            <span className={`${styles.userName}  fw-700`} key={user._id}>
-              {user.userName}
-            </span>
-          ))
-          .reduce((prev, curr) => [prev, ", ", curr])}
+        {console.log(usersInChat)}
+        {usersInChat.length &&
+          usersInChat
+            .map((user) => (
+              <span className={`${styles.userName}  fw-700`} key={user._id}>
+                {user.userName}
+              </span>
+            ))
+            .reduce((prev, curr) => [prev, ", ", curr])}
       </div>
     </div>
   );
