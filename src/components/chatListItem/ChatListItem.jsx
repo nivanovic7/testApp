@@ -1,7 +1,7 @@
 import { getChatMembersUsernames } from "../../utils/helpers";
 import styles from "./ChatListItem.module.css";
 import ChatItemAvatar from "../ChatItemAvatar/ChatItemAvatar";
-import ListItemGroup from "../listItemGroup/listItemGroup";
+import ListItemGroup from "../listItemGroup/ListItemGroup";
 
 function ChatListItem({ chat, setSelectedChatId, selectedChatId }) {
   const chatMemebers = getChatMembersUsernames(chat, chat.user._id);
