@@ -82,6 +82,32 @@ img {
   color: var(--clr-accent-primary) !important;
 }
 
+.userMessage,
+.friendMessage {
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+.messageText {
+  padding: 0.5rem 1rem;
+}
+
+.userMessage {
+  margin-left: auto;
+}
+
+.friendMessage {
+  margin-right: auto;
+}
+
+.userMessage .messageText {
+  background-color: var(--clr-primary);
+}
+
+.friendMessage .messageText {
+  background-color: gray;
+}
+
 /* ----------UTILITY CLASSES------------- */
 
 .border-0 {

@@ -15,24 +15,21 @@ function CreatePost() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
-
+  console.log(image);
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(description);
-    console.log(image);
-    console.log(video);
-    if (!description || !image || !video) return;
 
     const formData = prepareFormData({
       outfitsDescription: description,
-      outfitsVideos: video,
+      // outfitsVideos: video,
       outfitsImages: Array.from(image),
       longitude: data.data.userCurrentLocation.longitude,
       latitude: data.data.userCurrentLocation.latitude,
       likeSetting: "true",
       commentSettings: "true",
     });
-
+    console.log(image);
+    console.log(formData);
     createOutfit(formData);
     setImage(null);
     setVideo(null);
